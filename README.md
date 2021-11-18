@@ -1,1 +1,1 @@
-# exciton_diffusion
+# Exciton Diffusion

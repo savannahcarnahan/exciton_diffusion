@@ -2,6 +2,8 @@ from abc import ABC, abstractmethod
 import numpy as np
 import random
 import site
+import pythag
+
 class System(ABC):
     def __init__(self, site_list, dimen):
         self.dimen = dimen
@@ -31,5 +33,13 @@ class System(ABC):
     def get_neighbors(curr_site):
         # reach is the cutoff distance for looking for nearest neighbors
         reach = getattr(curr_site, 'reach')
+        # compile list of possible sites to transfer to
+        neighbors = []
+        for ea_site in sites_list:
+            dist = pythag.distance(ea_site.position() - ea_site.position)
+            if dist > 0 and dist <= reach:
+                neighbors.append(ea_site)
+
+        return neighbors
         
         

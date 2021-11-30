@@ -5,6 +5,9 @@ class Site(ABC):
     def __init__(self, coords):
         self.position = coords
 
+    def __str__(self):
+        return self.position
+
     @abstractmethod
     def transition_probability():
         pass

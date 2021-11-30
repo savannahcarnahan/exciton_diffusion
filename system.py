@@ -5,6 +5,7 @@ import site
 import pythag
 
 class System(ABC):
+    @abstractmethod
     def __init__(self, site_list, dimen):
         self.dimen = dimen
         # site_list should be a list of sites and their x, y, z coordinates in system
@@ -36,7 +37,7 @@ class System(ABC):
         # compile list of possible sites to transfer to
         neighbors = []
         for ea_site in sites_list:
-            dist = pythag.distance(ea_site.position() - ea_site.position)
+            dist = pythag.distance(ea_site.position() - ea_site.position())
             if dist > 0 and dist <= reach:
                 neighbors.append(ea_site)
 

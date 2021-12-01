@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-import site
+import mysite as site
 from ase import Atom
 class Atom(site.Site):
 
@@ -10,7 +10,7 @@ class Atom(site.Site):
     def transition_probability():
         pass
     
-    def position():
+    def get_position(self):
         return atom.position
     
     def transition_charge():

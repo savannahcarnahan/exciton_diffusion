@@ -5,12 +5,20 @@ import site
 import pythag
 
 class System(ABC):
+
+    @abstractmethod
     def __init__(self, site_list, dimen):
         self.dimen = dimen
         # site_list should be a list of sites and their x, y, z coordinates in system
         self.site_list = site_list
-    
-    def next_site(curr_site):
+
+    def __str__(self):
+        out = []
+        for ea_site in self.site_list:
+            out.append(str(ea_site))
+        return '\n'.join(out)
+
+    def next_site(self, curr_site):
         # get list of all possible hopping sites
         neighbors = get_neighbors(curr_site)
         # calculate coupling rates for each site and append ranges to list
@@ -30,13 +38,14 @@ class System(ABC):
         # should only get here if there are no nearest neighbors
         return None
 
-    def get_neighbors(curr_site):
+    def get_neighbors(self,curr_site):
         # reach is the cutoff distance for looking for nearest neighbors
         reach = getattr(curr_site, 'reach')
         # compile list of possible sites to transfer to
         neighbors = []
-        for ea_site in sites_list:
-            dist = pythag.distance(ea_site.position() - ea_site.position)
+        for ea_site in self.site_list:
+            dist = pythag.distance(curr_site.get_position(),ea_site.get_position())
+            print(dist)
             if dist > 0 and dist <= reach:
                 neighbors.append(ea_site)
 

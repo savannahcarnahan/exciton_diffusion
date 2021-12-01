@@ -1,4 +1,5 @@
 import system
 
 class Crystal(system.System):
-    pass
+    def __init__(self, site_list, dimen):
+        super().__init__(site_list, dimen)

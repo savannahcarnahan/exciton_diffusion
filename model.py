@@ -1,7 +1,8 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 import site
 class Model(ABC):
-    def __init__(self, site_list):
+    @abstractmethod
+    def __init__(self):
         pass
     def time_step():
         pass

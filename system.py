@@ -7,8 +7,9 @@ import pythag
 class System(ABC):
 
     @abstractmethod
-    def __init__(self, site_list, dimen):
+    def __init__(self, site_list, dimen, rate):
         self.dimen = dimen
+        self.rate = rate
         # site_list should be a list of sites and their x, y, z coordinates in system
         self.site_list = site_list
 

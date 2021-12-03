@@ -13,9 +13,9 @@ class KMC(model.Model):
         return np.random.Generator.exponential(1/couple, 1)
 
 
-    def time_step(curr_time, excited_site, system):
-        transfer_site = system.next_site(curr_site)
-        dt = time_dist(transfer_site, curr_site, system)
+    def time_step(self, curr_time, excited_site, system):
+        transfer_site = system.next_site(excited_site)
+        dt = time_dist(transfer_site, excited_site, system)
         setattr(transfer_site, 'is_excited', True)
         setattr(excited_site, 'is_excited', False) 
         return dt

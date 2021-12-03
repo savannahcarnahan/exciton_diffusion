@@ -4,7 +4,14 @@ class Site(ABC):
     @abstractmethod
     def __init__(self, coords):
         self.position = coords
+        self.excited = False
 
+
+
+
+
+
+    
     def __str__(self):
         return self.position
 

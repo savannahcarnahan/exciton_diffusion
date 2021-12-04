@@ -12,6 +12,7 @@ class System(ABC):
     @abstractmethod
     def __init__(self, site_list, dimen, rate):
         self.dimen = dimen
+        # creates an object representing the coupling rate
         self.rate = prob_rule_factory.create(rate)
         # site_list should be a list of sites and their x, y, z coordinates in system
         self.site_list = site_list
@@ -27,6 +28,7 @@ class System(ABC):
 
     # returns an excited site from the system
     def get_excited_site(self):
+        # returns the first excited site reached
         for site in self.site_list:
             if site.excited:
                 return site
@@ -42,16 +44,23 @@ class System(ABC):
         # get list of all possible hopping sites
         print(curr_site)
         neighbors = self.get_neighbors(curr_site)
-        # calculate coupling rates for each site and append ranges to list
+        # calculate coupling rates for each site and append current cumulative sum of ranges to list
         # get total of rates
+        # holds current cumulative sum
         last = 0
+        # holds all previous cumulative sums
         range_lst = []
         for neighbor in neighbors:
+            # calculate rate corresponding to this site
             couple = self.rate.transition_prob(curr_site, neighbor)
+            # appends low side of range to list (ie for site 1, appends 0
+            # for site 2, appends rate_1, for site 3, appends rate1 + rate2
             range_lst.append(last)
             last += couple
+        # generate random number between 0 and the sum of all the rates
         rand = last * random.random()
         i = len(range_lst)-1
+        # selects site based on where in the range the random number falls
         while i >= 0:
             if range_lst[i] <= rand:
                 return neighbors[i]

@@ -1,7 +1,7 @@
 import prob_rule as p
 import system
 import math
-class Marcus:
+class Marcus(p.ProbRule):
     
     # creates the correct probability rule
     def __init__(self):

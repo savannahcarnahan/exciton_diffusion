@@ -11,7 +11,7 @@ class KMC(model.Model):
         my_generator = np.random.default_rng()
         # returns a random time based on an exponential distribution
         # according to couple * exp(-t * couple)
-        return np.random.Generator.exponential(1/couple, 1)
+        return np.random.Generator.exponential(my_generator, 1/couple, 1)
 
 
     def time_step(self, curr_time, excited_site, system):

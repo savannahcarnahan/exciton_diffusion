@@ -4,7 +4,7 @@ class PointParticle(atom.Atom):
 
     def __init__(self, *coord):
         self.excited = False
-        self.lambda = 0.3        
+        # self.lambda = 0.3        
         self.position = np.asarray(coord)
         
         # should be replaced later maybe?

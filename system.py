@@ -42,7 +42,7 @@ class System(ABC):
 
     def next_site(self, curr_site):
         # get list of all possible hopping sites
-        print(curr_site)
+        # print(curr_site)
         neighbors = self.get_neighbors(curr_site)
         # calculate coupling rates for each site and append current cumulative sum of ranges to list
         # get total of rates
@@ -63,6 +63,7 @@ class System(ABC):
         # selects site based on where in the range the random number falls
         while i >= 0:
             if range_lst[i] <= rand:
+                print('This is the next site', neighbors[i])
                 return neighbors[i]
             i -= 1
         # should only get here if there are no nearest neighbors
@@ -75,7 +76,7 @@ class System(ABC):
         neighbors = []
         for ea_site in self.site_list:
             dist = pythag.distance(curr_site.get_position(),ea_site.get_position())
-            print(dist)
+            # print(dist)
             if dist > 0 and dist <= reach:
                 neighbors.append(ea_site)
 

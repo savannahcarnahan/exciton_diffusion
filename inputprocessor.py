@@ -23,8 +23,8 @@ def process_input(in_file):
                 params[i] = float(s)
         
         site_list.append(site_factory.create(*params))
-    for site in site_list:
-        print(site)
+#    for site in site_list:
+#        print(site)
     return system_type, site_list, dimen, rate, model_type, start_time, end_time
 
 

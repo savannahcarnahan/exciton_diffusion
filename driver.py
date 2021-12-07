@@ -21,6 +21,7 @@ t = start_time
 # start_pos = my_sys.get_excited_site().getattr(self, position)
 while t < end_time:
     exc_site = my_sys.get_excited_site()
+    print('Site at beginning of time step is ', exc_site)
     if t == start_time:
         start_pos = getattr(exc_site, 'position')
     t += my_model.time_step(t, exc_site, my_sys)

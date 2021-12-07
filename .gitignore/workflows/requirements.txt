@@ -1,0 +1,5 @@
+###### Requirements, no versions #####
+numpy
+scipy
+matplotlib
+ase

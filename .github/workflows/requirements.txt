@@ -1,4 +1,5 @@
 ###### Requirements, no versions #####
+flake8
 numpy
 scipy
 matplotlib

@@ -24,7 +24,7 @@ class System(ABC):
         return '\n'.join(out)
 
     def size(self):
-        return len(site_list)
+        return len(self.site_list)
 
     # returns an excited site from the system
     def get_excited_site(self):

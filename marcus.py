@@ -1,12 +1,21 @@
 import prob_rule as p
 import system
 import math
+import numpy as np
 class Marcus(p.ProbRule):
+    
+    # Global constants for marcus rate equation
+    hbar = 1.0545e-34
+    kb = 1.380e-23
+    T = 293
     
     # creates the correct probability rule
     def __init__(self):
         pass
     
+    def marcus_rate(self):
+        k_ab = (2*np.pi/self.hbar)*(np.sqrt(1/(4*np.pi*self.kb*self.T*Lambda))*np.exp(-(Lambda/4*self.kb*self.T)))
+        return k_ab
     # Need H_ab (between site a and b)
 
     # calculates the probability with the equation

@@ -10,7 +10,7 @@ in_file = sys.argv[1]
 out_file = sys.argv[2]
 
 system_type, site_list, dimen, rate, model_type, start_time, end_time = inputprocessor.process_input(in_file)
-print(site_list[0])
+print(site_list)
 my_sys = system_factory.create(system_type, site_list, dimen, rate)
 
 my_sys.excite()

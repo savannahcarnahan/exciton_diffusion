@@ -15,6 +15,7 @@ class System(ABC):
         self.rate = prob_rule_factory.create(rate)
         # site_list should be a list of sites and their x, y, z coordinates in system
         self.site_list = site_list
+        self.T = 298
 
     def __str__(self):
         out = []

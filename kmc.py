@@ -7,7 +7,7 @@ class KMC(model.Model):
         pass
 
     def time_dist(self,site1, site2, system):
-        couple = system.rate.transition_prob(site1, site2)
+        couple = system.rate.transition_prob(site1, site2, self)
         my_generator = np.random.default_rng()
         # returns a random time based on an exponential distribution
         # according to couple * exp(-t * couple)

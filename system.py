@@ -48,7 +48,7 @@ class System(ABC):
         last = 0
         range_lst = []
         for neighbor in neighbors:
-            couple = self.rate.transition_prob(curr_site, neighbor)
+            couple = self.rate.transition_prob(curr_site, neighbor, self)
             range_lst.append(last)
             last += couple
         rand = last * random.random()

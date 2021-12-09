@@ -1,7 +1,40 @@
-###### Requirements, no versions #####
-flake8
-numpy
-scipy
-matplotlib
-ase
-pytest
+ase==3.22.0
+backports.entry-points-selectable==1.1.1
+certifi==2021.10.8
+cImage==2.0.2
+click @ file:///home/conda/feedstock_root/build_artifacts/click_1635822600067/work
+cycler @ file:///home/conda/feedstock_root/build_artifacts/cycler_1635519461629/work
+dataclasses @ file:///home/conda/feedstock_root/build_artifacts/dataclasses_1628958434797/work
+distlib==0.3.4
+filelock==3.4.0
+flake8==4.0.1
+Flask @ file:///home/conda/feedstock_root/build_artifacts/flask_1633384704162/work
+iniconfig==1.1.1
+itsdangerous @ file:///home/conda/feedstock_root/build_artifacts/itsdangerous_1621360792037/work
+Jinja2 @ file:///home/conda/feedstock_root/build_artifacts/jinja2_1636510082894/work
+kiwisolver @ file:///tmp/build/80754af9/kiwisolver_1612282420641/work
+MarkupSafe @ file:///home/conda/feedstock_root/build_artifacts/markupsafe_1621455677251/work
+matplotlib @ file:///home/conda/feedstock_root/build_artifacts/matplotlib-suite_1611858708474/work
+mccabe==0.6.1
+mock==4.0.3
+numpy @ file:///home/conda/feedstock_root/build_artifacts/numpy_1622014599281/work
+olefile @ file:///home/conda/feedstock_root/build_artifacts/olefile_1602866521163/work
+packaging==20.9
+Pillow==6.2.1
+platformdirs==2.4.0
+pluggy==0.13.1
+py==1.10.0
+pycodestyle==2.8.0
+pyFFTW==0.12.0
+pyflakes==2.4.0
+pyparsing @ file:///home/conda/feedstock_root/build_artifacts/pyparsing_1636757021002/work
+pytest==6.2.5
+pytest-mock==3.6.1
+python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
+scipy @ file:///home/conda/feedstock_root/build_artifacts/scipy_1604304779838/work
+six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
+tk==0.1.0
+toml==0.10.2
+tornado @ file:///home/conda/feedstock_root/build_artifacts/tornado_1610094706440/work
+virtualenv==20.10.0
+Werkzeug @ file:///home/conda/feedstock_root/build_artifacts/werkzeug_1621518206714/work

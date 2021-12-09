@@ -7,14 +7,14 @@ class coupling:
     epsilon = 8.854e-12 # Unit Fm-1
     
     @abstractmethod
-    def get_coupling():
+    def get_coupling(self, dipole1, dipole2, R):
         pass
 
 #====================================================================    
 # SUBCLASS1: dipole_dipole coupling model
 class dip_dip_Hab(coupling):
     
-    def get_coupling(self,dipole1, dipole2, R):
+    def get_coupling(self, dipole1, dipole2, R):
         # Assuming dipole1, dipole2 and R are numpy arrays
         # dipole1: transition dipole of a site1
         # R: distance vector between site1 and site2

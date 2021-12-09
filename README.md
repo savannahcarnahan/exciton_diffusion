@@ -1,4 +1,4 @@
-# exciton_diffusion
+# Exciton Diffusion
 
 Requirements:
 Python 3.6-3.8 on Linux

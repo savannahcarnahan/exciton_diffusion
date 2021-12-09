@@ -3,5 +3,5 @@ flake8
 numpy
 scipy
 matplotlib
---upgrade --user ase
+ase
 pytest

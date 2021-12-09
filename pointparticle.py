@@ -7,7 +7,7 @@ class PointParticle(atom.Atom):
         self.Lambda = 4.8e-20        
         self.dipole = np.array([0, 1, 0])
         self.position = np.asarray(coord)
-        
+          
         # should be replaced later maybe?
         # tells function how far away neighbors can be
         self.reach = 3

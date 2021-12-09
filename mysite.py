@@ -12,7 +12,7 @@ class Site(ABC):
 
     @abstractmethod
     def get_position(self):
-        return postion
+        return self.position
 
     @abstractmethod
     def transition_charge():

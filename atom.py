@@ -14,7 +14,7 @@ class Atom(site.Site):
         pass
     
     def get_position(self):
-        return atom.position
+        return self.atom.position
     
     def transition_charge():
         pass

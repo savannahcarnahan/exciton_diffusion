@@ -24,9 +24,7 @@ class Marcus(p.ProbRule):
 
 
     def transition_prob(self, site1, site2, system):
-        # p.transition_prob(site1, site2)
         R = np.subtract(site1.get_position(), site2.get_position())
-        # R = np.subtract(getattr(site1, 'position'), getattr(site1, 'position'))
         coul_coupling = Hab.dip_dip_Hab()
         Jcoul = coul_coupling.get_coupling(site1.dipole, site2.dipole, R)
         k_ab = (2*np.pi/constants.hbar)*(np.sqrt(1/(4*np.pi*constants.Boltzmann*293*site1.Lambda))*(Jcoul**2)*np.exp(-(site1.Lambda/4*constants.Boltzmann*293)))

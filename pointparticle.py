@@ -5,6 +5,7 @@ class PointParticle(atom.Atom):
     def __init__(self, *coord):
         self.excited = False
         self.Lambda = 4.8e-20        
+        self.dipole = np.array([0, 1, 0])
         self.position = np.asarray(coord)
         
         # should be replaced later maybe?

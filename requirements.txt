@@ -39,4 +39,5 @@ tk==0.1.0
 toml==0.10.2
 tornado
 virtualenv==20.10.0
+pyfftw
 Werkzeug

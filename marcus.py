@@ -13,7 +13,7 @@ class Marcus(p.ProbRule):
     def __init__(self):
         pass
     
-    def marcus_rate(self):
+    def marcus_rate(self, Hab, Lambda):
         k_ab = (2*np.pi/self.hbar)*(np.sqrt(1/(4*np.pi*self.kb*self.T*Lambda))*np.exp(-(Lambda/4*self.kb*self.T)))
         return k_ab
     # Need H_ab (between site a and b)

@@ -25,7 +25,7 @@ and output.txt is a file that will contain the output.<br>
 Input file should consist of a first line of conditions, followed by a list of sites.<br>
 Conditions line should be of format:<br>
 <code>
-&lt systemtype &gt  &lt dimension &gt <ratetype> <modeltype> <starttime> <endtime>
+&ltsystemtype&gt  &lt dimension &gt <ratetype> <modeltype> <starttime> <endtime>
 </code>
 Sites are of format:<br>
 <code>

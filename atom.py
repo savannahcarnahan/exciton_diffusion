@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
 import mysite as site
-from ase import Atom
+import ase
 class Atom(site.Site):
 
     def __init__(self, atom_type, *coord):
         self.is_excited = False
-        self.atom = Atom(atom_type, coord)
+        self.atom = ase.Atom(atom_type, coord)
     
     def excite(self):
         is_excited = True

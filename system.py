@@ -66,7 +66,7 @@ class System(ABC):
         # selects site based on where in the range the random number falls
         while i >= 0:
             if range_lst[i] <= rand:
-                print('This is the next site', neighbors[i])
+                # print('This is the next site', neighbors[i])
                 return neighbors[i]
             i -= 1
         # should only get here if there are no nearest neighbors

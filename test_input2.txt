@@ -1,0 +1,7 @@
+crystal 3 arrhenius kmc 0 10
+
+pointparticle 1 0 0
+pointparticle 0 1 0
+pointparticle 0 0 1
+pointparticle 0 0 4
+pointparticle 0 0 3

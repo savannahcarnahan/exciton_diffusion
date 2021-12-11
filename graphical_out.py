@@ -7,6 +7,9 @@ import matplotlib as mpl
 from matplotlib.ticker import MultipleLocator,FormatStrFormatter,MaxNLocator
 import matplotlib.pyplot as plt
 import matplotlib.animation as ani
+import matplotlib.patches as mpatches
+from mpl_toolkits.mplot3d import Axes3D
+import pandas as pd
 import sys
 import inputprocessor
 
@@ -18,6 +21,8 @@ import inputprocessor
 mpl.rcParams['pdf.fonttype'] = 42
 mpl.rcParams['ps.fonttype'] = 42
 mpl.rcParams['font.family'] = 'Arial'
+
+COLORS =  ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e377c2', '#7f7f7f', '#bcbd22', '#17becf']
 
 #---------------------------------------------------------------------------------------------------
 # Helpers
@@ -78,6 +83,19 @@ def process_sites(site_list):
     return arr
 
 
+# Finds the entry of a site in a list of sites
+# Params: 
+#           site_list   : A 2D array of site positions
+#           site        : The site position to be found in the site_list array
+#
+# Returns: The index of site in site_list
+# 
+def find_site(site_list, site):
+    for i in range(0, site_list.shape[0]):
+        if (site == site_list[i]).all():
+            return i
+    return
+
 
 #---------------------------------------------------------------------------------------------------
 # Function Libraries
@@ -92,113 +110,135 @@ def process_sites(site_list):
 #
 # Returns: True, for now
 # 
-def plot_sites(site_list, color = 0, alpha = 1):
+def plot_sites(site_list, color = COLORS[0], alpha = 1):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     ax.set_title('3D Plot of Sites')
 
     sites_nice = process_sites(site_list)
-    ax.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], c = color * np.ones(sites_nice.shape[0]), alpha = alpha)
+    ax.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], c = color, alpha = alpha)
 
     plt.show()
 
     return True
 
+# DEPRECATED -> A bug in the matplotlib library prevents the following from working
+# def animate_scatter(site_list, color = 0, alpha = 1):
 
-def animate_scatter():
+#     def update_graph(num):
+#         title.set_text('3D Test, time={}'.format(num))
+#         rint = np.random.randint(len(COLORS))
+
+#         # graph._facecolor3d[0] = COLORS[rint]
+#         graph.set_color(np.array([COLORS[rint]] * sites_nice.shape[0]))
+    
+#     fig = plt.figure()
+#     ax = fig.add_subplot(111, projection='3d')
+#     title = ax.set_title('3D Animation Test')
+
+#     sites_nice = process_sites(site_list)
+#     graph = ax.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], c = color * np.ones(sites_nice.shape[0]), alpha = alpha)
+#     colors = np.ones(sites_nice.shape[0])
+
+#     anim = ani.FuncAnimation(fig, update_graph, 19, 
+#                                 interval=40, blit=False)
+
+#     plt.show()
+
+#     return
+
+def animate_scatter(site_list, color = 0, alpha = 1):
+    sites_nice = process_sites(site_list)
+
     def update_graph(num):
-        data=df[df['time']==num]
-        graph._offsets3d = (data.x, data.y, data.z)
-        title.set_text('3D Test, time={}'.format(num))
+        title.set_text('3D Animation Test, time={}'.format(num))
+        
+        rint = np.random.randint(len(COLORS))
+        # graph._facecolor3d[0] = COLORS[rint]
+        # scat3D.set_array(np.array([COLORS[rint]] * sites_nice.shape[0]))
+        scat3D.set_color(np.array([COLORS[rint]] * sites_nice.shape[0]))
+    
 
 
     fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
-    title = ax.set_title('3D Test')
+    ax3d = Axes3D(fig)
+    scat3D = ax3d.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], s=100)
+    title = ax3d.text2D(0.05, 0.95, "", transform=ax3d.transAxes)
 
-    data=df[df['time']==0]
-    graph = ax.scatter(data.x, data.y, data.z)
-
-    ani = matplotlib.animation.FuncAnimation(fig, update_graph, 19, 
-                                interval=40, blit=False)
+    plt.xlim([-2,10])
+    plt.ylim([-2,10])
+        
+    
+    anim = ani.FuncAnimation(fig, update_graph, 19, interval=40, blit=False)
 
     plt.show()
+
+    return
+
 
 # Excited Sites Animation
 # Params: 
 #           site_list   : A list of all sites, of type site object
 #           t_list      : A list of time-stamps for the animation, of type float
-#           exc_list    : A nested list of the excited states for each time t
-#           site_rad    : Radius of each site, defaults to 1
-#           padding     : Padding between the final site and the edges of animation, of type float/double
+#           exc_list    : A nested list of the excited sites for each time t
 #           save_params : An array of two string objects - [save_directory, save_filename], automatically saves if this is not None
+#           site_rad    : Radius of each site, defaults to 100
+#           interval    : Interval between subsequent frames - higher value slows down the animation
+#           padding     : Padding between the final site and the edges of animation, of type float/double
 #           show        : A boolean of whether to play the animation
+#           repeat      : A boolean of whether or not to repeat the animation once it finishes playing
 #
 # Returns: True, for now
 # 
-def animate_system_2D(site_list, t_list, exc_list, site_rad = 1, save_params = None, padding = 1, show = True):
+def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, interval = 100, padding = 1, show = True, repeat = True):
     print('Animating droplet...')
 
-    # Make directory first if it doesn't exist
-    if not (exists_dir(save_params[0])):
-        make_dir(save_params[0])
-
-    circles = []
-    
     # This is what changes in each frame
     def animate(j):
-        for i in range(0, len(R_arr[0])):
-            try:
-                circles[i].set_radius(R_arr[j][i])
-            except:
-                print('len(circles), i, j = {2},{0},{1}'.format(i,j, len(circles)))
-            
-        if (j == len(t_list)):
-            plt.close()
-        return circles
+        title.set_text('3D Animation Test, time={}'.format(j))
+        exc_sites = exc_list[j]
 
-    # Initializes Frame Data
-    def init():
-        for site in site_list:
-            circles.append(plt.Circle((site[0], center_y[i]), radius=site_rad, fc= colors[i]))
-            fig.gca().add_patch(circles[i])
-        return circles
-
-    # def init():
-    #     for i in range(0, len(center_x)):
-    #         circles.append(plt.Circle((center_x[i], center_y[i]), radius=site_rad, fc= colors[i]))
-    #         fig.gca().add_patch(circles[i])
-    #     return circles
-
+        # use colors 0 and 3 -> 0 for blue, 3 for red
+        colors = np.array([COLORS[0]] * sites_nice.shape[0])
+        
+        for site in exc_sites:
+            i = find_site(sites_nice, site.position)
+            colors[i] = COLORS[3]
     
+        scat3D.set_color(colors)
+
 
     # Set up animation
-    rc_arr = config.get_rc()
-    center_x = rc_arr[:,0]
-    center_y = rc_arr[:,1]
-    x_lim = [np.floor(np.min(center_x) - np.max(R_arr[0]) - padding), np.ceil(np.max(center_x) + np.max(R_arr[0]) + padding)]
-    y_lim = [np.floor(np.min(center_y) - np.max(R_arr[0]) - padding), np.ceil(np.max(center_y) + np.max(R_arr[0]) + padding)]
+    sites_nice = process_sites(site_list)
 
-    
+    fig = plt.figure()
+    ax3d = Axes3D(fig)
+    scat3D = ax3d.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], s=site_rad)
+    title = ax3d.text2D(0.05, 0.95, "", transform=ax3d.transAxes)
 
-    fig = plt.figure(figsize=(8,8))
-    ax = plt.axes((0.1,0.1,.8,.8))
+    # Set Anim parameters
+    x_lim = [np.min(sites_nice[:,0])-padding, np.max(sites_nice[:,0])+padding]
+    y_lim = [np.min(sites_nice[:,1])-padding, np.max(sites_nice[:,1])+padding]
+    z_lim = [np.min(sites_nice[:,2])-padding, np.max(sites_nice[:,2])+padding]
 
-    # ax.set_xlim(x_lim[0], x_lim[1])
-    # ax.set_ylim(y_lim[0], y_lim[1])
-    ax.set_xbound(x_lim[0], x_lim[1])
-    ax.set_ybound(y_lim[0], y_lim[1])
+    ax3d.set_xlim3d(x_lim[0], x_lim[1])
+    ax3d.set_ylim3d(y_lim[0], y_lim[1])
+    ax3d.set_zlim3d(z_lim[0], z_lim[1])
 
-    ax.set_xticks(np.linspace(x_lim[0], x_lim[1], 3))
-    ax.set_yticks(np.linspace(y_lim[0], y_lim[1], 3))
-
-    ax.set_aspect('equal')
+    ax3d.set_xticks(np.linspace(x_lim[0], x_lim[1], 3))
+    ax3d.set_yticks(np.linspace(y_lim[0], y_lim[1], 3))
+    ax3d.set_zticks(np.linspace(z_lim[0], z_lim[1], 3))
     
     # The animation
-    animator = ani.FuncAnimation(fig, animate, frames = len(R_arr), interval = 5, init_func = init, repeat = False)
-    
+    animator = ani.FuncAnimation(fig, animate, frames = len(t_list), interval = interval, repeat = repeat, repeat_delay = 1000, blit = False)
+    # anim = ani.FuncAnimation(fig, update_graph, 19, interval=40, blit=False)
+
     # Save Data if required
     if save_params is not None:
+        # Make directory first if it doesn't exist
+        if not (exists_dir(save_params[0])):
+            make_dir(save_params[0])
+
         savepath = save_params[0] + '/' + save_params[1]  + '.mp4'
         animator.save(savepath, fps = 25)
     
@@ -215,13 +255,25 @@ def main():
     in_file = sys.argv[1]
 
     system_type, site_list, dimen, rate, model_type, start_time, end_time = inputprocessor.process_input(in_file)
+    
+    site_list_nice = process_sites(site_list)
+    
+    print("site_list_nice: \n" + str(site_list_nice))
 
-    # for site in site_list:
-    #     print("Site List: {0}".format(site))
+    # exc_list = [site_list_nice[0], site_list_nice[1], site_list_nice[2]]
 
-    # print("From Process Site Function \n" + str(process_sites(site_list)))
+    exc_list = site_list
 
-    plot_sites(site_list)
+    # print(exc_list)
+
+    for site in exc_list:
+        print(find_site(site_list_nice, site.position))
+
+    # plot_sites(site_list, color = COLORS[3])
+
+    # animate_scatter(site_list)
+
+    # animate_3D(site_list, np.ones(3000), [], save_params = None)
 
     return
 

@@ -2,6 +2,7 @@ import sys
 import string
 #import mysite as site
 import site_factory
+import ase
 def process_input(in_file):
     in_file = open(in_file)
     conditions = in_file.readline()
@@ -18,11 +19,26 @@ def process_input(in_file):
     lines = (line for line in lines if line) 
     for line in lines:
         params = line.split()
-        for i,s in enumerate(params):
-            if is_float(s):
-                params[i] = float(s)
+        if params[0].lower() != 'molecule' and not molecule:
+            for i,s in enumerate(params):
+                if is_float(s):
+                    params[i] = float(s)
+            site_list.append(site_factory.create(*params))
+        elif params[0].lower() == 'molecule':
+            if 'curr_molec' in locals():
+                site_list.append(site_factory.create('molecule', curr_molec))
+            molecule = True
+            curr_molec = []
+        elif molecule:
+           for i,s in enumerate(params):
+                if is_float(s):
+                    params[i] = float(s)
+           curr_molec.append(ase.Atom(*params))
+        else:
+            raise ValueError("Something is wrong with your input:\n", line)
+
+             
         
-        site_list.append(site_factory.create(*params))
 #    for site in site_list:
 #        print(site)
     return system_type, site_list, dimen, rate, model_type, start_time, end_time

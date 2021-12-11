@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 import mysite as site
 import ase
+import numpy as np
 class Molecule(site.Site):
 
     def __init__(self, *atom_list):
@@ -14,7 +15,8 @@ class Molecule(site.Site):
         pass
     
     def get_position(self):
-        return self.atom.position
+        pos = self.molecule.get_positions()
+        return np.average(pos, axis = 0)
     
     def transition_charge():
         pass

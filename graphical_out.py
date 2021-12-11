@@ -122,60 +122,6 @@ def plot_sites(site_list, color = COLORS[0], alpha = 1):
 
     return True
 
-# DEPRECATED -> A bug in the matplotlib library prevents the following from working
-# def animate_scatter(site_list, color = 0, alpha = 1):
-
-#     def update_graph(num):
-#         title.set_text('3D Test, time={}'.format(num))
-#         rint = np.random.randint(len(COLORS))
-
-#         # graph._facecolor3d[0] = COLORS[rint]
-#         graph.set_color(np.array([COLORS[rint]] * sites_nice.shape[0]))
-    
-#     fig = plt.figure()
-#     ax = fig.add_subplot(111, projection='3d')
-#     title = ax.set_title('3D Animation Test')
-
-#     sites_nice = process_sites(site_list)
-#     graph = ax.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], c = color * np.ones(sites_nice.shape[0]), alpha = alpha)
-#     colors = np.ones(sites_nice.shape[0])
-
-#     anim = ani.FuncAnimation(fig, update_graph, 19, 
-#                                 interval=40, blit=False)
-
-#     plt.show()
-
-#     return
-
-def animate_scatter(site_list, color = 0, alpha = 1):
-    sites_nice = process_sites(site_list)
-
-    def update_graph(num):
-        title.set_text('3D Animation Test, time={}'.format(num))
-        
-        rint = np.random.randint(len(COLORS))
-        # graph._facecolor3d[0] = COLORS[rint]
-        # scat3D.set_array(np.array([COLORS[rint]] * sites_nice.shape[0]))
-        scat3D.set_color(np.array([COLORS[rint]] * sites_nice.shape[0]))
-    
-
-
-    fig = plt.figure()
-    ax3d = Axes3D(fig)
-    scat3D = ax3d.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], s=100)
-    title = ax3d.text2D(0.05, 0.95, "", transform=ax3d.transAxes)
-
-    plt.xlim([-2,10])
-    plt.ylim([-2,10])
-        
-    
-    anim = ani.FuncAnimation(fig, update_graph, 19, interval=40, blit=False)
-
-    plt.show()
-
-    return
-
-
 # Excited Sites Animation
 # Params: 
 #           site_list   : A list of all sites, of type site object
@@ -195,7 +141,7 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
 
     # This is what changes in each frame
     def animate(j):
-        title.set_text('3D Animation Test, time={}'.format(j))
+        title.set_text('3D Animation Of Site Excitation, time={0:.5f}'.format(t_list[j]))
         exc_sites = exc_list[j]
 
         # use colors 0 and 3 -> 0 for blue, 3 for red
@@ -212,7 +158,8 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
     sites_nice = process_sites(site_list)
 
     fig = plt.figure()
-    ax3d = Axes3D(fig)
+    ax3d = Axes3D(fig, auto_add_to_figure=False)
+    fig.add_axes(ax3d)
     scat3D = ax3d.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], s=site_rad)
     title = ax3d.text2D(0.05, 0.95, "", transform=ax3d.transAxes)
 
@@ -255,7 +202,7 @@ def main():
     in_file = sys.argv[1]
 
     system_type, site_list, dimen, rate, model_type, start_time, end_time = inputprocessor.process_input(in_file)
-    
+
     site_list_nice = process_sites(site_list)
     
     print("site_list_nice: \n" + str(site_list_nice))

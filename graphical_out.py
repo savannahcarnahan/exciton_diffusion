@@ -2,14 +2,12 @@
 # Imports
 #---------------------------------------------------------------------------------------------------
 
+import os
 import numpy as np
 import matplotlib as mpl
-from matplotlib.ticker import MultipleLocator,FormatStrFormatter,MaxNLocator
 import matplotlib.pyplot as plt
 import matplotlib.animation as ani
-import matplotlib.patches as mpatches
 from mpl_toolkits.mplot3d import Axes3D
-import pandas as pd
 import sys
 import inputprocessor
 
@@ -36,7 +34,13 @@ COLORS =  ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e
 # Returns: Boolean of success
 #
 def make_dir(path, name = None):
-    import os
+    # Ensure proper inputs
+    if not (isinstance(path, str)) or not (isinstance(name, str)):
+        raise TypeError("Arguments must be string")
+    
+    if (path is None):
+        raise ValueError("Path must be specified")
+
     if name is not None:
         dir = path + '//' + name
     else:
@@ -61,7 +65,13 @@ def make_dir(path, name = None):
 # Returns: A boolean of whether the file/directory exists
 # 
 def exists_dir(path, name = None):
-    import os
+    # Ensure proper inputs
+    if not (isinstance(path, str)) or not (isinstance(name, str)):
+        raise TypeError("Arguments must be string")
+    
+    if (path is None):
+        raise ValueError("Path must be specified")
+
     if name is not None:
         return os.path.isdir(path + '//' + name)
     else:
@@ -69,12 +79,14 @@ def exists_dir(path, name = None):
 
 # Turns a list of sites into a nice numpy array of shape (len(site_list), 3) for processing
 # Params: 
-#           path        : A directory path
-#           name        : Name of a file to be found at the directory path; if None, returns if directory exists
+#           site_list        : a list of sites
 #
 # Returns: A boolean of whether the file/directory exists
 # 
 def process_sites(site_list):
+    if not (isinstance(site_list, list)) or (site_list is None):
+        raise ValueError("Site List must be a non-empty array")
+
     arr = np.zeros([len(site_list),3])
 
     for i in range(0,len(site_list)):
@@ -91,6 +103,9 @@ def process_sites(site_list):
 # Returns: The index of site in site_list
 # 
 def find_site(site_list, site):
+    if not (isinstance(site_list, (np.ndarray, np.generic))) or (site_list is None):
+        raise ValueError("Site List must be a non-empty numpy array")    
+
     for i in range(0, site_list.shape[0]):
         if (site == site_list[i]).all():
             return i
@@ -105,12 +120,15 @@ def find_site(site_list, site):
 # Plot sites in a 3D grid
 # Params: 
 #           site_list   : A list of all sites, of type site object
-#           color      : An integer specifying the color
+#           color       : An integer specifying the color
 #           alpha       : Opacity Parameter
 #
 # Returns: True, for now
 # 
 def plot_sites(site_list, color = COLORS[0], alpha = 1):
+    if not (isinstance(site_list, list)) or (site_list is None):
+        raise ValueError("Site List must be a non-empty array")  
+    
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
     ax.set_title('3D Plot of Sites')
@@ -137,11 +155,26 @@ def plot_sites(site_list, color = COLORS[0], alpha = 1):
 # Returns: True, for now
 # 
 def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, interval = 100, padding = 1, show = True, repeat = True):
+    if not (isinstance(site_list, list)) or (site_list is None):
+        raise ValueError("Site List must be a non-empty list")
+    
+    if not (isinstance(t_list, list)) or (t_list is None):
+        raise ValueError("t List must be a non-empty list") 
+    
+    if (not (isinstance(exc_list, list)) or (not (len(exc_list) == len(t_list)) or (exc_list is None))):
+        raise ValueError("exc_list must be an nested list of sites whose dimensions must match t_list")  
+    
+    if (not (site_rad > 0) or not (interval > 0)) or (not (padding >= 0)):
+        raise ValueError("site_rad and interval must all be positive integers, while padding must be non-negative")
+    
+    if (not (isinstance(site_rad, int)) or not (isinstance(interval, int))) or (not (isinstance(padding, int))):
+        raise TypeError("site_rad, padding and interval must all be integers")
+    
     print('Animating droplet...')
 
     # This is what changes in each frame
     def animate(j):
-        title.set_text('3D Animation Of Site Excitation, time={0:.5f}'.format(t_list[j]))
+        title.set_text('3D Animation Of Site Excitations, time={0:.5f}'.format(t_list[j]))
         exc_sites = exc_list[j]
 
         # use colors 0 and 3 -> 0 for blue, 3 for red
@@ -157,7 +190,7 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
     # Set up animation
     sites_nice = process_sites(site_list)
 
-    fig = plt.figure()
+    fig = plt.figure(figsize=(8,8))
     ax3d = Axes3D(fig, auto_add_to_figure=False)
     fig.add_axes(ax3d)
     scat3D = ax3d.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], s=site_rad)

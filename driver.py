@@ -30,7 +30,7 @@ while t < end_time:
     t += my_model.time_step(t, exc_site, my_sys)
     step += 1
 
-end_pos = getattr(my_sys.get_excited_site(), 'position')
+end_pos = my_sys.get_excited_site().get_position()
 
 diffusion_dist = pythag.distance(start_pos, end_pos)
 

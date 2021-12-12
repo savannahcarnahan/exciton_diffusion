@@ -15,8 +15,9 @@ class KMC(model.Model):
 
 
     def time_step(self, curr_time, excited_site, system):
+        # print(system)
         transfer_site = system.next_site(excited_site)
-        # print(transfer_site.excited)
+        # print(transfer_site)
         dt = self.time_dist(transfer_site, excited_site, system)
         setattr(transfer_site, 'excited', True)
         setattr(excited_site, 'excited', False) 

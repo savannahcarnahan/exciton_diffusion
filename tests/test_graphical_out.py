@@ -19,7 +19,7 @@ import system_factory
 import model_factory
 import site_factory
 
-def test_on_random_coordinates(run = 2, particles_per_run = 2, x_limits = [0,5], y_limits  = [0,5], z_limits  = [0,5]):
+def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,5], y_limits  = [0,5], z_limits  = [0,5]):
     for kkkk in range(0,run):
         # Get random values
         system_type = gen.get_system()

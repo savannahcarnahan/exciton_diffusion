@@ -33,8 +33,6 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
         start_time = 0
         end_time = 4
         
-
-
         site_list = []
         for i in range(0, particles_per_run):
             site_list.append(site_factory.create(site_type, site_coord[i,0], site_coord[i,1], site_coord[i,2]))

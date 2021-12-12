@@ -15,7 +15,7 @@ itsdangerous
 Jinja2
 kiwisolver
 MarkupSafe
-matplotlib
+matplotlib==3.4.3
 mccabe==0.6.1
 mock==4.0.3
 numpy
@@ -41,3 +41,4 @@ tornado
 virtualenv==20.10.0
 pyfftw
 Werkzeug
+sys

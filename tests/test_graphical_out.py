@@ -4,8 +4,6 @@
 #---------------------------------------------------------------------------------------------------
 # Imports
 #---------------------------------------------------------------------------------------------------
-import bulktest_generator as gen
-
 # import os
 # import sys
 # import inspect
@@ -14,6 +12,7 @@ import bulktest_generator as gen
 # parentdir = os.path.dirname(currentdir)
 # sys.path.insert(0, parentdir) 
 
+import bulktest_generator as gen
 import graphical_out
 import system_factory
 import model_factory

@@ -14,13 +14,15 @@ class KMC(model.Model):
         return np.random.Generator.exponential(my_generator, 1/couple, 1)
 
 
-    def time_step(self, curr_time, excited_site, system):
+    def time_step(self, curr_time, excited_site, system):     
         transfer_site = system.next_site(excited_site)
         # print(transfer_site.excited)
-        dt = self.time_dist(transfer_site, excited_site, system)
-        setattr(transfer_site, 'excited', True)
-        setattr(excited_site, 'excited', False) 
-        # print(transfer_site.excited)        
-        return dt
-        pass
+        if transfer_site is not None:
+            dt = self.time_dist(transfer_site, excited_site, system)
+            setattr(transfer_site, 'excited', True)
+            setattr(excited_site, 'excited', False) 
+            # print(transfer_site.excited)        
+            return dt
+        return 0
+
 

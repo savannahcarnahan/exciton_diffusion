@@ -29,8 +29,9 @@ Conditions line should be of format:<br>
 </code>
 Sites are of format:<br>
 <code>
-&ltsitetype&gt coord1 coord2 coord3
+&ltsitetype&gt &ltspecifications&gt coord1 coord2 coord3
 </code>
+
 </p>
 
 ### Options

@@ -15,7 +15,7 @@ itsdangerous
 Jinja2
 kiwisolver
 MarkupSafe
-matplotlib==3.4.3
+matplotlib
 mccabe==0.6.1
 mock==4.0.3
 numpy

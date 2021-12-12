@@ -191,8 +191,10 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
     sites_nice = process_sites(site_list)
 
     fig = plt.figure(figsize=(8,8))
-    ax3d = Axes3D(fig, auto_add_to_figure=False)
-    fig.add_axes(ax3d)
+    ax3d = fig.add_subplot(111, projection='3d')
+
+    # ax3d = Axes3D(fig, auto_add_to_figure=False)
+    # fig.add_axes(ax3d)
     scat3D = ax3d.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], s=site_rad)
     title = ax3d.text2D(0.05, 0.95, "", transform=ax3d.transAxes)
 

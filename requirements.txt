@@ -41,4 +41,4 @@ tornado
 virtualenv==20.10.0
 pyfftw
 Werkzeug
-sys
+os-sys

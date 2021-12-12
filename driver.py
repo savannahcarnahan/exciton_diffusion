@@ -12,11 +12,14 @@ out_file = sys.argv[2]
 system_type, site_list, dimen, rate, model_type, start_time, end_time = inputprocessor.process_input(in_file)
 my_sys = system_factory.create(system_type, site_list, dimen, rate)
 
+print(rate)
+print(model_type)
+
 my_sys.excite()
 my_model = model_factory.create(model_type)
 
 t = start_time
-end_time = 0.2 # Add a custom end time to speed things up
+end_time = 1 # Add a custom end time to speed things up
 
 # Need to keep track of excited state and time
 exc_list = []

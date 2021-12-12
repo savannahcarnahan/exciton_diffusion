@@ -170,7 +170,7 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
     if (not (isinstance(site_rad, int)) or not (isinstance(interval, int))) or (not (isinstance(padding, int))):
         raise TypeError("site_rad, padding and interval must all be integers")
     
-    print('Animating droplet...')
+    # print('Animating droplet...')
 
     # This is what changes in each frame
     def animate(j):

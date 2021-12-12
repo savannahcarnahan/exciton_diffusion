@@ -1,4 +1,5 @@
 import atom
+import molecule
 import pointparticle as pt
 
 def create(site_type, *params):
@@ -7,6 +8,8 @@ def create(site_type, *params):
         return atom.Atom(*params)
     elif site_type.lower() == 'pointparticle':
         return pt.PointParticle(*params)
+    elif site_type.lower() == 'molecule':
+        return molecule.Molecule(*params)
     else:
         raise ValueError(site_type)
 

@@ -6,7 +6,7 @@ class Molecule(site.Site):
 
     def __init__(self, *atom_list):
         self.is_excited = False
-        self.molecule = ase.Atoms(symbols = atom_list)
+        self.molecule = ase.Atoms(atom_list)
     
     def excite(self):
         is_excited = True

@@ -27,8 +27,8 @@ class Molecule(site.Site):
         pass
     
     def get_position(self):
-        pos = self.molec.get_positions()
-        return pos.average(x, axis=0)
+        pos = self.molecule.get_positions()
+        return np.average(pos, axis=0)
     
     def transition_charge():
         pass

@@ -14,7 +14,7 @@ def process_input(in_file):
     model_type = conditions[3]
     start_time = float(conditions[4])
     end_time = float(conditions[5])
-    
+    molec = []    
     site_list = []
     molecule = False
     lines = (line.rstrip() for line in in_file)

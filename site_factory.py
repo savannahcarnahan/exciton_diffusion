@@ -1,4 +1,5 @@
 import atom
+import molecule
 import pointparticle as pt
 import molecule
 def create(site_type, *params):

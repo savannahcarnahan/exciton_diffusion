@@ -3,6 +3,7 @@ import string
 #import mysite as site
 import site_factory
 import ase
+import numpy as np
 def process_input(in_file):
     in_file = open(in_file)
     conditions = in_file.readline()
@@ -26,17 +27,18 @@ def process_input(in_file):
                     params[i] = float(s)
             site_list.append(site_factory.create(*params))
         elif params[0].lower() == 'molecule' and molecule:
+            print(molec)
             site_list.append(site_factory.create('molecule', *molec))
             molec = []
         elif params[0].lower() == 'molecule' and not molecule:
-            print('line 32')
             molecule = True
             molec = []
         elif molecule:
+            coord = []
             for i,s in enumerate(params):
                 if is_float(s):
-                    params[i] = float(s)
-            molec.append(ase.Atom(*params))
+                    coord.append(float(s))
+            molec.append(ase.Atom(params[0], np.array(coord)))
 
         
 #    for site in site_list:

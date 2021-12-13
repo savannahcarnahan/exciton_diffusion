@@ -12,8 +12,8 @@ test:
 check: init
 	@$(FLAKE8) src
 
-run: init test
-	python driver.py
+run:
+	python3 driver.py
 
 clean:
 	@rm -rf .cache

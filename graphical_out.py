@@ -5,8 +5,10 @@
 import os
 import numpy as np
 import matplotlib as mpl
+mpl.use('nbagg')
 import matplotlib.pyplot as plt
 import matplotlib.animation as ani
+from matplotlib.animation import PillowWriter
 from mpl_toolkits.mplot3d import Axes3D
 import sys
 import inputprocessor
@@ -35,8 +37,8 @@ COLORS =  ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e
 #
 def make_dir(path, name = None):
     # Ensure proper inputs
-    if not (isinstance(path, str)) or not (isinstance(name, str)):
-        raise TypeError("Arguments must be string")
+    #if not (isinstance(path, str)) or not (isinstance(name, str)):
+        #raise TypeError("Arguments must be string")
     
     if (path is None):
         raise ValueError("Path must be specified")
@@ -66,7 +68,9 @@ def make_dir(path, name = None):
 # 
 def exists_dir(path, name = None):
     # Ensure proper inputs
-    if not (isinstance(path, str)) or not (isinstance(name, str)):
+    print(path)
+    print(name)
+    if not (isinstance(path, str)) or not (isinstance(name, (str, type(None)))):
         raise TypeError("Arguments must be string")
     
     if (path is None):
@@ -155,6 +159,7 @@ def plot_sites(site_list, color = COLORS[0], alpha = 1):
 # Returns: True, for now
 # 
 def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, interval = 100, padding = 1, show = True, repeat = True):
+    
     if not (isinstance(site_list, list)) or (site_list is None):
         raise ValueError("Site List must be a non-empty list")
     
@@ -190,9 +195,11 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
     # Set up animation
     sites_nice = process_sites(site_list)
 
+    print('line 194')
     fig = plt.figure(figsize=(8,8))
+    
+    print('line 197')
     ax3d = fig.add_subplot(111, projection='3d')
-
     # ax3d = Axes3D(fig, auto_add_to_figure=False)
     # fig.add_axes(ax3d)
     scat3D = ax3d.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], s=site_rad)
@@ -210,7 +217,6 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
     ax3d.set_xticks(np.linspace(x_lim[0], x_lim[1], 3))
     ax3d.set_yticks(np.linspace(y_lim[0], y_lim[1], 3))
     ax3d.set_zticks(np.linspace(z_lim[0], z_lim[1], 3))
-    
     # The animation
     animator = ani.FuncAnimation(fig, animate, frames = len(t_list), interval = interval, repeat = repeat, repeat_delay = 1000, blit = False)
     # anim = ani.FuncAnimation(fig, update_graph, 19, interval=40, blit=False)
@@ -221,8 +227,8 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
         if not (exists_dir(save_params[0])):
             make_dir(save_params[0])
 
-        savepath = save_params[0] + '/' + save_params[1]  + '.mp4'
-        animator.save(savepath, fps = 25)
+        savepath = save_params[0] + '/' + save_params[1]  + '.gif'
+        animator.save(savepath, writer=PillowWriter(fps = 25))
     
     # Play animation if required
     if show:

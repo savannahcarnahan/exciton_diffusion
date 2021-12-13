@@ -32,7 +32,6 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
         dimen = 3
         start_time = 0
         end_time = 4
-        
         site_list = []
         for i in range(0, particles_per_run):
             site_list.append(site_factory.create(site_type, site_coord[i,0], site_coord[i,1], site_coord[i,2]))
@@ -69,15 +68,14 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
 
         # graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None, show = True)
 
-        assert(graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None, show = False))
+        assert graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None, show = False)
 
-    pass
+    
     # return (graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None))
 
 # For manual running
 def main():
     test_on_random_coordinates(run = 5, particles_per_run=10)
-    return
 
 if __name__ == '__main__':
     main()

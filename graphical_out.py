@@ -5,7 +5,7 @@
 import os
 import numpy as np
 import matplotlib as mpl
-mpl.use('nbagg')
+mpl.use('TkAgg')
 import matplotlib.pyplot as plt
 import matplotlib.animation as ani
 from matplotlib.animation import PillowWriter
@@ -180,10 +180,17 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
     # This is what changes in each frame
     def animate(j):
         plt.cla()
+        ax3d.set_xlim3d(x_lim[0], x_lim[1])
+        ax3d.set_ylim3d(y_lim[0], y_lim[1])
+        ax3d.set_xlim3d(z_lim[0], z_lim[1])
+        ax3d.set_xticks(np.linspace(x_lim[0], x_lim[1], 3))
+        ax3d.set_yticks(np.linspace(y_lim[0], y_lim[1], 3))
+        ax3d.set_zticks(np.linspace(z_lim[0], z_lim[1], 3))
         strng = '3D Animation Of Site Excitations, time={0:.5f}'.format(t_list[j]) 
         ax3d.text2D(0.05, .95, strng)
         exc_sites = exc_list[j]
-
+        
+        scat3D = ax3d.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], s=site_rad)
         # use colors 0 and 3 -> 0 for blue, 3 for red
         colors = np.array([COLORS[0]] * sites_nice.shape[0])
         
@@ -219,7 +226,7 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
     ax3d.set_zticks(np.linspace(z_lim[0], z_lim[1], 3))
 
     # The animation
-    animator = ani.FuncAnimation(fig, animate, frames = len(t_list), interval = interval, repeat = repeat, repeat_delay = 1000, blit = True)
+    animator = ani.FuncAnimation(fig, animate, frames = len(t_list), interval = interval, repeat = repeat, repeat_delay = 1000, blit = False)
     # anim = ani.FuncAnimation(fig, update_graph, 19, interval=40, blit=False)
 
     # Save Data if required
@@ -229,7 +236,7 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
             make_dir(save_params[0])
 
         savepath = save_params[0] + '/' + save_params[1]  + '.gif'
-        animator.save(savepath, writer=PillowWriter(fps = 25))
+        animator.save(savepath, writer=PillowWriter(fps = 25, codec='libx264', bitrate=2))
     
     # Play animation if required
     if show:

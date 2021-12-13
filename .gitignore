@@ -1,3 +1,5 @@
+# Autodoc build output
+autodoc/_build
 
 rs
 .vscode/

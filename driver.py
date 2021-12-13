@@ -1,3 +1,10 @@
+"""
+Driver Module 
+================
+
+The driver module is the entrypoint of the entire program.
+"""
+
 import sys
 import os
 import inputprocessor
@@ -6,6 +13,9 @@ import model_factory
 import pythag
 import graphical_out
 def main():
+    """
+    The main entry point reads in input/output filenames.
+    """
     in_file = input("What is the name of the input file? ")
     out_file = input('What is the name of the output file? ')
 

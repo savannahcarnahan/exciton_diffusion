@@ -1,3 +1,11 @@
+"""
+Input Processor
+================
+
+Parse an input file for a simulation configuration, which includes the types of system, model, etc., as well as a list of positions.
+
+TODO: An example of the input file format.
+"""
 import sys
 import string
 #import mysite as site
@@ -5,6 +13,11 @@ import site_factory
 import ase
 import numpy as np
 def process_input(in_file):
+    """
+    Process a single input file.
+
+    :param in_file: the filename of the input file.
+    """
     in_file = open(in_file)
     conditions = in_file.readline()
     conditions = conditions.split()
@@ -51,6 +64,12 @@ def process_input(in_file):
 
 
 def is_float(string):
+    """
+    Check if a string contains a floating point number.
+    
+    :param string: The given string.
+    :return: True if the string contains a floating point number
+    """
     try:
         float(string)
     except ValueError:

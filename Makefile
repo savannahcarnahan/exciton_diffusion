@@ -20,5 +20,7 @@ clean:
 	@find . -name *.pyc -delete
 	@find . -type d -name __pycache__ -delete
 
+doc: Makefile
+	sphinx-build -M html autodoc autodoc/_build 
 
 .PHONY: test run clean check

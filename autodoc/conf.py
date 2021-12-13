@@ -12,9 +12,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath('..'))
 
 
 # -- Project information -----------------------------------------------------
@@ -41,7 +41,18 @@ release = 'alph'
 extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
+    'sphinx.ext.autodoc',
+    'sphinx.ext.napoleon'
 ]
+
+autodoc_default_options = {
+    'imported-members': True,
+    'member-order': 'bysource',
+    'special-members': '__init__',
+    'undoc-members': True,
+    'private-members': True,
+    'exclude-members': 'plt,Axes3D'
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['.templates']

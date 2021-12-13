@@ -1,7 +1,9 @@
-#---------------------------------------------------------------------------------------------------
-# Imports
-#---------------------------------------------------------------------------------------------------
+"""
+Graphical Out
+================
 
+Plotting graphical outputs given a simulation output file.
+"""
 import os
 import numpy as np
 import matplotlib as mpl
@@ -34,6 +36,9 @@ COLORS =  ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e
 # Returns: Boolean of success
 #
 def make_dir(path, name = None):
+    """
+    Helper functoin to make a new directory
+    """
     # Ensure proper inputs
     if not (isinstance(path, str)) or not (isinstance(name, str)):
         raise TypeError("Arguments must be string")

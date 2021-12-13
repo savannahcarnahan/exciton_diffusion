@@ -41,3 +41,5 @@ tornado
 virtualenv==20.10.0
 pyfftw
 Werkzeug
+sphinx
+sphinx-rtd-theme

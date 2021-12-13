@@ -219,7 +219,7 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
     ax3d.set_zticks(np.linspace(z_lim[0], z_lim[1], 3))
 
     # The animation
-    animator = ani.FuncAnimation(fig, animate, frames = len(t_list), interval = interval, repeat = repeat, repeat_delay = 1000, blit = False)
+    animator = ani.FuncAnimation(fig, animate, frames = len(t_list), interval = interval, repeat = repeat, repeat_delay = 1000, blit = True)
     # anim = ani.FuncAnimation(fig, update_graph, 19, interval=40, blit=False)
 
     # Save Data if required

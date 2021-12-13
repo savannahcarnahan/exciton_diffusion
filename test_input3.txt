@@ -1,7 +1,4 @@
-crystal 3 marcus kmc 0 10
+crystal 3 arrhenius kmc 0 10
 
-atom He 1 0 0
-atom He 0 1 0
-atom He 0 0 1
-atom He 0 0 4
-atom He 0 0 3
+pointparticle 2 0 2
+pointparticle 1 4 0

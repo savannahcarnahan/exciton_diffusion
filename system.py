@@ -1,3 +1,9 @@
+"""
+`System`
+==============
+
+This file defines the System class.
+"""
 from abc import ABC, abstractmethod
 import numpy as np
 import random
@@ -8,9 +14,21 @@ import prob_rule_factory
 import prob_rule
 import arrhenius
 class System(ABC):
-
+    """
+    The abstract system class for defining a system of particles.
+    """
     @abstractmethod
     def __init__(self, site_list, dimen, rate):
+        """
+        Abstract method for creating a system.
+
+        This method should be overloaded.
+
+        :param dimen: the number of dimensions
+        :param rate: the coupling rate
+        :param site_list: the list of sites
+
+        """
         self.dimen = dimen
         # creates an object representing the coupling rate
         self.rate = prob_rule_factory.create(rate)
@@ -19,31 +37,41 @@ class System(ABC):
         self.T = 298
 
     def __str__(self):
+        """
+        Stringify the system, for printing out
+        """
         out = []
         for ea_site in self.site_list:
             out.append(str(ea_site))
         return '\n'.join(out)
 
     def size(self):
+        "Returns the size of the system"
         return len(self.site_list)
 
-    # returns an excited site from the system
     def get_excited_site(self):
-        # returns the first excited site reached
+        """
+        Returns an excited site from the system. 
+
+        :return: returns the first excited site reached
+        """
         for site in self.site_list:
             if site.excited:
                 return site
         return None
 
-    # excites one randomly chosen site in the system
     def excite(self):
+        "Excites one randomly chosen site in the system"
         rand = int(len(self.site_list) * random.random())
         self.site_list[rand].excited = True
         
 
     def next_site(self, curr_site):
-        # get list of all possible hopping sites
-        # print(curr_site)
+        """
+        Get list of all possible hopping sites
+
+        :param curr_site: the current site
+        """
         neighbors = self.get_neighbors(curr_site)
         # calculate coupling rates for each site and append current cumulative sum of ranges to list
         # get total of rates
@@ -73,6 +101,11 @@ class System(ABC):
         return None
 
     def get_neighbors(self,curr_site):
+        """
+        Get the list of neighbors reachable from the given site.
+
+        :param curr_site: The current site
+        """
         # reach is the cutoff distance for looking for nearest neighbors
         reach = getattr(curr_site, 'reach')
         # compile list of possible sites to transfer to

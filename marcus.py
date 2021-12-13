@@ -1,3 +1,10 @@
+"""
+Marcus method
+================
+
+The marcus method for calculating the transition probability.
+"""
+
 import prob_rule as p
 import system
 import pointparticle
@@ -7,6 +14,15 @@ import numpy as np
 from scipy import constants
 # import hab
 class Marcus(p.ProbRule):
+    """
+    The Marcus class calculates the transition probability, implementing the ProbRule interface.
+    
+    Global constants for marcus rate equation
+    - $hbar$ = 1.0545e-34
+    - $kb$ = 1.380e-23
+    - $T$ = 293
+
+    """
     
     # Global constants for marcus rate equation
     # hbar = 1.0545e-34
@@ -15,9 +31,17 @@ class Marcus(p.ProbRule):
     
     # creates the correct probability rule
     def __init__(self):
+        "Empty constructor."
         pass
 
     def dip_dip_hab(self, site1, site2):
+        """
+        Calculate the $H_{ab}$ value given two dipoles
+
+        :param site1: The first site containing the dipole
+        :param site2: The second site containing the dipole
+        :return: The $H_{ab}$ value
+        """
         # Assuming dipole1, dipole2 and R are numpy arrays
         # dipole1: transition dipole of a site1
         # R: distance vector between site1 and site2
@@ -47,6 +71,17 @@ class Marcus(p.ProbRule):
     #     return k_ab
     # Need H_ab (between site a and b)
     def transition_prob(self, site1, site2, system):
+        """
+        Calculate the transition probability between two sites using the marcus method.
+
+        The probability is calcualted using the equation k_ab = (2*np.pi/self.hbar)*(np.sqrt(1/(4*np.pi*self.kb*self.T*Lambda))*(Hab**2)*np.exp(-(Lambda/4*self.kb*self.T)))
+
+        :param site1: The first site containing the dipole
+        :param site2: The second site containing the dipole
+        :param system: The system these particles are in
+
+        :return: $K_{ab}$
+        """
         pi = np.pi
         T = system.T
         kb = constants.Boltzmann

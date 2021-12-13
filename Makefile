@@ -9,10 +9,10 @@ init:
 test:
 	pytest
 
-check: init
-	@$(FLAKE8) src
+check: test 
+	@$(FLAKE8)
 
-run: init test
+run: 
 	python driver.py
 
 clean:

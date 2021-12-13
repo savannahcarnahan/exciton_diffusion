@@ -5,6 +5,7 @@ import site
 import pythag
 import random
 import prob_rule_factory
+import graphical_out
 import prob_rule
 import arrhenius
 class System(ABC):
@@ -16,6 +17,9 @@ class System(ABC):
         self.rate = prob_rule_factory.create(rate)
         # site_list should be a list of sites and their x, y, z coordinates in system
         self.site_list = site_list
+
+        self.site_list_pos = graphical_out.process_sites(self.site_list)
+
         self.T = 298
 
     def __str__(self):
@@ -72,17 +76,34 @@ class System(ABC):
         # should only get here if there are no nearest neighbors
         return None
 
+    # Previous, for reference
+    # def get_neighbors_old(self,curr_site):
+    #     # reach is the cutoff distance for looking for nearest neighbors
+    #     reach = getattr(curr_site, 'reach')
+    #     # compile list of possible sites to transfer to
+    #     neighbors = []
+        
+    #     for ea_site in self.site_list:
+    #         dist = pythag.distance(curr_site.get_position(),ea_site.get_position())
+    #         # print(dist)
+    #         if dist > 0 and dist <= reach:
+    #             neighbors.append(ea_site)
+
+    #     return neighbors
+    
+    # Optimized
     def get_neighbors(self,curr_site):
         # reach is the cutoff distance for looking for nearest neighbors
         reach = getattr(curr_site, 'reach')
-        # compile list of possible sites to transfer to
+
+        # compile list of possible sites to transfer to       
+        distances = (np.linalg.norm(self.site_list_pos - curr_site.get_position(), axis = 1))
+        idx = np.where((distances < reach) * (distances != 0))[0]
+
         neighbors = []
-        for ea_site in self.site_list:
-            dist = pythag.distance(curr_site.get_position(),ea_site.get_position())
-            # print(dist)
-            if dist > 0 and dist <= reach:
-                neighbors.append(ea_site)
+        for i in idx:
+            neighbors.append(self.site_list[i])
 
         return neighbors
-        
+    
         

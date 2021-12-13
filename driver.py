@@ -5,16 +5,19 @@ import system_factory
 import model_factory
 import pythag
 import graphical_out
+import cProfile
 def main():
-    in_file = input("What is the name of the input file? ")
-    out_file = input('What is the name of the output file? ')
+    in_file = "test_input.txt"
+    # in_file = input("What is the name of the input file? ")
+    # out_file = input('What is the name of the output file? ')
 
     system_type, site_list, dimen, rate, model_type, start_time, end_time = inputprocessor.process_input(in_file)
-    print(site_list)
+    
+    # rate = 'arrhenius'
+    
     my_sys = system_factory.create(system_type, site_list, dimen, rate)
 
     my_sys.excite()
-    # print(my_sys.get_excited_site())
     my_model = model_factory.create(model_type)
     
     # Need to keep track of excited state and time
@@ -45,10 +48,8 @@ def main():
     save_dir = os.getcwd()
     saveparams = [save_dir, "anim_1"]
 
-    # graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = saveparams) 
-    # This one saves to current working directory
-    graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None) 
-    # This one doesn't save, only plays
+    # graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = saveparams)  # This one saves to current working directory
+    # graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None) # This one doesn't save, only plays
 
 if __name__ == "__main__":
-    main()
+    cProfile.run('main()','profileout.txt')

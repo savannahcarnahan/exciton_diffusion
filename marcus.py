@@ -1,10 +1,7 @@
 import prob_rule as p
-import system
-import pointparticle
-import crystal
-import math
 import numpy as np
 from scipy import constants
+from numba import jit
 # import hab
 class Marcus(p.ProbRule):
     
@@ -16,16 +13,10 @@ class Marcus(p.ProbRule):
     # creates the correct probability rule
     def __init__(self):
         pass
-
-    def dip_dip_hab(self, site1, site2):
-        # Assuming dipole1, dipole2 and R are numpy arrays
-        # dipole1: transition dipole of a site1
-        # R: distance vector between site1 and site2
+    
+    @jit(nopython=False) # Setting nopython = True gives an error I cannot figure out
+    def hab_calculator(dipole1, dipole2, R):
         epsilon = 8.854e-12 # Unit Fm-1 
-        dipole1 = getattr(site1, 'dipole')
-        dipole2 = getattr(site2, 'dipole')
-        R = site1.get_position() - site2.get_position()
-
         # converting all the vectors to unit vectors
         unit_u1 = dipole1/np.linalg.norm(dipole1)
         unit_u2 = dipole2/np.linalg.norm(dipole2)
@@ -39,8 +30,18 @@ class Marcus(p.ProbRule):
         mag_u2 = np.linalg.norm(dipole2)*3.3356e-30
         mag_R = np.linalg.norm(R)*1e-10 # Converting angstrom to meters
         hab = (1/(4*np.pi*epsilon))*k*(mag_u1*mag_u2)/(mag_R)**3
+        return hab
+    
+    def dip_dip_hab(self, site1, site2):
+        # Assuming dipole1, dipole2 and R are numpy arrays
+        # dipole1: transition dipole of a site1
+        # R: distance vector between site1 and site2
+        
+        dipole1 = getattr(site1, 'dipole')
+        dipole2 = getattr(site2, 'dipole')
+        R = site1.get_position() - site2.get_position()
 
-        return hab 
+        return Marcus.hab_calculator(dipole1, dipole2, R)
     
     # def marcus_rate(self, Hab, Lambda):
     #     k_ab = (2*np.pi/self.hbar)*(np.sqrt(1/(4*np.pi*self.kb*self.T*Lambda))*(Hab**2)*np.exp(-(Lambda/4*self.kb*self.T)))

@@ -179,7 +179,9 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
 
     # This is what changes in each frame
     def animate(j):
-        title.set_text('3D Animation Of Site Excitations, time={0:.5f}'.format(t_list[j]))
+        plt.cla()
+        strng = '3D Animation Of Site Excitations, time={0:.5f}'.format(t_list[j]) 
+        ax3d.text2D(0.05, .95, strng)
         exc_sites = exc_list[j]
 
         # use colors 0 and 3 -> 0 for blue, 3 for red
@@ -195,15 +197,13 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
     # Set up animation
     sites_nice = process_sites(site_list)
 
-    print('line 194')
     fig = plt.figure(figsize=(8,8))
     
-    print('line 197')
     ax3d = fig.add_subplot(111, projection='3d')
     # ax3d = Axes3D(fig, auto_add_to_figure=False)
     # fig.add_axes(ax3d)
     scat3D = ax3d.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], s=site_rad)
-    title = ax3d.text2D(0.05, 0.95, "", transform=ax3d.transAxes)
+    title = ax3d.text2D(0.05, 0.95, "")
 
     # Set Anim parameters
     x_lim = [np.min(sites_nice[:,0])-padding, np.max(sites_nice[:,0])+padding]
@@ -217,6 +217,7 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
     ax3d.set_xticks(np.linspace(x_lim[0], x_lim[1], 3))
     ax3d.set_yticks(np.linspace(y_lim[0], y_lim[1], 3))
     ax3d.set_zticks(np.linspace(z_lim[0], z_lim[1], 3))
+
     # The animation
     animator = ani.FuncAnimation(fig, animate, frames = len(t_list), interval = interval, repeat = repeat, repeat_delay = 1000, blit = False)
     # anim = ani.FuncAnimation(fig, update_graph, 19, interval=40, blit=False)

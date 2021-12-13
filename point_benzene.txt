@@ -1,4 +1,4 @@
-crystal 3 marcus kmc 0 10
+crystal 3 fret kmc 0 1000
 
 pointparticle 0.0   0.0   0.0
 pointparticle -2.69   0.0  7.18

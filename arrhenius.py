@@ -41,5 +41,6 @@ class Arrhenius(p.ProbRule):
         kb = constants.Boltzmann
         DG = 0 # since molecules are same
         Jcoul = self.dip_dip_hab(site1, site2)
-        k_ab = abs(Jcoul)*np.exp(-(1/kb*T)*DG)
+        scaling = 10e23
+        k_ab = scaling*abs(Jcoul)*np.exp(-(1/kb*T)*DG)
         return k_ab

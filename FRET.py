@@ -1,8 +1,11 @@
 import prob_rule as p
+import system
+import pointparticle
+import crystal
+import math
 import numpy as np
 from scipy import constants
-import system
-class FRET(p.ProbRule):
+class fret(p.ProbRule):
     
     # creates the correct probability rule
     def __init__(self):
@@ -33,19 +36,18 @@ class FRET(p.ProbRule):
 
         return hab     
 
-    def spec_overlap():
-        return 1
+    # Function to calculate spectral overlap
+    def spec_overlap(self):
+        return 1 # 
         
     # calculates the probability with the equation
     # k_12 = v_eff * e^((-1/kb*T)*delta_G - correction_factor)
+    # Since we are dealing with same molecules, exponential goes to 0
     # see https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.7b00086 p. 6
     def transition_prob(self, site1, site2, system):      
         pi = np.pi
-        T = system.T
-        kb = constants.Boltzmann
-        Lambda = site1.Lambda
         hbar = constants.hbar
-        Qd = 1
+        Qd = 1 # For most cases Qd = 1
         Jcoul = self.dip_dip_hab(site1, site2)
         SPEC = self.spec_overlap()
         k_fret = 10**-12 * (2*pi/hbar)*(Jcoul**2)*Qd*SPEC

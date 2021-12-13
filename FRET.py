@@ -50,5 +50,5 @@ class fret(p.ProbRule):
         Qd = 1 # For most cases Qd = 1
         Jcoul = self.dip_dip_hab(site1, site2)
         SPEC = self.spec_overlap()
-        k_fret = 10**-12 * (2*pi/hbar)*(Jcoul**2)*Qd*SPEC
+        k_fret = (2*pi/hbar)*(Jcoul**2)*Qd*SPEC
         return k_fret

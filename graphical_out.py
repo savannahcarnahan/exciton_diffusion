@@ -188,9 +188,10 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
         ax3d.set_zticks(np.linspace(z_lim[0], z_lim[1], 3))
         strng = '3D Animation Of Site Excitations, time={0:.5f}'.format(t_list[j]) 
         ax3d.text2D(0.05, .95, strng)
+
+        scat3D = ax3d.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], s=site_rad)
         exc_sites = exc_list[j]
         
-        scat3D = ax3d.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], s=site_rad)
         # use colors 0 and 3 -> 0 for blue, 3 for red
         colors = np.array([COLORS[0]] * sites_nice.shape[0])
         
@@ -199,6 +200,7 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
             colors[i] = COLORS[3]
     
         scat3D.set_color(colors)
+
 
 
     # Set up animation

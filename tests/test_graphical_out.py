@@ -62,7 +62,7 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
             dt = my_model.time_step(t, exc_site, my_sys)
             
             if dt != 0:
-                t += dt[0]
+                t += dt
             else:
                 break
             step += 1

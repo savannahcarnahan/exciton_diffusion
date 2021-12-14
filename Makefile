@@ -23,4 +23,7 @@ clean:
 doc: Makefile
 	sphinx-build -M html autodoc autodoc/_build 
 
-.PHONY: test run clean check
+report: Makefile
+	$(MAKE) -C report
+
+.PHONY: test run clean check report

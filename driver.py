@@ -19,12 +19,7 @@ def main():
     The main entry point reads in input/output filenames.
     """
     in_file = input("What is the name of the input file? ")
-    out_file = input('What is the name of the output file? ')
-=======
-    in_file = "test_input4.txt"
-    # in_file = input("What is the name of the input file? ")
     # out_file = input('What is the name of the output file? ')
->>>>>>> origin/profiling
 
     system_type, site_list, dimen, rate, model_type, start_time, end_time = inputprocessor.process_input(in_file)
     

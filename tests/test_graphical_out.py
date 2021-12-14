@@ -69,7 +69,7 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
 
         # graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None, show = True)
 
-        assert(graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None, show = False))
+        # assert(graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None, show = False))
 
     pass
     # return (graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None))

@@ -25,10 +25,9 @@ def main():
     
     # rate = 'arrhenius'
     
-    my_sys = system_factory.create(system_type, site_list, dimen, rate)
+    my_sys = system_factory.create(system_type, rate, model_type, site_list, dimen)
 
     my_sys.excite()
-    my_model = model_factory.create(model_type)
     
     # Need to keep track of excited state and time
     exc_list = []
@@ -43,16 +42,20 @@ def main():
         print('Time', t)
         t_list.append(t)
 
-        exc_site = my_sys.get_excited_site()
+        exc_site = my_sys.get_excited_sites()
         # print(exc_site.get_position())
-        exc_list.append([exc_site])
+        exc_list.append([exc_site[0]])
         # print('Site at beginning of time step is ', exc_site)
         if t == start_time:
-            start_pos = exc_site.get_position()
-        t += my_model.time_step(exc_site, my_sys)
+            start_pos = exc_site[0].get_position()
+        dt = my_sys.model.time_step(exc_site[0], my_sys)
+        if dt == None:
+            print("Excited site has no nearest neighbors")
+            break
+        t += dt
         step += 1
 
-    end_pos = my_sys.get_excited_site().get_position()
+    end_pos = my_sys.get_excited_sites()[0].get_position()
 
     diffusion_dist = pythag.distance(start_pos, end_pos)
 
@@ -61,7 +64,7 @@ def main():
     saveparams = [save_dir, "anim_1"]
 
     # graphical_out.animate_3D(site_list, t_list, exc_list, interval = 500, padding = 0, save_params = saveparams)  # This one saves to current working directory
-    graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None) # This one doesn't save, only plays
+    # graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None) # This one doesn't save, only plays
 
 if __name__ == "__main__":
     # cProfile.run('main()','profileout.txt')

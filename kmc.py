@@ -38,6 +38,6 @@ class KMC(model.Model):
             system.transfer_charge(excited_site, transfer_site)
             # print(transfer_site.excited)        
             return dt
-        return 0
+        return None
 
 

@@ -17,7 +17,7 @@ class System(ABC):
     The abstract system class for defining a system of particles.
     """
     @abstractmethod
-    def __init__(self, site_list, dimen, rate = 'uniform', model = 'kmc', T = 298):
+    def __init__(self, site_list, dimen, rate, model, T = 298):
         """
         Abstract method for creating a system.
 

@@ -10,7 +10,6 @@ import random
 import site
 import pythag
 import random
-import prob_rule_factory
 import prob_rule
 import arrhenius
 class System(ABC):
@@ -18,23 +17,29 @@ class System(ABC):
     The abstract system class for defining a system of particles.
     """
     @abstractmethod
-    def __init__(self, site_list, dimen, rate):
+    def __init__(self, site_list, dimen, rate = 'uniform', model = 'kmc', T = 298):
         """
         Abstract method for creating a system.
 
         This method should be overloaded.
 
         :param dimen: the number of dimensions
-        :param rate: the coupling rate
+        :param rate: a ProbRule object
         :param site_list: the list of sites
-
+        :param model: a Model object
+        :param T: the temperature
         """
+
         self.dimen = dimen
-        # creates an object representing the coupling rate
-        self.rate = prob_rule_factory.create(rate)
+        # a probrule object
+        self.rate = rate
         # site_list should be a list of sites and their x, y, z coordinates in system
         self.site_list = site_list
-        self.T = 298
+        # temperature of system
+        self.T = T
+        # a model object
+        self.model = model
+        _exc_sites = []
 
     def __str__(self):
         """
@@ -49,21 +54,20 @@ class System(ABC):
         "Returns the size of the system"
         return len(self.site_list)
 
-    def get_excited_site(self):
+    def get_excited_sites(self):
         """
         Returns an excited site from the system. 
 
         :return: returns the first excited site reached
         """
-        for site in self.site_list:
-            if site.excited:
-                return site
+        return _exc_site
         return None
 
     def excite(self):
         "Excites one randomly chosen site in the system"
         rand = int(len(self.site_list) * random.random())
         self.site_list[rand].excited = True
+        self._exc_list.append(site_list[rand])
         
 
     def next_site(self, curr_site):

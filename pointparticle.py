@@ -8,20 +8,20 @@ class PointParticle(atom.Atom):
     """
     The Point Partcicle class implements a particle representing an atom.
     """
-    def __init__(self, *coord):
+    def __init__(self, *coord, Lambda = 4.8e-20, reach = 3):
         """
         Initialize a Point Partcicle.
 
         :param coord: A list of coordinates for the particle's initial position.
         """
         self.excited = False
-        self.Lambda = 4.8e-20        
+        self.Lambda = Lambda        
         self.dipole = np.array([0, 1, 0])
         self.position = np.asarray(coord)
           
         # should be replaced later maybe?
         # tells function how far away neighbors can be
-        self.reach = 3
+        self.reach = reach
     
     def __str__(self):
         """
@@ -37,9 +37,7 @@ class PointParticle(atom.Atom):
         :return: the position of the particle.
         """
         return self.position
-    
-    def transition_probability(system):
-        pass
+
 
         
 

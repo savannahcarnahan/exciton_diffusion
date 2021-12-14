@@ -43,3 +43,9 @@ modeltype: kmc <br>
 start/endtime are in picoseconds <br>
 sitetype: pointparticle, molecule
 
+
+## Build the report PDF
+Please make sure a working LaTeX environment (in particular `pdflatex`() is available on your system.
+
+1. Run `git submodule update --init` to synchronize the report's source code repo.
+2. Run `make report` to build the report PDF, which will be in `report/main.pdf`.

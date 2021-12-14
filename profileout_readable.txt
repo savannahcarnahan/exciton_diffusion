@@ -1,0 +1,24 @@
+Mon Dec 13 14:17:03 2021    profileout.txt
+
+         8996044 function calls (8523980 primitive calls) in 25.167 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   25.167   25.167 {built-in method builtins.exec}
+        1    0.001    0.001   25.167   25.167 <string>:1(<module>)
+        1    0.368    0.368   25.165   25.165 C:\Princeton Graduate Classes\Classes\APC 524\Final Project\Repo\exciton_diffusion\driver.py:9(main)
+    25059    0.328    0.000   17.691    0.001 C:\Princeton Graduate Classes\Classes\APC 524\Final Project\Repo\exciton_diffusion\kmc.py:17(time_step)
+    78677    0.706    0.000   10.477    0.000 C:\Princeton Graduate Classes\Classes\APC 524\Final Project\Repo\exciton_diffusion\marcus.py:49(transition_prob)
+    25059    0.273    0.000    9.901    0.000 C:\Princeton Graduate Classes\Classes\APC 524\Final Project\Repo\exciton_diffusion\system.py:44(next_site)
+    78677    2.182    0.000    9.770    0.000 C:\Princeton Graduate Classes\Classes\APC 524\Final Project\Repo\exciton_diffusion\marcus.py:20(dip_dip_hab)
+    25059    0.189    0.000    7.435    0.000 C:\Princeton Graduate Classes\Classes\APC 524\Final Project\Repo\exciton_diffusion\kmc.py:9(time_dist)
+1330510/858448    2.530    0.000    7.291    0.000 {built-in method numpy.core._multiarray_umath.implement_array_function}
+    50120    7.006    0.000    7.006    0.000 {built-in method builtins.print}
+   472062    0.478    0.000    6.835    0.000 <__array_function__ internals>:2(norm)
+   472062    2.902    0.000    5.792    0.000 C:\Python39\lib\site-packages\numpy\linalg\linalg.py:2363(norm)
+    25059    1.491    0.000    3.592    0.000 {numpy.random._generator.default_rng}
+   833389    0.842    0.000    2.950    0.000 <__array_function__ internals>:2(dot)
+    25059    0.452    0.000    2.310    0.000 C:\Princeton Graduate Classes\Classes\APC 524\Final Project\Repo\exciton_diffusion\system.py:75(get_neighbors)
+   125296    1.080    0.000    1.756    0.000 C:\Princeton Graduate Classes\Classes\APC 524\Final Project\Repo\exciton_diffusion\pythag.py:5(distance)
+    25059    0.159    0.000    1.556    0.000 C:\Python39\lib\contextlib.py:76(inner)

@@ -11,7 +11,7 @@ import site
 import pythag
 import random
 import prob_rule
-import arrhenius
+import graphical_out # remember to reconfigure this
 class System(ABC):
     """
     The abstract system class for defining a system of particles.
@@ -29,7 +29,7 @@ class System(ABC):
         :param model: a Model object
         :param T: the temperature
         """
-
+        # dimension of the system
         self.dimen = dimen
         # a probrule object
         self.rate = rate
@@ -39,7 +39,22 @@ class System(ABC):
         self.T = T
         # a model object
         self.model = model
-        self._exc_list = []
+
+        # List of site positions, required for optimizing get_neighbors
+        # remember to move this out of graphical_out
+        self.site_list_pos = graphical_out.process_sites(self.site_list)
+
+
+
+        # List of excited sites POSITIONS,
+        self.exc_list = []
+
+        # List of known neighbors. Will map site positions to list of neighbor indices
+        self.neighbors_dict = {}
+
+        # a model object
+        # self.model = model
+        # _exc_sites = []
 
     def __str__(self):
         """
@@ -54,19 +69,57 @@ class System(ABC):
         "Returns the size of the system"
         return len(self.site_list)
 
+    # returns an excited site from the system
     def get_excited_sites(self):
         """
         Returns an excited site from the system. 
-
         :return: returns the first excited site reached
         """
-        return self._exc_list
-        return None
+
+        return self.exc_list
+
+    def transfer_charge(self, site_old, site_new):
+        print("Exc_sites #: " + str(len(self.exc_list)))
+
+        # print(site_old.get_position())
+
+        # for site in self.exc_list:
+        #     print(site.get_position())
+
+        self.de_excite_site(site_old)
+        self.excite_site(site_new)
+        # print("Exc_sites : " + str(len(self.exc_list)))
+        pass
+
+    # Excite a site
+    def excite_site(self, site):
+        setattr(site, 'excited', True)
+        self.exc_list.append(site)
+        return
+    
+    # De-excite a site
+    def de_excite_site(self, site):
+        for exc_site in self.exc_list:
+            # print(site.get_position() == exc_site.get_position())            
+            if (site.get_position() == exc_site.get_position()).all():
+                # remove from exc_list
+                # print("Exc_sites : " + str(self.exc_list))
+                self.exc_list.remove(exc_site)
+                # print("Exc_sites : " + str(self.exc_list))
+                setattr(site, 'excited', False)
+                return
+        print("Error: Excited site not found")
+        return
+
+
 
     def excite(self):
-        "Excites one randomly chosen site in the system"
+        """
+        Excites one randomly chosen site in the system
+        """
         rand = int(len(self.site_list) * random.random())
         self.site_list[rand].excited = True
+        self.exc_list.append(self.site_list[rand])
         
 
     def next_site(self, curr_site):
@@ -103,22 +156,51 @@ class System(ABC):
         # should only get here if there are no nearest neighbors
         return None
 
-    def get_neighbors(self,curr_site):
+
+    def process_neighbors(self, curr_site):
         """
         Get the list of neighbors reachable from the given site.
 
         :param curr_site: The current site
         """
         # reach is the cutoff distance for looking for nearest neighbors
+
         reach = getattr(curr_site, 'reach')
-        # compile list of possible sites to transfer to
+
+        # compile list of possible sites to transfer to       
+        distances = (np.linalg.norm(self.site_list_pos - curr_site.get_position(), axis = 1))
+        idx = np.where((distances < reach) * (distances != 0))[0]
+        return idx
+
+    def return_neighbors(self, idx):
         neighbors = []
-        for ea_site in self.site_list:
-            dist = pythag.distance(curr_site.get_position(),ea_site.get_position())
-            # print(dist)
-            if dist > 0 and dist <= reach:
-                neighbors.append(ea_site)
+        for i in idx:
+            neighbors.append(self.site_list[i])
 
         return neighbors
+    
+    # Optimized
+    def get_neighbors(self,curr_site):
+        # """
+        # Get the list of neighbors reachable from the given site.
+        # :param curr_site: The current site
+        # """
+        # reach is the cutoff distance for looking for nearest neighbors
         
-        
+        # First check if this site has already been processed
+        key = str(curr_site.get_position())
+
+        # print("key = " + str(key))
+        # print("dict = " + str(self.neighbors_dict))
+
+        if key in self.neighbors_dict:
+            idx = self.neighbors_dict[key]
+            # print("using dict")
+        else:
+            # Otherwise find neighbors and add to dict
+            idx = self.process_neighbors(curr_site)
+            self.neighbors_dict[key] = idx
+
+        return self.return_neighbors(idx)
+
+    

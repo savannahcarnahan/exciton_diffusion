@@ -54,15 +54,15 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
         step = 0
         while t < end_time:
             t_list.append(t)
-
+            dt = 0
             exc_sites = my_sys.get_excited_sites()
             for exc_site in exc_sites:
                 exc_list.append([exc_site])
+                dt += my_sys.model.time_step(exc_site, my_sys)
 
-            dt = my_sys.model.time_step(t, exc_sites)
             
             if dt != 0:
-                t += dt[0]
+                t += dt
             else:
                 break
             step += 1

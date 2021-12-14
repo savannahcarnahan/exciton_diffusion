@@ -71,13 +71,15 @@ def make_dir(path, name = None):
 # 
 def exists_dir(path, name = None):
     # Ensure proper inputs
-    if not (isinstance(path, str)) or not (isinstance(name, str)):
+    if not (isinstance(path, str)):
         raise TypeError("Arguments must be string")
     
     if (path is None):
         raise ValueError("Path must be specified")
 
     if name is not None:
+        if not (isinstance(name, str)):
+            raise TypeError("Filename must be string")
         return os.path.isdir(path + '//' + name)
     else:
         return os.path.isdir(path)
@@ -222,12 +224,13 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
 
     # Save Data if required
     if save_params is not None:
+        print("Saving animation...")
         # Make directory first if it doesn't exist
         if not (exists_dir(save_params[0])):
             make_dir(save_params[0])
 
         savepath = save_params[0] + '/' + save_params[1]  + '.mp4'
-        animator.save(savepath, fps = 25)
+        animator.save(savepath, fps = 125)
     
     # Play animation if required
     if show:

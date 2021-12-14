@@ -10,9 +10,9 @@ import atom
 
 class TestFactories(unittest.TestCase):
     def test_system_factory(self):
-        c = system_factory.create('crystal', 'uniform', 'kmc', [], 3)
+        c = system_factory.create('crystal', 'arrhenius', 'kmc', [], 3)
         assert isinstance(c, crystal.Crystal)
-        s = system_factory.create('static', [], 3, rate = 'marcus', model = 'kmc')
+        s = system_factory.create('static', 'marcus', 'kmc', [], 3)
     
     def test_site_factory(self):
         p = site_factory.create('pointparticle', 1, 0, 0)

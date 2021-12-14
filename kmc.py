@@ -12,7 +12,7 @@ class KMC(model.Model):
         return np.random.Generator.exponential(self.generator, 1/couple, 1)[0]
 
 
-    def time_step(self, curr_time, excited_site, system):     
+    def time_step(self, excited_site, system):     
         transfer_site = system.next_site(excited_site)
         # print(transfer_site.excited)
         if transfer_site is not None:

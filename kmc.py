@@ -17,8 +17,7 @@ class KMC(model.Model):
         # print(transfer_site.excited)
         if transfer_site is not None:
             dt = self.time_dist(transfer_site, excited_site, system)
-            setattr(transfer_site, 'excited', True)
-            setattr(excited_site, 'excited', False) 
+            system.transfer_charge(excited_site, transfer_site)
             # print(transfer_site.excited)        
             return dt
         return 0

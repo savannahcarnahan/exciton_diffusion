@@ -14,7 +14,7 @@ import pythag
 import graphical_out
 import cProfile
 def main():
-<<<<<<< HEAD
+
     """
     The main entry point reads in input/output filenames.
     """

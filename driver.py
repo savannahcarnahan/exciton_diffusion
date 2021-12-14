@@ -64,7 +64,7 @@ def main():
     saveparams = [save_dir, "anim_1"]
 
     # graphical_out.animate_3D(site_list, t_list, exc_list, interval = 500, padding = 0, save_params = saveparams)  # This one saves to current working directory
-    # graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None) # This one doesn't save, only plays
+    graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None) # This one doesn't save, only plays
 
 if __name__ == "__main__":
     # cProfile.run('main()','profileout.txt')

@@ -59,7 +59,7 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
             exc_site = my_sys.get_excited_site()
             exc_list.append([exc_site])
 
-            dt = my_model.time_step(t, exc_site, my_sys)
+            dt = my_model.time_step(exc_site, my_sys)
             
             if dt != 0:
                 t += dt

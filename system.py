@@ -17,7 +17,7 @@ class System(ABC):
     The abstract system class for defining a system of particles.
     """
     @abstractmethod
-    def __init__(self, site_list, dimen, rate, model, T = 298):
+    def __init__(self, rate, model, site_list, dimen, T = 298):
         """
         Abstract method for creating a system.
 
@@ -39,7 +39,7 @@ class System(ABC):
         self.T = T
         # a model object
         self.model = model
-        _exc_sites = []
+        self._exc_list = []
 
     def __str__(self):
         """
@@ -60,14 +60,13 @@ class System(ABC):
 
         :return: returns the first excited site reached
         """
-        return _exc_site
+        return self._exc_list
         return None
 
     def excite(self):
         "Excites one randomly chosen site in the system"
         rand = int(len(self.site_list) * random.random())
         self.site_list[rand].excited = True
-        self._exc_list.append(site_list[rand])
         
 
     def next_site(self, curr_site):

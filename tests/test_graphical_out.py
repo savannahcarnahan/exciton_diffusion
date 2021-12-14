@@ -40,9 +40,8 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
         # for site in site_list:
         #     print(site)
 
-        my_sys = system_factory.create(system_type, site_list, dimen, rate)
+        my_sys = system_factory.create(system_type, 'arrhenius',  'kmc', site_list, dimen, rate)
         my_sys.excite()
-        my_model = model_factory.create(model_type)
 
         t = start_time
         end_time = 1 # Add a custom end time to speed things up
@@ -56,10 +55,11 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
         while t < end_time:
             t_list.append(t)
 
-            exc_site = my_sys.get_excited_site()
-            exc_list.append([exc_site])
+            exc_sites = my_sys.get_excited_sites()
+            for exc_site in exc_sites:
+                exc_list.append([exc_site])
 
-            dt = my_model.time_step(t, exc_site, my_sys)
+            dt = my_sys.model.time_step(t, exc_sites)
             
             if dt != 0:
                 t += dt[0]

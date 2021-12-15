@@ -7,7 +7,7 @@ init:
 	pip install -r requirements.txt
 
 test:
-	pytest
+	python -m pytest
 
 check: init
 	@$(FLAKE8) src

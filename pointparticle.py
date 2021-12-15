@@ -22,6 +22,7 @@ class PointParticle(atom.Atom):
         # should be replaced later maybe?
         # tells function how far away neighbors can be
         self.reach = reach
+
     
     def __str__(self):
         """

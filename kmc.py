@@ -1,12 +1,25 @@
+"""
+KMC model
+============
+
+"""
 import model
 import system
 import site
 import numpy as np
 class KMC(model.Model):
+    """
+    The KMC class implements a model.
+    """
     def __init__(self):
         pass
 
     def time_dist(self,site1, site2, system):
+        """
+        Calculates the time distribution.
+
+        :return: a random time based on an exponential distribution, according to couple * exp(-t * couple)
+        """
         couple = system.rate.transition_prob(site1, site2, system)
         my_generator = np.random.default_rng()
         # returns a random time based on an exponential distribution
@@ -14,7 +27,10 @@ class KMC(model.Model):
         return np.random.Generator.exponential(my_generator, 1/couple, 1)
 
 
-    def time_step(self, curr_time, excited_site, system):     
+    def time_step(self, curr_time, excited_site, system):  
+        """
+        Advance the model by a time step.
+        """   
         transfer_site = system.next_site(excited_site)
         # print(transfer_site.excited)
         if transfer_site is not None:

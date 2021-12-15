@@ -1,12 +1,22 @@
+"""
+Arrhenius method
+================
+
+The arrhenius method for calculating the translation probability between two sites.
+"""
 import prob_rule as p
 import numpy as np
 from scipy import constants
 import system
 class Arrhenius(p.ProbRule):
+    """
+    The Arrhenius class calculates the translation probability, implements the ProbRule interface.
+    """
     
-    # creates the correct probability rule
     def __init__(self):
+        "Empty constructor"
         pass
+
 
     def dip_dip_hab(self, site1, site2):
         # Assuming dipole1, dipole2 and R are numpy arrays
@@ -44,3 +54,4 @@ class Arrhenius(p.ProbRule):
         scaling = 10e23
         k_ab = scaling*abs(Jcoul)*np.exp(-(1/kb*T)*DG)
         return k_ab
+

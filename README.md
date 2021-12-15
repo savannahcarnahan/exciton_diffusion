@@ -40,5 +40,6 @@ systemtype: crystal <br>
 dimension: 1, 2, 3 <br>
 ratetype: marcus, arrhenius <br>
 modeltype: kmc <br>
-start/endtime are in picoseconds
+start/endtime are in picoseconds <br>
+sitetype: pointparticle, molecule
 

@@ -7,7 +7,7 @@ The class factory for the probability rule class
 import prob_rule
 import arrhenius
 import marcus
-import FRET
+import fret
 def create(prob_rule_type):
     """
     Creates an object of a `prob_rule` class based on the given type.

@@ -3,7 +3,9 @@
 3. system.py - get_neighbors() -> completely rewrote this function
 
 
+- store nearest neighbors once - cache this
 
+- memory profiling
 
 
 

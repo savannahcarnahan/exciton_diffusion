@@ -19,7 +19,7 @@ def create(prob_rule_type):
     elif prob_rule_type.lower() == 'marcus':
         return marcus.Marcus()
     elif prob_rule_type.lower() == 'fret':
-        return FRET.fret()
+        return fret.FRET()
     else:
         raise ValueError(format)
 

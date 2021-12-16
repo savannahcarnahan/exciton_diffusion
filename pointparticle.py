@@ -8,7 +8,7 @@ class PointParticle(atom.Atom):
     """
     The Point Partcicle class implements a particle representing an atom.
     """
-    def __init__(self, *coord, Lambda = 4.8e-20, reach = 3):
+    def __init__(self, *coord, Lambda = 4.8e-20, reach = 80):
         """
         Initialize a Point Partcicle.
 

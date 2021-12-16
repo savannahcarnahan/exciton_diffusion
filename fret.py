@@ -5,7 +5,7 @@ import crystal
 import math
 import numpy as np
 from scipy import constants
-class fret(p.ProbRule):
+class FRET(p.ProbRule):
     
     # creates the correct probability rule
     def __init__(self):

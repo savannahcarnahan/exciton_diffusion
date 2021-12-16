@@ -48,10 +48,14 @@ class Arrhenius(p.ProbRule):
     # see https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.7b00086 p. 6
     def transition_prob(self, site1, site2, system):      
         T = system.T
+        assert isinstance(T, float) or isinstance(T, int)
         kb = constants.Boltzmann
+        assert isinstance(kb, float)
         DG = 0 # since molecules are same
         Jcoul = self.dip_dip_hab(site1, site2)
+        assert isinstance(Jcoul, float)
         scaling = 10e23
+        assert isinstance(scaling, float)
         k_ab = scaling*abs(Jcoul)*np.exp(-(1/kb*T)*DG)
         return k_ab
 

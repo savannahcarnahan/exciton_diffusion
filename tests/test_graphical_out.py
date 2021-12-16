@@ -31,7 +31,7 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
         # Defined params
         dimen = 3
         start_time = 0
-        end_time = 4
+        end_time = 1
         
         site_list = []
         for i in range(0, particles_per_run):
@@ -40,7 +40,7 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
         # for site in site_list:
         #     print(site)
 
-        my_sys = system_factory.create(system_type, 'arrhenius',  'kmc', site_list, dimen, rate)
+        my_sys = system_factory.create(system_type, 'uniform',  'kmc', site_list, dimen)
         my_sys.excite()
 
         t = start_time

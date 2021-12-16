@@ -6,7 +6,7 @@ cImage==2.0.2
 click
 cycler
 dataclasses
-distlib==0.3.4
+distlib==0.3.3
 filelock==3.4.0
 flake8==4.0.1
 Flask

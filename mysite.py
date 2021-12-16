@@ -20,21 +20,9 @@ class Site(ABC):
         
 
     @abstractmethod
-    def transition_probability():
-        """
-        Calculate the transition probability for this site.
-        """
-        pass
-
-    @abstractmethod
     def get_position(self):
         "Get the position of this site."
         return self.position
-
-    @abstractmethod
-    def transition_charge():
-        "Get the transition charge of this site."
-        pass
 
     
     

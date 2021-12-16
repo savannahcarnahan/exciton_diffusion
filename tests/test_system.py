@@ -10,7 +10,7 @@ def test_crystal():
 
     site2 = pt.PointParticle(np.array([0,1,0]))
 
-    syst = crystal.Crystal([site1, site2], 3, 'Arrhenius')
+    syst = crystal.Crystal('arrhenius', 'kmc', [site1, site2], 3)
     assert issubclass(crystal.Crystal, system.System)
 
     setattr(site1,'excited',True)

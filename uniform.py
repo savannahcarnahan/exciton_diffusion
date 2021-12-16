@@ -1,26 +1,21 @@
 """
-Uniform method
-================
+Uniform Method
+==============
 
-Returns a uniform number for the coupling; results in uniform probability of choosing 
-sites
+Uses the uniform probability method to generate a 'rate'
+Not valid for 'real' sites, used for testing
 """
 import prob_rule as p
-import system
 class Uniform(p.ProbRule):
     """
-    The Uniform class calculates the translation probability, implements the ProbRule interface.
+    The Uniform class calculates the transition probability, implements the ProbRule
+    interface.
     """
-    
+
     def __init__(self):
         "Empty constructor"
         pass
 
     def transition_prob(self, site1, site2, system):
-        """
-        Returns a uniform value
-        """
-        #p.transition_prob(site1, site2)
-        # place holder until implementation
-        prob = 1
-        return prob
+
+        return 1

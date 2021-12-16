@@ -31,7 +31,7 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
         # Defined params
         dimen = 3
         start_time = 0
-        end_time = 4
+        end_time = 1
         
         site_list = []
         for i in range(0, particles_per_run):
@@ -40,9 +40,8 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
         # for site in site_list:
         #     print(site)
 
-        my_sys = system_factory.create(system_type, site_list, dimen, rate)
+        my_sys = system_factory.create(system_type, 'uniform',  'kmc', site_list, dimen)
         my_sys.excite()
-        my_model = model_factory.create(model_type)
 
         t = start_time
         end_time = 1 # Add a custom end time to speed things up
@@ -55,21 +54,21 @@ def test_on_random_coordinates(run = 100, particles_per_run = 10, x_limits = [0,
         step = 0
         while t < end_time:
             t_list.append(t)
-
-            exc_site = my_sys.get_excited_site()
+            dt = 0
+            exc_site = my_sys.get_excited_sites()[0]
             exc_list.append([exc_site])
+            dt = my_sys.model.time_step(exc_site, my_sys)
 
-            dt = my_model.time_step(t, exc_site, my_sys)
             
-            if dt != 0:
-                t += dt[0]
+            if dt != None:
+                t += dt
             else:
                 break
             step += 1
 
         # graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None, show = True)
 
-        assert(graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None, show = False))
+        # assert(graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None, show = False))
 
     pass
     # return (graphical_out.animate_3D(site_list, t_list, exc_list, interval = 100, save_params = None))

@@ -19,8 +19,10 @@ def create(prob_rule_type):
         return arrhenius.Arrhenius()
     elif prob_rule_type.lower() == 'marcus':
         return marcus.Marcus()
+
     elif prob_rule_type.lower() == 'fret':
         return fret.FRET()
+
     elif prob_rule_type.lower() == 'uniform':
         return uniform.Uniform()
     else:

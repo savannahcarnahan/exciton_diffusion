@@ -17,4 +17,5 @@ class Uniform(p.ProbRule):
         pass
 
     def transition_prob(self, site1, site2, system):
+
         return 1

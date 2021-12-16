@@ -8,7 +8,7 @@ cycler
 dataclasses
 distlib==0.3.3
 filelock==3.4.0
-flake8==4.0.1
+flake8
 Flask
 iniconfig==1.1.1
 itsdangerous

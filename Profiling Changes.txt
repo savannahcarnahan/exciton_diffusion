@@ -1,0 +1,18 @@
+1. kmc.py - time_dist -> moved generator initialization to __init__ and made generator a system variable
+2. marcus.py - dip_dip_hab -> implemented Numba after breaking down the numpy components of this function to another function hab_calculator()
+3. system.py - get_neighbors() -> completely rewrote this function
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------
+kmc.py -> Not using system and site imports, not using curr_time in time_step
+marcus.py -> Not using system, pointparticle, crystal, math. 

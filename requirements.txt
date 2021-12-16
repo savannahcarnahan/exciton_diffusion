@@ -43,3 +43,5 @@ pyfftw
 Werkzeug
 sphinx
 sphinx-rtd-theme
+numba
+

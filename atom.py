@@ -49,7 +49,4 @@ class Atom(site.Site):
         """
         Calculate the transition charge of this atom.
         """
-        pass
-
-    
-    
+        pass 

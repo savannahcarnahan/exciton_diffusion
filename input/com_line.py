@@ -7,7 +7,7 @@ Takes a file from command line input
 
 import sys
 import os
-import inputprocessor
+import input.inputprocessor as inputprocessor
 import system_factory
 # import exciton_diffusion.pythag
 # import graphical_out

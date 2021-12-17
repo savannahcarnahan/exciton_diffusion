@@ -11,7 +11,7 @@ import site
 import pythag
 import random
 import prob_rule
-import graphical_out # remember to reconfigure this
+# import graphical_out # remember to reconfigure this
 class System(ABC):
     """
     The abstract system class for defining a system of particles.
@@ -42,7 +42,7 @@ class System(ABC):
 
         # List of site positions, required for optimizing get_neighbors
         # remember to move this out of graphical_out
-        self.site_list_pos = graphical_out.process_sites(self.site_list)
+        self.site_list_pos = self.process_sites()
 
 
 
@@ -203,4 +203,21 @@ class System(ABC):
 
         return self.return_neighbors(idx)
 
-    
+   
+    # Turns a list of sites into a nice numpy array of shape (len(site_list), 3) for processing
+    # Params: 
+    #           site_list        : a list of sites
+    #
+    # Returns: A boolean of whether the file/directory exists
+    # 
+    def process_sites(self):
+        if not (isinstance(self.site_list, list)) or (self.site_list is None):
+            raise ValueError("Site List must be a non-empty array")
+
+        arr = np.zeros([len(self.site_list),3])
+
+        for i in range(0,len(self.site_list)):
+            arr[i,:] = self.site_list[i].get_position()
+
+        return arr
+

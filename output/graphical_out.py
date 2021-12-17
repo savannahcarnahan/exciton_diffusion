@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as ani
 from mpl_toolkits.mplot3d import Axes3D
 import sys
-import inputprocessor
+import input.inputprocessor as inputprocessor
 
 #---------------------------------------------------------------------------------------------------
 # Global Parameters

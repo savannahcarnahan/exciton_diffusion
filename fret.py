@@ -1,3 +1,9 @@
+"""
+FRET Method
+===========
+
+The FRET method for calculating the transition probability between the two sites
+"""
 import prob_rule as p
 import system
 import pointparticle
@@ -6,9 +12,14 @@ import math
 import numpy as np
 from scipy import constants
 class FRET(p.ProbRule):
+    """
+    The FRET class calculates the translation probability, implements the ProbRule
+    interface
+
+    """
     
-    # creates the correct probability rule
     def __init__(self):
+        "Empty constructor"
         pass
 
     def dip_dip_hab(self, site1, site2):
@@ -36,14 +47,14 @@ class FRET(p.ProbRule):
 
         return hab     
 
-    # Function to calculate spectral overlap
+    # Function to calculate spectral overlap (to be implemented later)
     def spec_overlap(self):
         return 1 # 
         
     # calculates the probability with the equation
-    # k_12 = v_eff * e^((-1/kb*T)*delta_G - correction_factor)
-    # Since we are dealing with same molecules, exponential goes to 0
-    # see https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.7b00086 p. 6
+    # k_12 = 2*pi/hbar * (1/(4*pi*epsilon_0)^2) * Qd * 
+    #           spec_overlap * J_coul^2
+    # see https://pubs.acs.org/doi/full/10.1021/acs.jpcc.1c07929
     def transition_prob(self, site1, site2, system, Qd = 1):      
         pi = np.pi
         hbar = constants.hbar

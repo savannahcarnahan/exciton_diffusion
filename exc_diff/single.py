@@ -57,6 +57,4 @@ def single(system, start_time, end_time):
 def __init__():
     pass
 
-if __name__ == "__main__":
-    # cProfile.run('main()','profileout.txt')
-    single(*params)
+

@@ -44,10 +44,10 @@ class FRET(p.ProbRule):
     # k_12 = v_eff * e^((-1/kb*T)*delta_G - correction_factor)
     # Since we are dealing with same molecules, exponential goes to 0
     # see https://pubs.acs.org/doi/pdf/10.1021/acs.chemrev.7b00086 p. 6
-    def transition_prob(self, site1, site2, system):      
+    def transition_prob(self, site1, site2, system, Qd = 1):      
         pi = np.pi
         hbar = constants.hbar
-        Qd = 1 # For most cases Qd = 1
+        # Qd = 1 # For most cases Qd = 1
         Jcoul = self.dip_dip_hab(site1, site2)
         SPEC = self.spec_overlap()
         scaling = 10e13

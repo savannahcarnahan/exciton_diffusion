@@ -14,6 +14,6 @@ def get_diffusion(exc_list):
         dist = np.linalg.norm(dist)
         diff_dist.append(dist)
         i+=1
-    print(diff_dist)
+    # print(diff_dist)
     return diff_dist
 

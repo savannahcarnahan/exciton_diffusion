@@ -1,4 +1,4 @@
-crystal 3 marcus kmc 0 10
+crystal 3 uniform kmc 0 10
 
 molecule
 N 0 0 0

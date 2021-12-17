@@ -1,10 +1,11 @@
 """
-Site 
+Site
 ================
 
 The abstract definition of a site.
 """
 from abc import ABC, abstractmethod
+
 
 class Site(ABC):
     """
@@ -17,12 +18,8 @@ class Site(ABC):
         :param coords: initial coordinates.
         """
         self.position = coords
-        
 
     @abstractmethod
     def get_position(self):
         "Get the position of this site."
         return self.position
-
-    
-    

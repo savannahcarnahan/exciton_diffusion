@@ -13,7 +13,7 @@
 # sys.path.insert(0, parentdir) 
 
 import bulktest_generator as gen
-import graphical_out
+import output.graphical_out as graphical_out
 import system_factory
 import model_factory
 import site_factory

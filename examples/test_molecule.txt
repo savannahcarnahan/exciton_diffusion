@@ -1,0 +1,8 @@
+crystal 3 uniform kmc 0 10
+
+molecule
+N 0 0 0
+N 1.09 0 0
+molecule
+N 5 0 0
+N 6.09 0 0

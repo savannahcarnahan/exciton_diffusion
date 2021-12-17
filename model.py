@@ -16,8 +16,26 @@ class Model(ABC):
         Initialize the Model
         """
         pass
-    def time_step():
+    
+    @abstractmethod
+    def time_step(self):
         """
         The abstract function for advancing one time step
+        """
+        pass
+    
+    @abstractmethod
+    def time_dist(self, site1, site2, system):
+        """
+        Returns the time for the model to advance
+        """
+        pass
+
+
+    @abstractmethod
+    def select_site(self, site_list, rate_list):
+        """
+        Algorithm for selecting site base on coupling rates
+        Returns one site
         """
         pass

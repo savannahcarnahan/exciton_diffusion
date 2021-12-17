@@ -5,6 +5,7 @@ KMC model
 """
 import model
 import numpy as np
+import random
 class KMC(model.Model):
     """
     The KMC class implements a model.
@@ -38,6 +39,35 @@ class KMC(model.Model):
             system.transfer_charge(excited_site, transfer_site)
             # print(transfer_site.excited)        
             return dt
+        return None
+
+    def select_site(self, site_list, rate_list):
+        """
+        selects the site based on summing the rates in rate_list and 
+        choosing a random number between 0 and the sum
+        Site is chosen based on where in the range it falls
+        If between 0 and k1, return site1, between k1 and k1+k2
+        select site2, etc
+        """
+        if not isinstance(rate_list, list):
+            return ValueError('rate_list must be a list')
+        last = 0
+        rate_ranges = []
+        # creates range barriers for rates
+        # very important that rate_list is ordered
+        for rate in rate_list:
+            rate_ranges.append(last)
+            last += rate
+        
+        rand = last * random.random()
+        i = len(rate_ranges)-1
+
+        # selects site based on where the random number falls
+        while i >= 0:
+            if rate_ranges[i] <= rand:
+                return site_list[i]
+            i -= 1
+
         return None
 
 

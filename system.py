@@ -129,12 +129,12 @@ class System(ABC):
         :param curr_site: the current site
         """
         neighbors = self.get_neighbors(curr_site)
-        # calculate coupling rates for each site and append current cumulative sum of ranges to list
-        # get total of rates
-        # holds current cumulative sum
-        last = 0
-        # holds all previous cumulative sums
-        range_lst = []
+
+        if len(neighbors) == 0:
+            return None
+        # calculate coupling rates for each site
+        # holds all rates
+        couple_lst = []
         for neighbor in neighbors:
 
             # calculate rate corresponding to this site
@@ -142,17 +142,12 @@ class System(ABC):
             # appends low side of range to list (ie for site 1, appends 0
             # for site 2, appends rate_1, for site 3, appends rate1 + rate2
 
-            range_lst.append(last)
-            last += couple
-        # generate random number between 0 and the sum of all the rates
-        rand = last * random.random()
-        i = len(range_lst)-1
-        # selects site based on where in the range the random number falls
-        while i >= 0:
-            if range_lst[i] <= rand:
-                # print('This is the next site', neighbors[i])
-                return neighbors[i]
-            i -= 1
+            couple_lst.append(couple)
+            
+        site_next = self.model.select_site(neighbors, couple_lst)
+
+        return site_next
+
         # should only get here if there are no nearest neighbors
         return None
 

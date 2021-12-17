@@ -3,9 +3,7 @@ Model factory
 ================
 
 """
-import model
 import kmc
-import string
 def create(model_type):
     """
     Creates an object of a Model class based on its type.
@@ -16,5 +14,4 @@ def create(model_type):
         return kmc.KMC()
     else:
         raise ValueError(format)
-
 

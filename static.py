@@ -4,7 +4,8 @@ Static
 
 """
 import system
-import site
+
+
 class Static(system.System):
     """
     The Static class implements a static molecule system, where the positions of the molecules are fixed

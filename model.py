@@ -5,7 +5,8 @@ Model class
 Define the abstract model class
 """
 from abc import ABC, abstractmethod
-import site
+
+
 class Model(ABC):
     """
     The abstract Model class
@@ -16,7 +17,7 @@ class Model(ABC):
         Initialize the Model
         """
         pass
-    
+
     @abstractmethod
     def time_step(self):
         """
@@ -30,7 +31,6 @@ class Model(ABC):
         Returns the time for the model to advance
         """
         pass
-
 
     @abstractmethod
     def select_site(self, site_list, rate_list):

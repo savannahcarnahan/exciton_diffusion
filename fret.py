@@ -5,19 +5,17 @@ FRET Method
 The FRET method for calculating the transition probability between the two sites
 """
 import prob_rule as p
-import system
-import pointparticle
-import crystal
-import math
 import numpy as np
 from scipy import constants
+
+
 class FRET(p.ProbRule):
     """
     The FRET class calculates the translation probability, implements the ProbRule
     interface
 
     """
-    
+
     def __init__(self):
         "Empty constructor"
         pass
@@ -42,20 +40,20 @@ class FRET(p.ProbRule):
         # Converting debyee to coulombmeter (SI)
         mag_u1 = np.linalg.norm(dipole1)*3.3356e-30
         mag_u2 = np.linalg.norm(dipole2)*3.3356e-30
-        mag_R = np.linalg.norm(R)*1e-10 # Converting angstrom to meters
+        mag_R = np.linalg.norm(R)*1e-10  # Converting angstrom to meters
         hab = (1/(4*np.pi*epsilon))*k*(mag_u1*mag_u2)/(mag_R)**3
 
-        return hab     
+        return hab
 
     # Function to calculate spectral overlap (to be implemented later)
     def spec_overlap(self):
-        return 1 # 
-        
+        return 1 
+
     # calculates the probability with the equation
-    # k_12 = 2*pi/hbar * (1/(4*pi*epsilon_0)^2) * Qd * 
+    # k_12 = 2*pi/hbar * (1/(4*pi*epsilon_0)^2) * Qd *
     #           spec_overlap * J_coul^2
     # see https://pubs.acs.org/doi/full/10.1021/acs.jpcc.1c07929
-    def transition_prob(self, site1, site2, system, Qd = 1):      
+    def transition_prob(self, site1, site2, system, Qd = 1):
         pi = np.pi
         hbar = constants.hbar
         # Qd = 1 # For most cases Qd = 1

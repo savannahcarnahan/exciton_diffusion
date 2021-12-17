@@ -7,11 +7,9 @@ This file defines the System class.
 from abc import ABC, abstractmethod
 import numpy as np
 import random
-import site
-import pythag
-import random
-import prob_rule
 # import graphical_out # remember to reconfigure this
+
+
 class System(ABC):
     """
     The abstract system class for defining a system of particles.
@@ -43,8 +41,6 @@ class System(ABC):
         # List of site positions, required for optimizing get_neighbors
         # remember to move this out of graphical_out
         self.site_list_pos = self.process_sites()
-
-
 
         # List of excited sites POSITIONS,
         self.exc_list = []
@@ -111,8 +107,6 @@ class System(ABC):
         print("Error: Excited site not found")
         return
 
-
-
     def excite(self):
         """
         Excites one randomly chosen site in the system
@@ -120,7 +114,6 @@ class System(ABC):
         rand = int(len(self.site_list) * random.random())
         self.site_list[rand].excited = True
         self.exc_list.append(self.site_list[rand])
-        
 
     def next_site(self, curr_site):
         """
@@ -173,7 +166,7 @@ class System(ABC):
             neighbors.append(self.site_list[i])
 
         return neighbors
-    
+
     # Optimized
     def get_neighbors(self,curr_site):
         # """
@@ -198,7 +191,7 @@ class System(ABC):
 
         return self.return_neighbors(idx)
 
-   
+
     # Turns a list of sites into a nice numpy array of shape (len(site_list), 3) for processing
     # Params: 
     #           site_list        : a list of sites

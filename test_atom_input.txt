@@ -1,7 +1,0 @@
-crystal 3 marcus kmc 0 10
-
-atom He 1 0 0
-atom He 0 1 0
-atom He 0 0 1
-atom He 0 0 4
-atom He 0 0 3

@@ -97,7 +97,7 @@ def process_sites(site_list):
     arr = np.zeros([len(site_list),3])
 
     for i in range(0,len(site_list)):
-        arr[i,:] = site_list[i].position
+        arr[i,:] = site_list[i].get_position()
 
     return arr
 

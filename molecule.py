@@ -37,7 +37,7 @@ class Molecule(site.Site):
 
     def excite(self):
         "Assign this molecule to be excited."
-       self.excited = True
+        self.excited = True
 
     def transition_probability():
         "Calculate the probability of transition."

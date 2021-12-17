@@ -1,5 +1,4 @@
 import sys
-import os
 import input.com_line as i
 import exc_diff.single as s
 import output.csv as c

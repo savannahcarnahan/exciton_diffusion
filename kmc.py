@@ -6,6 +6,8 @@ KMC model
 import model
 import numpy as np
 import random
+
+
 class KMC(model.Model):
     """
     The KMC class implements a model.
@@ -14,7 +16,7 @@ class KMC(model.Model):
         self.generator = np.random.default_rng()
         pass
 
-    def time_dist(self,site1, site2, system):
+    def time_dist(self, site1, site2, system):
         """
         Calculates the time distribution.
 
@@ -25,25 +27,24 @@ class KMC(model.Model):
         # according to couple * exp(-t * couple)
         return np.random.Generator.exponential(self.generator, 1/couple, 1)[0]
 
-
     def time_step(self, excited_site, system):     
         """
         Advance the model by a time step. This method works for one excited site, but
         should be changed if system considers more than one excited site (specifically
         the time step advancement)
-        """   
+        """
         transfer_site = system.next_site(excited_site)
         # print(transfer_site.excited)
         if transfer_site is not None:
             dt = self.time_dist(transfer_site, excited_site, system)
             system.transfer_charge(excited_site, transfer_site)
-            # print(transfer_site.excited)        
+            # print(transfer_site.excited)
             return dt
         return None
 
     def select_site(self, site_list, rate_list):
         """
-        selects the site based on summing the rates in rate_list and 
+        selects the site based on summing the rates in rate_list and
         choosing a random number between 0 and the sum
         Site is chosen based on where in the range it falls
         If between 0 and k1, return site1, between k1 and k1+k2
@@ -58,7 +59,7 @@ class KMC(model.Model):
         for rate in rate_list:
             rate_ranges.append(last)
             last += rate
-        
+
         rand = last * random.random()
         i = len(rate_ranges)-1
 
@@ -69,5 +70,3 @@ class KMC(model.Model):
             i -= 1
 
         return None
-
-

@@ -13,4 +13,3 @@ class Static(system.System):
     def __init__(self, rate, model, site_list, dimen, T = 298):
         assert isinstance(T, int) or isinstance (T, float)
         super().__init__(rate, model, site_list, dimen,  T)
-

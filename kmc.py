@@ -27,7 +27,7 @@ class KMC(model.Model):
         # according to couple * exp(-t * couple)
         return np.random.Generator.exponential(self.generator, 1/couple, 1)[0]
 
-    def time_step(self, excited_site, system):     
+    def time_step(self, excited_site, system): 
         """
         Advance the model by a time step. This method works for one excited site, but
         should be changed if system considers more than one excited site (specifically

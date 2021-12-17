@@ -24,7 +24,7 @@ class FRET(p.ProbRule):
         # Assuming dipole1, dipole2 and R are numpy arrays
         # dipole1: transition dipole of a site1
         # R: distance vector between site1 and site2
-        epsilon = 8.854e-12 # Unit Fm-1 
+        epsilon = 8.854e-12  # Unit Fm-1 
         dipole1 = getattr(site1, 'dipole')
         dipole2 = getattr(site2, 'dipole')
         R = site1.get_position() - site2.get_position()

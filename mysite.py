@@ -1,5 +1,5 @@
 """
-Site 
+Site
 ================
 
 The abstract definition of a site.
@@ -19,9 +19,7 @@ class Site(ABC):
         """
         self.position = coords
 
-
     @abstractmethod
     def get_position(self):
         "Get the position of this site."
         return self.position
-    

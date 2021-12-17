@@ -24,18 +24,17 @@ class PointParticle(atom.Atom):
         # should be replaced later maybe?
         # tells function how far away neighbors can be
         self.reach = reach
-    
+
     def __str__(self):
         """
         Stringify the Point Particle's position, to print it as a list.
         """
         print(self.position)
         return str(self.position)
-  
+ 
     def get_position(self):
         """
         Get the position of the particle.
         :return: the position of the particle.
         """
         return self.position
-

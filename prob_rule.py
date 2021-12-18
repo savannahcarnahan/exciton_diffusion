@@ -5,15 +5,17 @@ Probability Rule
 """
 from abc import ABC, abstractmethod
 import site
+
+
 class ProbRule(ABC):
     """
     The abstract class for defining transition probabilities between two sites.
-    
+
     """
     @abstractmethod
     def __init__(self):
         pass
-    
+
     def transition_prob(self, site1, site2):
         """
         The abstract method for calculating the transition probability given two sites.

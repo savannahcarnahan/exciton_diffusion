@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as ani
 from mpl_toolkits.mplot3d import Axes3D
 import sys
-import inputprocessor
+import input.inputprocessor as inputprocessor
 
 #---------------------------------------------------------------------------------------------------
 # Global Parameters
@@ -97,7 +97,7 @@ def process_sites(site_list):
     arr = np.zeros([len(site_list),3])
 
     for i in range(0,len(site_list)):
-        arr[i,:] = site_list[i].position
+        arr[i,:] = site_list[i].get_position()
 
     return arr
 

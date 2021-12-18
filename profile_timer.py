@@ -18,7 +18,6 @@ limits = [0, int(np.sqrt(n_particles))]
 def import_test_params(filename):
     with open(filename, 'rb') as handle:
         [system_type, model_type, rate, site_type, site_coord] = pickle.load(handle)
-    
     return system_type, model_type, rate, site_type, site_coord
 
 def save_test_params(filename, vars_arr):
@@ -34,8 +33,9 @@ def generate_test_params():
     rate = gen.get_rate()
     # rate = "marcus"
     site_type = gen.get_site()
-    site_coord = gen.generate_coordinates(n_particles, x_limits = limits, y_limits  = limits, z_limits  = limits)
+    site_coord = gen.generate_coordinates(n_particles, x_limits = limits, y_limits = limits, z_limits = limits)
     return [system_type, model_type, rate, site_type, site_coord]
+
 
 # Run to generate Test Data
 def generate_datafile():

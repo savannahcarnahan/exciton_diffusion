@@ -4,11 +4,12 @@ Probability Rule factory
 
 The class factory for the probability rule class 
 """
-import prob_rule
 import arrhenius
 import marcus
 import uniform
 import fret
+
+
 def create(prob_rule_type):
     """
     Creates an object of a `prob_rule` class based on the given type.
@@ -19,11 +20,11 @@ def create(prob_rule_type):
         return arrhenius.Arrhenius()
     elif prob_rule_type.lower() == 'marcus':
         return marcus.Marcus()
+
     elif prob_rule_type.lower() == 'fret':
         return fret.FRET()
+
     elif prob_rule_type.lower() == 'uniform':
         return uniform.Uniform()
     else:
         raise ValueError(format)
-
-

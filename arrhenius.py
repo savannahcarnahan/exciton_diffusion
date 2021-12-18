@@ -7,7 +7,6 @@ The arrhenius method for calculating the translation probability between two sit
 import prob_rule as p
 import numpy as np
 from scipy import constants
-import system
 class Arrhenius(p.ProbRule):
     """
     The Arrhenius class calculates the translation probability, implements the ProbRule interface.

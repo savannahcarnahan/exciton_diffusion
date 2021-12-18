@@ -29,8 +29,11 @@ class ProbRule(ABC):
             raise ValueError("Invalid: input must be of type site")
 
     
-    @jit(nopython=False) # Setting nopython = True gives an error I cannot figure out
+    @jit(nopython=True) # Setting nopython = True gives an error I cannot figure out
     def hab_calculator(dipole1, dipole2, R):
+        # dipole1 = dipole1.astype(np.float)
+        # dipole2 = dipole2.astype(np.float)
+        # R = R.astype(np.float)
 
         epsilon = 8.854e-12 # Unit Fm-1 
         # converting all the vectors to unit vectors
@@ -53,8 +56,12 @@ class ProbRule(ABC):
         # dipole1: transition dipole of a site1
         # R: distance vector between site1 and site2
         
-        dipole1 = getattr(site1, 'dipole')
-        dipole2 = getattr(site2, 'dipole')
-        R = site1.get_position() - site2.get_position()
+        dipole1 = getattr(site1, 'dipole').astype(np.float)
+        dipole2 = getattr(site2, 'dipole').astype(np.float)
+        R = site1.get_position().astype(np.float) - site2.get_position().astype(np.float)
+
+        # print(dipole1)
+        # print(dipole2)
+        # print(R)
 
         return ProbRule.hab_calculator(dipole1, dipole2, R)

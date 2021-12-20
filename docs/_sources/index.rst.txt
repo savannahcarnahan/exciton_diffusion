@@ -53,6 +53,8 @@ Usage
    :maxdepth: 2
    :caption: Contents:
 
+   index
+
 Indices and tables
 ==================
 

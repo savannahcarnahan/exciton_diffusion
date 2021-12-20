@@ -21,7 +21,7 @@ def main():
     
     system, start_time, end_time = i.command_line(sys.argv[1:])
 
-    t_list, exc_list = ex.run(system, start_time, end_time, 10)
+    t_list, exc_list = ex.run(system, start_time, 10, 1)
 
     save_dir = os.getcwd()
     saveparams = [save_dir, "anim_1"]

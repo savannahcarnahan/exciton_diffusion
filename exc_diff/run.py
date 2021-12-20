@@ -17,8 +17,7 @@ def run(system, start_time, end_time, num_runs = 1, diff_calc = 'longest'):
     diff_dist = -1
     ret_t_list = None
     ret_exc_list = None
-    # note that if more than one excited site is present in the system,
-    # this code needs to be modified
+    
     if diff_calc == 'longest':
         for _ in range(num_runs):
             t_list, exc_list = single(my_sys, start_time, end_time)
@@ -27,10 +26,9 @@ def run(system, start_time, end_time, num_runs = 1, diff_calc = 'longest'):
                 diff_dist = this_dist
                 ret_exc_list = copy.deepcopy(exc_list)
                 ret_t_list = t_list.copy()
-                print('This is the return exc_list ', ret_exc_list)
+
             for site in my_sys.exc_list:
                 my_sys.unexcite(site)
-            print(ret_exc_list)
     elif diff_calc == 'average':
         for _ in range(num_runs):
             t_list, exc_list = single(my_sys, start_time, end_time)

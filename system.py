@@ -75,16 +75,8 @@ class System(ABC):
         return self.exc_list
 
     def transfer_charge(self, site_old, site_new):
-        # print("Exc_sites #: " + str(len(self.exc_list)))
-
-        # print(site_old.get_position())
-
-        # for site in self.exc_list:
-        #     print(site.get_position())
-
         self.de_excite_site(site_old)
         self.excite_site(site_new)
-        # print("Exc_sites : " + str(len(self.exc_list)))
         pass
 
     # Excite a site
@@ -96,15 +88,15 @@ class System(ABC):
     # De-excite a site
     def de_excite_site(self, site):
         for exc_site in self.exc_list:
-            # print(site.get_position() == exc_site.get_position())            
+                        
             if (site.get_position() == exc_site.get_position()).all():
                 # remove from exc_list
-                # print("Exc_sites : " + str(self.exc_list))
+                
                 self.exc_list.remove(exc_site)
-                # print("Exc_sites : " + str(self.exc_list))
+                
                 setattr(site, 'excited', False)
                 return
-        # print("Error: Excited site not found")
+        
         return
 
     def unexcite(self, site):
@@ -182,12 +174,8 @@ class System(ABC):
         # First check if this site has already been processed
         key = str(curr_site.get_position())
 
-        # print("key = " + str(key))
-        # print("dict = " + str(self.neighbors_dict))
-
         if key in self.neighbors_dict:
             idx = self.neighbors_dict[key]
-            # print("using dict")
         else:
             # Otherwise find neighbors and add to dict
             idx = self.process_neighbors(curr_site)

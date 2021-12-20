@@ -7,7 +7,6 @@ This propagates an exciton from start time to end time given a system
 
 import sys
 import os
-import pythag
 import cProfile
 def single(system, start_time, end_time):
 

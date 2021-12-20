@@ -6,7 +6,11 @@ Python 3.6-3.8 on Linux <br>
 Python 3.7-3.8 on Mac <br>
 To get other requirements, run <br>
 <code>
-  make
+  make init
+</code>
+To ensure the code is running properly run <br>
+<code>
+  make test
 </code>
 </p>
 
@@ -14,10 +18,9 @@ To get other requirements, run <br>
 <p>
 To run the code, run the command
 <code>
-python driver.py input.txt output.txt
+make input=&ltinput.txt&gt &ltOUTPUT&rt
 </code>
-where input.txt is input of the correct format (discussed below),</br>
-and output.txt is a file that will contain the output.<br>
+The options for &ltOUTPUT&rt are csv, graph, and animate.
 </p>
 
 ## Input File

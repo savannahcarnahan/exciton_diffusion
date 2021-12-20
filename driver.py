@@ -2,7 +2,9 @@
 Driver Module 
 ================
 
-The driver module is the entrypoint of the entire program.
+| The driver module contains code for lauching all the other functions
+| of the exciton diffusion simulation. It can be modified or customized
+| to extend functionality of the program.
 """
 
 import sys
@@ -15,7 +17,13 @@ import output.graphical_out as graphical_out
 def main():
 
     """
-    The main entry point reads in input/output filenames.
+    | The **main()** module is the entry point for the program.
+    | It organizes and coordinates the execution of the other modules:
+    | - Reads in command line arguments and sends to the arg parser.
+    | - Launches a simulation, currently for a single point, through
+    |   the call to **exc_diff.single()**. This is currently a single point
+    |   simulation and will be extended later for multiple particles.
+    | - Sets the save path and feeds simulation results to an output module.
     """
     
     system, start_time, end_time = i.command_line(sys.argv[1:])

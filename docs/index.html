@@ -35,10 +35,10 @@
   <section id="welcome-to-exciton-diffusion-s-documentation">
 <h1>Welcome to exciton diffusion’s documentation!<a class="headerlink" href="#welcome-to-exciton-diffusion-s-documentation" title="Permalink to this headline">¶</a></h1>
 <a class="reference internal image-reference" href="_images/Sample_Image1.png"><img alt="_images/Sample_Image1.png" src="_images/Sample_Image1.png" style="width: 700px;" /></a>
-<p><strong>Exciton Diffusion</strong> is a flexible open source Python tool for the simulation and examination of <a class="reference external" href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-973-organic-optoelectronics-spring-2003/lecture-notes/8.pdf">exciton diffusion</a> in a variety of materials. The tool support materials in the hopping regime and has the flexibility to extend to  more  complicated equations that describe the intermediate regime. The project includes simulations for point particles and can be expanded to include more physical systems, such as atoms in a crystal lattice. The project lives on GitHub at  <a class="reference external" href="https://github.com/savannahcarnahan/exciton_diffusion/">Exciton Diffusion</a> and offers a <em>simple</em> and
+<p><strong>Exciton Diffusion</strong> is a flexible open source Python tool for the simulation and examination of <a class="reference external" href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-973-organic-optoelectronics-spring-2003/lecture-notes/8.pdf">exciton diffusion</a> in a variety of materials. The tool supports materials in the hopping regime and has the flexibility to extend to more complicated equations that describe the intermediate regime. The project includes simulations for point particles and can be expanded to include more physical systems, such as atoms in a crystal lattice. The project lives on GitHub at <a class="reference external" href="https://github.com/savannahcarnahan/exciton_diffusion/">Exciton Diffusion</a> and offers a <em>simple</em> and
 <em>intuitive</em> API for usage and extension.</p>
-<section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<section id="module-usage">
+<h2>Module Usage<a class="headerlink" href="#module-usage" title="Permalink to this headline">¶</a></h2>
 <dl>
 <dt><strong>Requirements:</strong></dt><dd><ul class="simple">
 <li><p>Python 3.6-3.8 on Linux.</p></li>
@@ -50,16 +50,20 @@
 </div>
 </dd>
 <dt><strong>Running the Code</strong></dt><dd><div class="line-block">
-<div class="line">To run the code, run the command:</div>
+<div class="line">To run the code, enter the command:</div>
 <div class="line"><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">driver.py</span> <span class="pre">input.txt</span> <span class="pre">output.txt</span></code></div>
 </div>
-<p>where input.txt is formatted as described below, and output.txt is a file that will contain the output.</p>
+<p>where <strong>input.txt</strong> is formatted as described below, and <strong>output.txt</strong> is a file that will contain the output.</p>
 </dd>
-<dt><strong>Input File</strong></dt><dd><p>The input file should consist of a first line of conditions, followed by a list of sites.
-Conditions line should be of format:</p>
-<p><code class="docutils literal notranslate"><span class="pre">&amp;ltsystemtype&amp;gt</span> <span class="pre">&amp;ltdimension&amp;gt</span> <span class="pre">&amp;ltratetype&amp;gt</span> <span class="pre">&amp;ltmodeltype&amp;gt</span> <span class="pre">&amp;ltstarttime&amp;gt</span> <span class="pre">&amp;ltendtime&amp;gt</span></code></p>
-<p>Sites are of format:</p>
-<p><code class="docutils literal notranslate"><span class="pre">&amp;ltsitetype&amp;gt</span> <span class="pre">&amp;ltspecifications&amp;gt</span> <span class="pre">coord1</span> <span class="pre">coord2</span> <span class="pre">coord3</span></code></p>
+<dt><strong>Input File</strong></dt><dd><div class="line-block">
+<div class="line">The input file should consist of a first line of conditions, followed by a list of sites.</div>
+<div class="line"><br /></div>
+<div class="line">Conditions line should be of format:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&amp;ltsystemtype&amp;gt</span> <span class="pre">&amp;ltdimension&amp;gt</span> <span class="pre">&amp;ltratetype&amp;gt</span> <span class="pre">&amp;ltmodeltype&amp;gt</span> <span class="pre">&amp;ltstarttime&amp;gt</span> <span class="pre">&amp;ltendtime&amp;gt</span></code></div>
+<div class="line"><br /></div>
+<div class="line">Sites are of format:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">&amp;ltsitetype&amp;gt</span> <span class="pre">&amp;ltspecifications&amp;gt</span> <span class="pre">coord1</span> <span class="pre">coord2</span> <span class="pre">coord3</span></code></div>
+</div>
 </dd>
 </dl>
 <p><strong>Options</strong></p>
@@ -71,30 +75,6 @@ Conditions line should be of format:</p>
 <p><em>start/endtime are in picoseconds</em></p>
 <p><em>sitetype</em>:  <code class="docutils literal notranslate"><span class="pre">pointparticle</span></code>,  <code class="docutils literal notranslate"><span class="pre">molecule</span></code></p>
 </div></blockquote>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Welcome to exciton diffusion’s documentation!</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#indices-and-tables">Indices and tables</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#driver-module">Driver Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dynamic-system">Dynamic system</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#model-factory">Model factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#model-class">Model class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#marcus-method">Marcus method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#molecule">Molecule</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#point-particle">Point Particle</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#probability-rule-factory">Probability Rule factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#probability-rule">Probability Rule</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#site-factory">Site Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#system-factory">System factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#system"><cite>System</cite></a></li>
-</ul>
-</li>
-</ul>
-</div>
 </section>
 </section>
 <section id="indices-and-tables">
@@ -106,11 +86,25 @@ Conditions line should be of format:</p>
 </ul>
 <span class="target" id="module-driver"></span><section id="driver-module">
 <h2>Driver Module<a class="headerlink" href="#driver-module" title="Permalink to this headline">¶</a></h2>
-<p>The driver module is the entrypoint of the entire program.</p>
+<div class="line-block">
+<div class="line">The driver module contains code for lauching all the other functions</div>
+<div class="line">of the exciton diffusion simulation. It can be modified or customized</div>
+<div class="line">to extend functionality of the program.</div>
+</div>
 <dl class="py function">
 <dt class="sig sig-object py" id="driver.main">
 <span class="sig-prename descclassname"><span class="pre">driver.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#driver.main" title="Permalink to this definition">¶</a></dt>
-<dd><p>The main entry point reads in input/output filenames.</p>
+<dd><div class="line-block">
+<div class="line">The <strong>main()</strong> module is the entry point for the program.</div>
+<div class="line">It organizes and coordinates the execution of the other modules:</div>
+<div class="line">- Reads in command line arguments and sends to the arg parser</div>
+<div class="line">- Launches a simulation, currently for a single point, through</div>
+<div class="line-block">
+<div class="line">the call to <strong>exc_diff.single()</strong>. This is currently a single</div>
+<div class="line">point simulation and will be extended later for multiple particles</div>
+</div>
+<div class="line">- Sets the save path and feeds simulation results to an output module</div>
+</div>
 </dd></dl>
 
 </section>
@@ -861,6 +855,30 @@ def my_abstract_method(self, …):</p>
 </dd></dl>
 
 </section>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Welcome to exciton diffusion’s documentation!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-usage">Module Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#indices-and-tables">Indices and tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#driver-module">Driver Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-system">Dynamic system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-factory">Model factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-class">Model class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marcus-method">Marcus method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#molecule">Molecule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#point-particle">Point Particle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#probability-rule-factory">Probability Rule factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#probability-rule">Probability Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#site-factory">Site Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-factory">System factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system"><cite>System</cite></a></li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 
 
@@ -883,7 +901,7 @@ def my_abstract_method(self, …):</p>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Welcome to exciton diffusion’s documentation!</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-usage">Module Usage</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#indices-and-tables">Indices and tables</a><ul>

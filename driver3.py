@@ -1,11 +1,12 @@
 import sys
 import input.com_line as i
-import exc_diff.single as s
+import exc_diff.run as s
 import output.mycsv as c
+
 
 system, start_time, end_time = i.command_line(sys.argv[1:])
 
-t_list, exc_list = s.single(system, start_time, end_time)
+t_list, exc_list = s.run(system, start_time, end_time, 5, 'longest')
 
 c.write_csv(t_list, exc_list, 'out')
 

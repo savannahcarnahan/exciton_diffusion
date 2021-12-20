@@ -3,6 +3,7 @@ import mysite as site
 from matplotlib import pyplot as plt
 import output.get_diffusion as d
 
+
 # def graph(t_list, exc_list):
 #     fig, ax = plt.subplots( nrows=1, ncols=1 )
 #     diff_dist = d.get_diffusion(exc_list)

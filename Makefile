@@ -12,8 +12,14 @@ test:
 check: test 
 	@$(FLAKE8)
 
-run: 
-	python driver.py
+animation:
+	python -m driver $(input)
+
+graph:
+	python -m driver2 $(input)
+
+csv:
+	python -m driver3 $(input)
 
 clean:
 	@rm -rf .cache

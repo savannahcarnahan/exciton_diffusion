@@ -104,8 +104,12 @@ class System(ABC):
                 # print("Exc_sites : " + str(self.exc_list))
                 setattr(site, 'excited', False)
                 return
-        print("Error: Excited site not found")
+        # print("Error: Excited site not found")
         return
+
+    def unexcite(self, site):
+        self.exc_list.remove(site)
+        site.unexcite()
 
     def excite(self):
         """

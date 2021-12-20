@@ -9,46 +9,44 @@ Welcome to exciton diffusion's documentation!
 
 Usage
 ------------------
-**Requirements**
-Python 3.6-3.8 on Linux
-Python 3.7-3.8 on Mac
-To get other requirements, run:
-
-``make``
+**Requirements:**
+   * Python 3.6-3.8 on Linux.
+   * Python 3.7-3.8 on Mac. 
+   | To get other requirements, run:
+   | ``make``
 
 
 **Running the Code**
-To run the code, run the command
+   | To run the code, run the command:
+   | ``python driver.py input.txt output.txt``
 
-``python driver.py input.txt output.txt``
-
-where input.txt is formatted as described below, and output.txt is a file that will contain the output.
+   where input.txt is formatted as described below, and output.txt is a file that will contain the output.
 
 
 **Input File**
-should consist of a first line of conditions, followed by a list of sites.
-Conditions line should be of format:
+   The input file should consist of a first line of conditions, followed by a list of sites.
+   Conditions line should be of format:
 
-``&ltsystemtype&gt  &ltdimension&gt &ltratetype&gt &ltmodeltype&gt &ltstarttime&gt &ltendtime&gt``
+   ``&ltsystemtype&gt &ltdimension&gt &ltratetype&gt &ltmodeltype&gt &ltstarttime&gt &ltendtime&gt``
 
-Sites are of format:
+   Sites are of format:
 
-``&ltsitetype&gt &ltspecifications&gt coord1 coord2 coord3``
+   ``&ltsitetype&gt &ltspecifications&gt coord1 coord2 coord3``
 
 
 **Options**
 
-*systemtype*  ``crystal``
+   *systemtype*:  ``crystal``
 
-*dimension*  ``1``,  ``2``,  ``3``
+   *dimension*:  ``1``,  ``2``,  ``3``
 
-*ratetype* ``marcus``, ``arrhenius``
+   *ratetype*: ``marcus``, ``arrhenius``
 
-*modeltype*  ``kmc``
+   *modeltype*:  ``kmc``
 
-*start/endtime are in picoseconds*
+   *start/endtime are in picoseconds*
 
-*sitetype*  ``pointparticle``,  ``molecule``
+   *sitetype*:  ``pointparticle``,  ``molecule``
 
 
 .. toctree::

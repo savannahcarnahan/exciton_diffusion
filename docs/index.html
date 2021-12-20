@@ -38,28 +38,38 @@
 <em>intuitive</em> API for usage and extension.</p>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p><strong>Requirements</strong>
-Python 3.6-3.8 on Linux
-Python 3.7-3.8 on Mac
-To get other requirements, run:</p>
-<p><code class="docutils literal notranslate"><span class="pre">make</span></code></p>
-<p><strong>Running the Code</strong>
-To run the code, run the command</p>
-<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">driver.py</span> <span class="pre">input.txt</span> <span class="pre">output.txt</span></code></p>
+<dl>
+<dt><strong>Requirements:</strong></dt><dd><ul class="simple">
+<li><p>Python 3.6-3.8 on Linux.</p></li>
+<li><p>Python 3.7-3.8 on Mac.</p></li>
+</ul>
+<div class="line-block">
+<div class="line">To get other requirements, run:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">make</span></code></div>
+</div>
+</dd>
+<dt><strong>Running the Code</strong></dt><dd><div class="line-block">
+<div class="line">To run the code, run the command:</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">driver.py</span> <span class="pre">input.txt</span> <span class="pre">output.txt</span></code></div>
+</div>
 <p>where input.txt is formatted as described below, and output.txt is a file that will contain the output.</p>
-<p><strong>Input File</strong>
-should consist of a first line of conditions, followed by a list of sites.
+</dd>
+<dt><strong>Input File</strong></dt><dd><p>The input file should consist of a first line of conditions, followed by a list of sites.
 Conditions line should be of format:</p>
-<p><code class="docutils literal notranslate"><span class="pre">&amp;ltsystemtype&amp;gt</span>&#160; <span class="pre">&amp;ltdimension&amp;gt</span> <span class="pre">&amp;ltratetype&amp;gt</span> <span class="pre">&amp;ltmodeltype&amp;gt</span> <span class="pre">&amp;ltstarttime&amp;gt</span> <span class="pre">&amp;ltendtime&amp;gt</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;ltsystemtype&amp;gt</span> <span class="pre">&amp;ltdimension&amp;gt</span> <span class="pre">&amp;ltratetype&amp;gt</span> <span class="pre">&amp;ltmodeltype&amp;gt</span> <span class="pre">&amp;ltstarttime&amp;gt</span> <span class="pre">&amp;ltendtime&amp;gt</span></code></p>
 <p>Sites are of format:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;ltsitetype&amp;gt</span> <span class="pre">&amp;ltspecifications&amp;gt</span> <span class="pre">coord1</span> <span class="pre">coord2</span> <span class="pre">coord3</span></code></p>
+</dd>
+</dl>
 <p><strong>Options</strong></p>
-<p><em>systemtype</em>  <code class="docutils literal notranslate"><span class="pre">crystal</span></code></p>
-<p><em>dimension</em>  <code class="docutils literal notranslate"><span class="pre">1</span></code>,  <code class="docutils literal notranslate"><span class="pre">2</span></code>,  <code class="docutils literal notranslate"><span class="pre">3</span></code></p>
-<p><em>ratetype</em> <code class="docutils literal notranslate"><span class="pre">marcus</span></code>, <code class="docutils literal notranslate"><span class="pre">arrhenius</span></code></p>
-<p><em>modeltype</em>  <code class="docutils literal notranslate"><span class="pre">kmc</span></code></p>
+<blockquote>
+<div><p><em>systemtype</em>:  <code class="docutils literal notranslate"><span class="pre">crystal</span></code></p>
+<p><em>dimension</em>:  <code class="docutils literal notranslate"><span class="pre">1</span></code>,  <code class="docutils literal notranslate"><span class="pre">2</span></code>,  <code class="docutils literal notranslate"><span class="pre">3</span></code></p>
+<p><em>ratetype</em>: <code class="docutils literal notranslate"><span class="pre">marcus</span></code>, <code class="docutils literal notranslate"><span class="pre">arrhenius</span></code></p>
+<p><em>modeltype</em>:  <code class="docutils literal notranslate"><span class="pre">kmc</span></code></p>
 <p><em>start/endtime are in picoseconds</em></p>
-<p><em>sitetype</em>  <code class="docutils literal notranslate"><span class="pre">pointparticle</span></code>,  <code class="docutils literal notranslate"><span class="pre">molecule</span></code></p>
+<p><em>sitetype</em>:  <code class="docutils literal notranslate"><span class="pre">pointparticle</span></code>,  <code class="docutils literal notranslate"><span class="pre">molecule</span></code></p>
+</div></blockquote>
 <div class="toctree-wrapper compound">
 </div>
 </section>

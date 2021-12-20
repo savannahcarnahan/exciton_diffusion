@@ -69,13 +69,23 @@ High-level Modules
 |
 
 Input/Output Modules
-==================
-
+====================
 .. automodule:: inputprocessor
+   :members:
+
+.. automodule:: com_line
+   :members:
+
+.. automodule:: interactive
+   :members:
+
+.. automodule:: xyz_inp
    :members:
 
 .. automodule:: graphical_out
    :members:
+
+
 |
 |
 

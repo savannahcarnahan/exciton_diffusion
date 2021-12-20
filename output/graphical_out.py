@@ -132,9 +132,9 @@ def find_site(site_list, site):
 #
 # Returns: True, for now
 # 
-def plot_sites(site_list, color = COLORS[0], alpha = 1):
+def plot_sites(site_list, exc_list = None, color = COLORS[0], alpha = 1):
     if not (isinstance(site_list, list)) or (site_list is None):
-        raise ValueError("Site List must be a non-empty array")  
+        raise ValueError("Site List must be a non-empty array")
     
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
@@ -143,9 +143,14 @@ def plot_sites(site_list, color = COLORS[0], alpha = 1):
     sites_nice = process_sites(site_list)
     ax.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], c = color, alpha = alpha)
 
+    if exc_list is not None:
+        sites_nice = process_sites(exc_list)
+        ax.scatter(sites_nice[:,0], sites_nice[:,1], sites_nice[:,2], c = COLORS[3], alpha = alpha)
+
     plt.show()
 
     return True
+
 
 # Excited Sites Animation
 # Params: 
@@ -242,26 +247,15 @@ def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, 
 
 # Main function just runs a bunch of tests
 def main():
+    import exc_diff.single as ex
+
     in_file = sys.argv[1]
 
     system_type, site_list, dimen, rate, model_type, start_time, end_time = inputprocessor.process_input(in_file)
 
-    site_list_nice = process_sites(site_list)
-    
-    print("site_list_nice: \n" + str(site_list_nice))
+    t_list, exc_list = ex.single(system_type, start_time, end_time)
 
-    # exc_list = [site_list_nice[0], site_list_nice[1], site_list_nice[2]]
 
-    exc_list = site_list
-
-    # print(exc_list)
-
-    for site in exc_list:
-        print(find_site(site_list_nice, site.position))
-
-    # plot_sites(site_list, color = COLORS[3])
-
-    # animate_scatter(site_list)
 
     # animate_3D(site_list, np.ones(3000), [], save_params = None)
 

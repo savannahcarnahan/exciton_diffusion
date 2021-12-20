@@ -79,7 +79,13 @@ Indices and tables
 .. automodule:: model
    :members:
 
+.. automodule:: arrhenius
+   :members:
+
 .. automodule:: marcus
+   :members:
+
+.. automodule:: fret
    :members:
 
 .. automodule:: molecule

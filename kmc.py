@@ -34,11 +34,9 @@ class KMC(model.Model):
         the time step advancement)
         """
         transfer_site = system.next_site(excited_site)
-        print(transfer_site)
         if transfer_site is not None:
             dt = self.time_dist(transfer_site, excited_site, system)
             system.transfer_charge(excited_site, transfer_site)
-            # print(transfer_site.excited)
             return dt
         return None
 

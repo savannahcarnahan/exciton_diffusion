@@ -34,8 +34,6 @@ def main():
     save_dir = os.getcwd()
     saveparams = [save_dir, "anim_1"]
 
-    # csv.write_csv(t_list, exc_list, name ="kipp_bug")
-
     # graph.graph(t_list, exc_list)
 
     # graphical_out.plot_diff_dist(system.site_list[0], t_list, exc_list)

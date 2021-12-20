@@ -30,7 +30,6 @@ class PointParticle(atom.Atom):
         """
         Stringify the Point Particle's position, to print it as a list.
         """
-        print(self.position)
         return str(self.position)
  
     def get_position(self):

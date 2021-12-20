@@ -48,68 +48,111 @@ Module Usage
    *start/endtime are in picoseconds*
 
    *sitetype*:  ``pointparticle``,  ``molecule``
+|
+|
 
 
-
-Indices and tables
+High-level Modules
 ==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-
 .. automodule:: driver
    :members:
 
-.. automodule:: dynamic
+.. automodule:: driver2
    :members:
 
-.. automodule:: graphical_out
+.. automodule:: driver3
    :members:
+
+.. automodule:: single
+   :members:
+|
+|
+
+Input/Output Modules
+==================
 
 .. automodule:: inputprocessor
    :members:
 
+.. automodule:: graphical_out
+   :members:
+|
+|
+
+Model Modules
+=========================
 .. automodule:: model_factory
    :members:
 
 .. automodule:: model
    :members:
 
-.. automodule:: arrhenius
+.. automodule:: kmc
    :members:
+|
+|
 
-.. automodule:: marcus
-   :members:
-
-.. automodule:: fret
-   :members:
-
-.. automodule:: molecule
-   :members:
-
-.. automodule:: pointparticle
-   :members:
-
+Probabilistic Rule Modules
+=========================
 .. automodule:: prob_rule_factory
    :members:
 
 .. automodule:: prob_rule
    :members:
 
-.. automodule:: site_factory
+.. automodule:: arrhenius
    :members:
 
+.. automodule:: fret
+   :members:
+
+.. automodule:: marcus
+   :members:
+
+.. automodule:: uniform
+   :members:
+|
+|
+
+System Modules
+==================
 .. automodule:: system_factory
    :members:
 
 .. automodule:: system
    :members:
 
-.. automodule:: single
+.. automodule:: dynamic
    :members:
 
+.. automodule:: static
+   :members:
+|
+|
+
+Site Modules
+==================
+.. automodule:: site_factory
+   :members:
+
+.. automodule:: my_site
+   :members:
+
+.. automodule:: atom
+   :members:
+
+.. automodule:: molecule
+   :members:
+
+.. automodule:: crystal
+   :members:
+
+.. automodule:: pointparticle
+   :members:
+
+|
+|
+|
 
 .. toctree::
    :maxdepth: 2

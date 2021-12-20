@@ -51,7 +51,7 @@ autodoc_default_options = {
     'special-members': '__init__',
     'undoc-members': True,
     'private-members': True,
-    'exclude-members': 'plt,Axes3D'
+    'exclude-members': 'plt,Axes3D,jit,_abc_impl'
 }
 
 # Add any paths that contain templates here, relative to this directory.

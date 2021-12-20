@@ -12,13 +12,13 @@ from scipy import constants
 # import hab
 class Marcus(p.ProbRule):
     """
-    The Marcus class calculates the transition probability, implementing the ProbRule interface.
+    The Marcus class calculates the transition probability, implementing the `ProbRule` interface.
     
-    Global constants for marcus rate equation
-    - :math:`\\overline{h}` = 1.0545e-34
-    - :math:`kb` = 1.380e-23
-    - :math:`T` = 293
+    Constants used in marcus rate equation:
 
+    - :math:`\\overline{h}` = 1.0545e-34
+    - :math:`k_B` = 1.380e-23
+    - :math:`T` = 293
     """
     
     # Global constants for marcus rate equation
@@ -39,13 +39,14 @@ class Marcus(p.ProbRule):
         """
         Calculate the transition probability between two sites using the marcus method.
 
-        The probability is calcualted using the equation k_ab = (2*np.pi/self.hbar)*(np.sqrt(1/(4*np.pi*self.kb*self.T*Lambda))*(Hab**2)*np.exp(-(Lambda/4*self.kb*self.T)))
+        The probability is calcualted using the equation :math:`k_{ab}=(2\\pi/\\overline{h})\\cdot \\left| H_{ab} \\right| ^2  \\cdot (\\sqrt{\\frac{1}{4\\pi k_B T \\lambda}} \\cdot e^{-\\lambda k_B T/4})`, 
+        where :math:`H_{ab}` is the coupling between the two sites.
 
         :param site1: The first site containing the dipole
         :param site2: The second site containing the dipole
         :param system: The system these particles are in
 
-        :return: $K_{ab}$
+        :return: :math:`k_{ab}`
         """
         pi = np.pi
         T = system.T

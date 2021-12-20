@@ -21,7 +21,8 @@ def run(system, start_time, end_time, num_runs = 1, diff_calc = 'longest'):
     if diff_calc == 'longest':
         for _ in range(num_runs):
             t_list, exc_list = single(my_sys, start_time, end_time)
-            this_dist = get_diffusion(exc_list)[0]
+            this_dist = get_diffusion(exc_list)[-1]
+
             if this_dist >= diff_dist:
                 diff_dist = this_dist
                 ret_exc_list = copy.deepcopy(exc_list)
@@ -32,7 +33,7 @@ def run(system, start_time, end_time, num_runs = 1, diff_calc = 'longest'):
     elif diff_calc == 'average':
         for _ in range(num_runs):
             t_list, exc_list = single(my_sys, start_time, end_time)
-            this_dist = get_diffusion(exc_list[len(exc_list)-1])[0]
+            this_dist = get_diffusion(exc_list[len(exc_list)-1])[-1]
             diff_dist += 1/num_runs * this_dist
             my_sys.de_excite_site(exc_list[len(exc_list)-1][0])
             ret_t_list = t_list.copy()

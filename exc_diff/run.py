@@ -21,7 +21,7 @@ def run(system, start_time, end_time, num_runs = 1, diff_calc = 'longest'):
     if diff_calc == 'longest':
         for _ in range(num_runs):
             t_list, exc_list = single(my_sys, start_time, end_time)
-            this_dist = get_diffusion(exc_list[len(exc_list)-1])[0]
+            this_dist = get_diffusion(exc_list)[0]
             if this_dist >= diff_dist:
                 diff_dist = this_dist
                 ret_exc_list = exc_list
@@ -40,5 +40,5 @@ def run(system, start_time, end_time, num_runs = 1, diff_calc = 'longest'):
             for site in my_sys.exc_list:
                 my_sys.unexcite(site)
     print('The diffusion distance for this material is', diff_dist)
-    return ret_t_list, ret_exc_list[0]
+    return ret_t_list, ret_exc_list
 

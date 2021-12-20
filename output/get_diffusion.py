@@ -4,9 +4,9 @@ import mysite as site
 def get_diffusion(exc_list):
     diff_dist = []
     diff_dist.append(0)
-    start_site = exc_list[0]
+    start_site = exc_list
     print(start_site)
-    pos1 = start_site.get_position()
+    pos1 = start_site[0][0].get_position()
     i = 1
     while i<len(exc_list):
         for exc_site in exc_list[i]:

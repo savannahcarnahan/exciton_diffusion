@@ -35,8 +35,8 @@ def single(system, start_time, end_time):
 
         exc_site = my_sys.get_excited_sites()
         # print(exc_site.get_position())
-        print(exc_site[0])
-        exc_list.append(exc_site[0])
+        # print(exc_site[0])
+        exc_list.append([exc_site[0]])
         # print('Site at beginning of time step is ', exc_site)
         # if t == start_time:
             # start_pos = exc_site[0].get_position()

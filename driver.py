@@ -25,6 +25,8 @@ def main():
     save_dir = os.getcwd()
     saveparams = [save_dir, "anim_1"]
 
+    graphical_out.plot_diff_dist(system.site_list[0], t_list, exc_list)
+
     graphical_out.animate_3D(system.site_list, t_list, exc_list, interval = 500, padding = 0, save_params = saveparams) 
     # This one saves to current working directory
     # graphical_out.animate_3D(system.site_list, t_list, exc_list, interval = 100, save_params = None)

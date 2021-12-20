@@ -1,5 +1,5 @@
 """
-`System`
+System
 ==============
 
 This file defines the System class.

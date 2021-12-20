@@ -1,8 +1,8 @@
 """
 Molecule
 ================
-
-The molecule class implements a site
+| The molecule class creates a site which can then be added to a site list
+| for simulation
 """
 import mysite as site
 import ase

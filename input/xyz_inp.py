@@ -1,9 +1,15 @@
-# preprocessing file to convert publised crystal format (.xyz) to dezired input
+"""
+XYZ input
+=====================
+
+| Preprocessing file to convert publised crystal format (.xyz) to dezired input
+|
+
+"""
 
 import sys
 import re
 import numpy as np
-
 
 no_of_atoms = int(sys.argv[1]) # Number of atoms in the molecule
 out_type = sys.argv[2] # output file name

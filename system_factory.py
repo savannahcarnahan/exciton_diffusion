@@ -1,5 +1,5 @@
 """
-System factory
+System Factory
 ================
 
 The class factory for the system class 

@@ -1,3 +1,13 @@
+"""
+Get Diffusion
+=====================
+
+| This generates a list of diffusion distances
+|
+
+"""
+
+
 import numpy as np
 import mysite as site
 import output.graphical_out as out

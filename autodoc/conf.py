@@ -15,6 +15,9 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(1, os.path.abspath('../exc_diff'))
+sys.path.insert(2, os.path.abspath('../input'))
+sys.path.insert(3, os.path.abspath('../output'))
 
 
 # -- Project information -----------------------------------------------------
@@ -51,7 +54,7 @@ autodoc_default_options = {
     'special-members': '__init__',
     'undoc-members': True,
     'private-members': True,
-    'exclude-members': 'plt,Axes3D'
+    'exclude-members': 'plt,Axes3D,jit,_abc_impl'
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -109,7 +112,8 @@ html_static_path = ['.static']
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
-
+# Playing around with other sidebar setups
+# html_sidebars = { '**': ['localtoc.html', 'relations.html', 'searchbox.html'] }
 
 # -- Options for HTMLHelp output ---------------------------------------------
 

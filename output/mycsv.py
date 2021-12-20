@@ -1,3 +1,12 @@
+"""
+My CSV
+=====================
+
+| Writes the output of a simulation to a CSV file
+|
+
+"""
+
 import csv
 import output.get_diffusion as d
 def write_csv(t_list, exc_list, name = 'out'):

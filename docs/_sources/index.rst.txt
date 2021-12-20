@@ -29,7 +29,7 @@ where input.txt is formatted as described below, and output.txt is a file that w
 should consist of a first line of conditions, followed by a list of sites.
 Conditions line should be of format:
 
-``&ltsystemtype&gt &ltdimension&gt &ltratetype&gt &ltmodeltype&gt &ltstarttime&gt &ltendtime&gt``
+``&ltsystemtype&gt  &ltdimension&gt &ltratetype&gt &ltmodeltype&gt &ltstarttime&gt &ltendtime&gt``
 
 Sites are of format:
 

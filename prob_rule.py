@@ -16,6 +16,10 @@ class ProbRule(ABC):
     """
     @abstractmethod
     def __init__(self):
+        """
+        Empty abstract initializer.
+        
+        """
         pass
 
     def transition_prob(self, site1, site2):
@@ -25,6 +29,7 @@ class ProbRule(ABC):
         :param site1: The first site.
         :param site2: The second site.
         :return: The transition probability.
+
         """
         if not isinstance(site1, site.Site) or not isinstance(site2, site.Site):
             raise ValueError("Invalid: input must be of type site")
@@ -32,6 +37,14 @@ class ProbRule(ABC):
     
     @jit(nopython=True) # Setting nopython = True gives an error I cannot figure out
     def hab_calculator(dipole1, dipole2, R):
+        """
+        Calculates the coupling between two dipole sites, given their distance vector. This function is accelerated by numba.
+
+        :param site1: The first site containing the dipole
+        :param site2: The second site containing the dipole
+        :param R: The distance vector between the two sites
+
+        """
         # dipole1 = dipole1.astype(np.float)
         # dipole2 = dipole2.astype(np.float)
         # R = R.astype(np.float)
@@ -53,6 +66,14 @@ class ProbRule(ABC):
         return hab
     
     def dip_dip_hab(self, site1, site2):
+        """
+        Calculates the coupling between the two sites between two dipole sites.
+
+        :param site1: The first site containing the dipole
+        :param site2: The second site containing the dipole
+
+        """
+
         # Assuming dipole1, dipole2 and R are numpy arrays
         # dipole1: transition dipole of a site1
         # R: distance vector between site1 and site2

@@ -15,9 +15,9 @@ class Marcus(p.ProbRule):
     The Marcus class calculates the transition probability, implementing the ProbRule interface.
     
     Global constants for marcus rate equation
-    - $hbar$ = 1.0545e-34
-    - $kb$ = 1.380e-23
-    - $T$ = 293
+    - :math:`\\overline{h}` = 1.0545e-34
+    - :math:`kb` = 1.380e-23
+    - :math:`T` = 293
 
     """
     

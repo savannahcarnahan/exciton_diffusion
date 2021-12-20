@@ -81,7 +81,6 @@ Input/Output Modules
 .. automodule:: graphical_out
    :members:
 
-
 |
 |
 
@@ -118,6 +117,7 @@ Probabilistic Rule Modules
 
 .. automodule:: uniform
    :members:
+
 |
 |
 
@@ -134,6 +134,7 @@ System Modules
 
 .. automodule:: static
    :members:
+
 |
 |
 
@@ -142,7 +143,7 @@ Site Modules
 .. automodule:: site_factory
    :members:
 
-.. automodule:: my_site
+.. automodule:: mysite
    :members:
 
 .. automodule:: atom

@@ -1,8 +1,10 @@
 """
 Arrhenius method
 ================
+
 | The arrhenius method is a probability rule object for calculating the
 | translation probability between two sites in a system.
+
 """
 import prob_rule as p
 import numpy as np
@@ -16,12 +18,14 @@ class Arrhenius(p.ProbRule):
     - :math:`k_B` = 1.380e-23
     - :math:`T` = 293
     |
+    
     """
 
     def __init__(self):
         """
         | Empty constructor
         |
+        
         """
         pass
 

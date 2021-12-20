@@ -870,6 +870,59 @@ def my_abstract_method(self, …):</p>
 </dd></dl>
 
 </section>
+<span class="target" id="module-mysite"></span><section id="site">
+<h2>Site<a class="headerlink" href="#site" title="Permalink to this headline">¶</a></h2>
+<p>The abstract definition of a site.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="mysite.ABC">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mysite.</span></span><span class="sig-name descname"><span class="pre">ABC</span></span><a class="headerlink" href="#mysite.ABC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="mysite.abstractmethod">
+<span class="sig-prename descclassname"><span class="pre">mysite.</span></span><span class="sig-name descname"><span class="pre">abstractmethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">funcobj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mysite.abstractmethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator indicating abstract methods.</p>
+<p>Requires that the metaclass is ABCMeta or derived from it.  A
+class that has a metaclass derived from ABCMeta cannot be
+instantiated unless all of its abstract methods are overridden.
+The abstract methods can be called using any of the normal
+‘super’ call mechanisms.  abstractmethod() may be used to declare
+abstract methods for properties and descriptors.</p>
+<p>Usage:</p>
+<blockquote>
+<div><dl>
+<dt>class C(metaclass=ABCMeta):</dt><dd><p>&#64;abstractmethod
+def my_abstract_method(self, …):</p>
+<blockquote>
+<div><p>…</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="mysite.Site">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mysite.</span></span><span class="sig-name descname"><span class="pre">Site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mysite.Site" title="Permalink to this definition">¶</a></dt>
+<dd><p>The abstract class defining a Site.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="mysite.Site.__init__">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">coords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mysite.Site.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Site should be initialized with its coordinates.
+:param coords: initial coordinates.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="mysite.Site.get_position">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_position</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mysite.Site.get_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the position of this site.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <span class="target" id="module-atom"></span><section id="atoms">
 <h2>Atoms<a class="headerlink" href="#atoms" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
@@ -1080,6 +1133,7 @@ def my_abstract_method(self, …):</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-site_factory">Site Modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#site-factory">Site Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#site">Site</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#atoms">Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#molecule">Molecule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#crystal">Crystal</a></li>
@@ -1148,6 +1202,7 @@ def my_abstract_method(self, …):</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-site_factory">Site Modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#site-factory">Site Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#site">Site</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#atoms">Atoms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#molecule">Molecule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#crystal">Crystal</a></li>

@@ -3,6 +3,7 @@ Marcus method
 ================
 | The Marcus method is a probability rule object for calculating the
 | translation probability between two sites in a system.
+
 """
 
 import prob_rule as p
@@ -18,6 +19,7 @@ class Marcus(p.ProbRule):
     - :math:`k_B` = 1.380e-23
     - :math:`T` = 293
     |
+    
     """
     
     # Global constants for marcus rate equation
@@ -30,6 +32,7 @@ class Marcus(p.ProbRule):
         """
         | Empty constructor
         |
+        
         """
         pass
     

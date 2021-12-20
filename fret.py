@@ -3,6 +3,7 @@ FRET Method
 ===========
 | The FRET method is a probability rule object for calculating the
 | translation probability between two sites in a system.
+
 """
 import prob_rule as p
 import numpy as np
@@ -16,12 +17,14 @@ class FRET(p.ProbRule):
     | Constants used in FRET rate equation:
     - :math:`\\overline{h}` = 1.0545e-34
     |
+    
     """
 
     def __init__(self):
         """
         | Empty constructor
         |
+        
         """
         pass
       
@@ -31,6 +34,7 @@ class FRET(p.ProbRule):
         | Calculates the spectral overlap. Currently always return 1.
         | :return: 1
         |
+        
         """
         return 1 
 

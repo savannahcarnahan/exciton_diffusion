@@ -1,3 +1,14 @@
+"""
+Graph
+=====================
+
+| This generates a graph of exciton diffusion distance over time.
+| It takes a set of times and excitation sites as inputs, and
+| generates visual output 
+|
+
+"""
+
 import numpy as np
 import mysite as site
 from matplotlib import pyplot as plt

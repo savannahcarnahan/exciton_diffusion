@@ -2,7 +2,7 @@
 Model class
 =====================
 
-|Define the abstract model class
+| Define the abstract model class
 |
 
 """

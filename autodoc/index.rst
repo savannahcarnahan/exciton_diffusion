@@ -78,7 +78,19 @@ Input/Output Modules
 .. automodule:: xyz_inp
    :members:
 
+.. automodule:: pickling
+   :members:
+
 .. automodule:: graphical_out
+   :members:
+
+.. automodule:: mycsv
+   :members:
+
+.. automodule:: graph
+   :members:
+
+.. automodule:: get_diffusion
    :members:
 
 |

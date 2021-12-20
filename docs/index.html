@@ -191,6 +191,27 @@ and return the processed input</p>
 </dd></dl>
 
 </section>
+<span class="target" id="module-pickling"></span><section id="pickling-module">
+<h2>Pickling Module<a class="headerlink" href="#pickling-module" title="Permalink to this headline">¶</a></h2>
+<p>Pickles input into a system object, start_time, and end_time</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="pickling.__init__">
+<span class="sig-prename descclassname"><span class="pre">pickling.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pickling.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pickling.pickling">
+<span class="sig-prename descclassname"><span class="pre">pickling.</span></span><span class="sig-name descname"><span class="pre">pickling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pickling.pickling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interactive asks the user for an input file, calls the inputprocessor,
+and return the processed input</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="pickling.pickle_file_name">
+<span class="sig-prename descclassname"><span class="pre">pickling.</span></span><span class="sig-name descname"><span class="pre">pickle_file_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">object_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pickling.pickle_file_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 <span class="target" id="module-graphical_out"></span><section id="graphical-out">
 <h2>Graphical Out<a class="headerlink" href="#graphical-out" title="Permalink to this headline">¶</a></h2>
 <p>Plotting graphical outputs given a simulation output file.</p>
@@ -231,6 +252,44 @@ and return the processed input</p>
 <dd></dd></dl>
 
 </section>
+<span class="target" id="module-mycsv"></span><section id="my-csv">
+<h2>My CSV<a class="headerlink" href="#my-csv" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">Writes the output of a simulation to a CSV file</div>
+<div class="line"><br /></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="mycsv.write_csv">
+<span class="sig-prename descclassname"><span class="pre">mycsv.</span></span><span class="sig-name descname"><span class="pre">write_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exc_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'out'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mycsv.write_csv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<span class="target" id="module-graph"></span><section id="graph">
+<h2>Graph<a class="headerlink" href="#graph" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">This generates a graph of exciton diffusion distance over time.</div>
+<div class="line">It takes a set of times and excitation sites as inputs, and</div>
+<div class="line">generates visual output</div>
+<div class="line"><br /></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="graph.graph">
+<span class="sig-prename descclassname"><span class="pre">graph.</span></span><span class="sig-name descname"><span class="pre">graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exc_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#graph.graph" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
+<span class="target" id="module-get_diffusion"></span><section id="get-diffusion">
+<h2>Get Diffusion<a class="headerlink" href="#get-diffusion" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">This generates a list of diffusion distances</div>
+<div class="line"><br /></div>
+</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="get_diffusion.get_diffusion">
+<span class="sig-prename descclassname"><span class="pre">get_diffusion.</span></span><span class="sig-name descname"><span class="pre">get_diffusion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exc_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_site</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_diffusion.get_diffusion" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -257,8 +316,10 @@ and return the processed input</p>
 </section>
 <span class="target" id="module-model"></span><section id="model-class">
 <h2>Model class<a class="headerlink" href="#model-class" title="Permalink to this headline">¶</a></h2>
-<p><a href="#id2"><span class="problematic" id="id3">|</span></a>Define the abstract model class
-|</p>
+<div class="line-block">
+<div class="line">Define the abstract model class</div>
+<div class="line"><br /></div>
+</div>
 <dl class="py class">
 <dt class="sig sig-object py" id="model.ABC">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.</span></span><span class="sig-name descname"><span class="pre">ABC</span></span><a class="headerlink" href="#model.ABC" title="Permalink to this definition">¶</a></dt>
@@ -1157,7 +1218,11 @@ def my_abstract_method(self, …):</p>
 <li class="toctree-l2"><a class="reference internal" href="#input-processor">Input Processor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#com-line-module">Com_Line Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#interactive-module">Interactive Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pickling-module">Pickling Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#graphical-out">Graphical Out</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#my-csv">My CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#graph">Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-diffusion">Get Diffusion</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-model_factory">Model Modules</a><ul>
@@ -1227,7 +1292,11 @@ def my_abstract_method(self, …):</p>
 <li class="toctree-l2"><a class="reference internal" href="#input-processor">Input Processor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#com-line-module">Com_Line Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#interactive-module">Interactive Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pickling-module">Pickling Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#graphical-out">Graphical Out</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#my-csv">My CSV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#graph">Graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-diffusion">Get Diffusion</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-model_factory">Model Modules</a><ul>

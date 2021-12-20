@@ -17,7 +17,6 @@ import sys
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.insert(1, os.path.abspath('../exc_diff'))
 sys.path.insert(2, os.path.abspath('../input'))
-# there's a bug in csv.py causing an error in Autodoc at the moment
 sys.path.insert(3, os.path.abspath('../output'))
 
 

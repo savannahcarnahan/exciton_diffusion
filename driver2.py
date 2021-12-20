@@ -10,7 +10,7 @@ def main():
 
     t_list, exc_list = ex.run(system, start_time, end_time, 10)
 
-    g.graph(t_list, exc_list, 'in_file')
+    g.graph(t_list, exc_list)
 
 
 if __name__ == "__main__":

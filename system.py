@@ -75,7 +75,7 @@ class System(ABC):
         return self.exc_list
 
     def transfer_charge(self, site_old, site_new):
-        print("Exc_sites #: " + str(len(self.exc_list)))
+        # print("Exc_sites #: " + str(len(self.exc_list)))
 
         # print(site_old.get_position())
 
@@ -104,8 +104,12 @@ class System(ABC):
                 # print("Exc_sites : " + str(self.exc_list))
                 setattr(site, 'excited', False)
                 return
-        print("Error: Excited site not found")
+        # print("Error: Excited site not found")
         return
+
+    def unexcite(self, site):
+        self.exc_list.remove(site)
+        site.unexcite()
 
     def excite(self):
         """

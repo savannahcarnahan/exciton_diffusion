@@ -1,0 +1,871 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Welcome to exciton diffusion’s documentation! &#8212; exciton diffusion alph documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="welcome-to-exciton-diffusion-s-documentation">
+<h1>Welcome to exciton diffusion’s documentation!<a class="headerlink" href="#welcome-to-exciton-diffusion-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+<span class="target" id="module-driver"></span><section id="driver-module">
+<h2>Driver Module<a class="headerlink" href="#driver-module" title="Permalink to this headline">¶</a></h2>
+<p>The driver module is the entrypoint of the entire program.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="driver.main">
+<span class="sig-prename descclassname"><span class="pre">driver.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#driver.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>The main entry point reads in input/output filenames.</p>
+</dd></dl>
+
+</section>
+<span class="target" id="module-dynamic"></span><section id="dynamic-system">
+<h2>Dynamic system<a class="headerlink" href="#dynamic-system" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="dynamic.Dynamic">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">dynamic.</span></span><span class="sig-name descname"><span class="pre">Dynamic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">298</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dynamic.Dynamic" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class Dynamic defines a dynamic particles system, where molecules can move freely in space.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="dynamic.Dynamic._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#dynamic.Dynamic._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<span class="target" id="module-model_factory"></span><section id="model-factory">
+<h2>Model factory<a class="headerlink" href="#model-factory" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="model_factory.create">
+<span class="sig-prename descclassname"><span class="pre">model_factory.</span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model_factory.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an object of a Model class based on its type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_type</strong> – The type of the model. Currently only “kmc” is supported.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<span class="target" id="module-model"></span><section id="model-class">
+<h2>Model class<a class="headerlink" href="#model-class" title="Permalink to this headline">¶</a></h2>
+<p>Define the abstract model class</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="model.ABC">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.</span></span><span class="sig-name descname"><span class="pre">ABC</span></span><a class="headerlink" href="#model.ABC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="model.ABC._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#model.ABC._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="model.abstractmethod">
+<span class="sig-prename descclassname"><span class="pre">model.</span></span><span class="sig-name descname"><span class="pre">abstractmethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">funcobj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.abstractmethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator indicating abstract methods.</p>
+<p>Requires that the metaclass is ABCMeta or derived from it.  A
+class that has a metaclass derived from ABCMeta cannot be
+instantiated unless all of its abstract methods are overridden.
+The abstract methods can be called using any of the normal
+‘super’ call mechanisms.  abstractmethod() may be used to declare
+abstract methods for properties and descriptors.</p>
+<p>Usage:</p>
+<blockquote>
+<div><dl>
+<dt>class C(metaclass=ABCMeta):</dt><dd><p>&#64;abstractmethod
+def my_abstract_method(self, …):</p>
+<blockquote>
+<div><p>…</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="model.Model">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><a class="headerlink" href="#model.Model" title="Permalink to this definition">¶</a></dt>
+<dd><p>The abstract Model class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="model.Model.__init__">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.Model.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the Model</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="model.Model.time_step">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">time_step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#model.Model.time_step" title="Permalink to this definition">¶</a></dt>
+<dd><p>The abstract function for advancing one time step</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="model.Model.time_dist">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">time_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.Model.time_dist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the time for the model to advance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="model.Model.select_site">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">select_site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#model.Model.select_site" title="Permalink to this definition">¶</a></dt>
+<dd><p>Algorithm for selecting site base on coupling rates
+Returns one site</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="model.Model._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#model.Model._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<span class="target" id="module-marcus"></span><section id="marcus-method">
+<h2>Marcus method<a class="headerlink" href="#marcus-method" title="Permalink to this headline">¶</a></h2>
+<p>The marcus method for calculating the transition probability.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="marcus.jit">
+<span class="sig-prename descclassname"><span class="pre">marcus.</span></span><span class="sig-name descname"><span class="pre">jit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signature_or_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundscheck</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#marcus.jit" title="Permalink to this definition">¶</a></dt>
+<dd><p>This decorator is used to compile a Python function into native code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signature_or_function</strong> – The (optional) signature or list of signatures to be compiled.
+If not passed, required signatures will be compiled when the
+decorated function is called, depending on the argument values.
+As a convenience, you can directly pass the function to be compiled
+instead.</p></li>
+<li><p><strong>locals</strong> (<em>dict</em>) – Mapping of local variable names to Numba types. Used to override the
+types deduced by Numba’s type inference engine.</p></li>
+<li><p><strong>(</strong><strong>deprecated</strong><strong>)</strong> (<em>target</em>) – Specifies the target platform to compile for. Valid targets are cpu,
+gpu, npyufunc, and cuda. Defaults to cpu.</p></li>
+<li><p><strong>pipeline_class</strong> (<em>type numba.compiler.CompilerBase</em>) – The compiler pipeline type for customizing the compilation stages.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>For a cpu target, valid options are:</dt><dd><dl class="simple">
+<dt>nopython: bool</dt><dd><p>Set to True to disable the use of PyObjects and Python API
+calls. The default behavior is to allow the use of PyObjects
+and Python API. Default value is False.</p>
+</dd>
+<dt>forceobj: bool</dt><dd><p>Set to True to force the use of PyObjects for every value.
+Default value is False.</p>
+</dd>
+<dt>looplift: bool</dt><dd><p>Set to True to enable jitting loops in nopython mode while
+leaving surrounding code in object mode. This allows functions
+to allocate NumPy arrays and use Python objects, while the
+tight loops in the function can still be compiled in nopython
+mode. Any arrays that the tight loop uses should be created
+before the loop is entered. Default value is True.</p>
+</dd>
+<dt>error_model: str</dt><dd><p>The error-model affects divide-by-zero behavior.
+Valid values are ‘python’ and ‘numpy’. The ‘python’ model
+raises exception.  The ‘numpy’ model sets the result to
+<em>+/-inf</em> or <em>nan</em>. Default value is ‘python’.</p>
+</dd>
+<dt>inline: str or callable</dt><dd><p>The inline option will determine whether a function is inlined
+at into its caller if called. String options are ‘never’
+(default) which will never inline, and ‘always’, which will
+always inline. If a callable is provided it will be called with
+the call expression node that is requesting inlining, the
+caller’s IR and callee’s IR as arguments, it is expected to
+return Truthy as to whether to inline.
+NOTE: This inlining is performed at the Numba IR level and is in
+no way related to LLVM inlining.</p>
+</dd>
+<dt>boundscheck: bool or None</dt><dd><p>Set to True to enable bounds checking for array indices. Out
+of bounds accesses will raise IndexError. The default is to
+not do bounds checking. If False, bounds checking is disabled,
+out of bounds accesses can produce garbage results or segfaults.
+However, enabling bounds checking will slow down typical
+functions, so it is recommended to only use this flag for
+debugging. You can also set the NUMBA_BOUNDSCHECK environment
+variable to 0 or 1 to globally override this flag. The default
+value is None, which under normal execution equates to False,
+but if debug is set to True then bounds checking will be
+enabled.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>A callable usable as a compiled function.  Actual compiling will be</em></p></li>
+<li><p><em>done lazily if no explicit signatures are passed.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>The function can be used in the following ways:</p>
+<ol class="arabic">
+<li><p>jit(signatures, target=’cpu’, <a href="#id1"><span class="problematic" id="id2">**</span></a>targetoptions) -&gt; jit(function)</p>
+<blockquote>
+<div><p>Equivalent to:</p>
+<blockquote>
+<div><p>d = dispatcher(function, targetoptions)
+for signature in signatures:</p>
+<blockquote>
+<div><p>d.compile(signature)</p>
+</div></blockquote>
+</div></blockquote>
+<p>Create a dispatcher object for a python function.  Then, compile
+the function with the given signature(s).</p>
+<p>Example:</p>
+<blockquote>
+<div><p>&#64;jit(“int32(int32, int32)”)
+def foo(x, y):</p>
+<blockquote>
+<div><p>return x + y</p>
+</div></blockquote>
+<p>&#64;jit([“int32(int32, int32)”, “float32(float32, float32)”])
+def bar(x, y):</p>
+<blockquote>
+<div><p>return x + y</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p>jit(function, target=’cpu’, <a href="#id3"><span class="problematic" id="id4">**</span></a>targetoptions) -&gt; dispatcher</p>
+<blockquote>
+<div><p>Create a dispatcher function object that specializes at call site.</p>
+<p>Examples:</p>
+<blockquote>
+<div><p>&#64;jit
+def foo(x, y):</p>
+<blockquote>
+<div><p>return x + y</p>
+</div></blockquote>
+<p>&#64;jit(target=’cpu’, nopython=True)
+def bar(x, y):</p>
+<blockquote>
+<div><p>return x + y</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ol>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="marcus.Marcus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">marcus.</span></span><span class="sig-name descname"><span class="pre">Marcus</span></span><a class="headerlink" href="#marcus.Marcus" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Marcus class calculates the transition probability, implementing the ProbRule interface.</p>
+<p>Global constants for marcus rate equation
+- $hbar$ = 1.0545e-34
+- $kb$ = 1.380e-23
+- $T$ = 293</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="marcus.Marcus.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#marcus.Marcus.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Empty constructor.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="marcus.Marcus.transition_prob">
+<span class="sig-name descname"><span class="pre">transition_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#marcus.Marcus.transition_prob" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the transition probability between two sites using the marcus method.</p>
+<p>The probability is calcualted using the equation k_ab = (2*np.pi/self.hbar)*(np.sqrt(1/(4*np.pi*self.kb*self.T*Lambda))*(Hab**2)*np.exp(-(Lambda/4*self.kb*self.T)))</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>site1</strong> – The first site containing the dipole</p></li>
+<li><p><strong>site2</strong> – The second site containing the dipole</p></li>
+<li><p><strong>system</strong> – The system these particles are in</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>$K_{ab}$</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="marcus.Marcus._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#marcus.Marcus._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<span class="target" id="module-molecule"></span><section id="molecule">
+<h2>Molecule<a class="headerlink" href="#molecule" title="Permalink to this headline">¶</a></h2>
+<p>The molecule class implements a site</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="molecule.Molecule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">molecule.</span></span><span class="sig-name descname"><span class="pre">Molecule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">atom_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#molecule.Molecule" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Molecule class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="molecule.Molecule.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">atom_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#molecule.Molecule.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a Molecule class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>atom_list</strong> – The list of atoms in the molecule.</p>
+</dd>
+</dl>
+<p>The reach between atoms is guesstimated in Angstroms. See <a class="reference external" href="https://pubs.acs.org/doi/full/10.1021/acs.jpcc.1c07929">https://pubs.acs.org/doi/full/10.1021/acs.jpcc.1c07929</a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="molecule.Molecule.excite">
+<span class="sig-name descname"><span class="pre">excite</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molecule.Molecule.excite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assign this molecule to be excited.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="molecule.Molecule.transition_probability">
+<span class="sig-name descname"><span class="pre">transition_probability</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molecule.Molecule.transition_probability" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the probability of transition.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="molecule.Molecule.get_position">
+<span class="sig-name descname"><span class="pre">get_position</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molecule.Molecule.get_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the position of this molecule.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The average position between all atoms in this molecule.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="molecule.Molecule.transition_charge">
+<span class="sig-name descname"><span class="pre">transition_charge</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#molecule.Molecule.transition_charge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the transition charge.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="molecule.Molecule._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#molecule.Molecule._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<span class="target" id="module-pointparticle"></span><section id="point-particle">
+<h2>Point Particle<a class="headerlink" href="#point-particle" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pointparticle.PointParticle">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pointparticle.</span></span><span class="sig-name descname"><span class="pre">PointParticle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Lambda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4.8e-20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reach</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pointparticle.PointParticle" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Point Partcicle class implements a particle representing an atom.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pointparticle.PointParticle.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Lambda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4.8e-20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reach</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pointparticle.PointParticle.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a Point Partcicle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>coord</strong> – A list of coordinates for the particle’s initial position.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="pointparticle.PointParticle.get_position">
+<span class="sig-name descname"><span class="pre">get_position</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pointparticle.PointParticle.get_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the position of the particle.
+:return: the position of the particle.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="pointparticle.PointParticle._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#pointparticle.PointParticle._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<span class="target" id="module-prob_rule_factory"></span><section id="probability-rule-factory">
+<h2>Probability Rule factory<a class="headerlink" href="#probability-rule-factory" title="Permalink to this headline">¶</a></h2>
+<p>The class factory for the probability rule class</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="prob_rule_factory.create">
+<span class="sig-prename descclassname"><span class="pre">prob_rule_factory.</span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob_rule_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prob_rule_factory.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an object of a <cite>prob_rule</cite> class based on the given type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>prob_rule_type</strong> – The type of the probability rule. Currently supported “arrhenius”, “fret”, “uniform”, and “marcus”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<span class="target" id="module-prob_rule"></span><section id="probability-rule">
+<h2>Probability Rule<a class="headerlink" href="#probability-rule" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="prob_rule.ABC">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prob_rule.</span></span><span class="sig-name descname"><span class="pre">ABC</span></span><a class="headerlink" href="#prob_rule.ABC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prob_rule.ABC._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#prob_rule.ABC._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="prob_rule.abstractmethod">
+<span class="sig-prename descclassname"><span class="pre">prob_rule.</span></span><span class="sig-name descname"><span class="pre">abstractmethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">funcobj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prob_rule.abstractmethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator indicating abstract methods.</p>
+<p>Requires that the metaclass is ABCMeta or derived from it.  A
+class that has a metaclass derived from ABCMeta cannot be
+instantiated unless all of its abstract methods are overridden.
+The abstract methods can be called using any of the normal
+‘super’ call mechanisms.  abstractmethod() may be used to declare
+abstract methods for properties and descriptors.</p>
+<p>Usage:</p>
+<blockquote>
+<div><dl>
+<dt>class C(metaclass=ABCMeta):</dt><dd><p>&#64;abstractmethod
+def my_abstract_method(self, …):</p>
+<blockquote>
+<div><p>…</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="prob_rule.jit">
+<span class="sig-prename descclassname"><span class="pre">prob_rule.</span></span><span class="sig-name descname"><span class="pre">jit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">signature_or_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cache</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pipeline_class</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundscheck</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">options</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prob_rule.jit" title="Permalink to this definition">¶</a></dt>
+<dd><p>This decorator is used to compile a Python function into native code.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>signature_or_function</strong> – The (optional) signature or list of signatures to be compiled.
+If not passed, required signatures will be compiled when the
+decorated function is called, depending on the argument values.
+As a convenience, you can directly pass the function to be compiled
+instead.</p></li>
+<li><p><strong>locals</strong> (<em>dict</em>) – Mapping of local variable names to Numba types. Used to override the
+types deduced by Numba’s type inference engine.</p></li>
+<li><p><strong>(</strong><strong>deprecated</strong><strong>)</strong> (<em>target</em>) – Specifies the target platform to compile for. Valid targets are cpu,
+gpu, npyufunc, and cuda. Defaults to cpu.</p></li>
+<li><p><strong>pipeline_class</strong> (<em>type numba.compiler.CompilerBase</em>) – The compiler pipeline type for customizing the compilation stages.</p></li>
+<li><p><strong>options</strong> – <dl class="simple">
+<dt>For a cpu target, valid options are:</dt><dd><dl class="simple">
+<dt>nopython: bool</dt><dd><p>Set to True to disable the use of PyObjects and Python API
+calls. The default behavior is to allow the use of PyObjects
+and Python API. Default value is False.</p>
+</dd>
+<dt>forceobj: bool</dt><dd><p>Set to True to force the use of PyObjects for every value.
+Default value is False.</p>
+</dd>
+<dt>looplift: bool</dt><dd><p>Set to True to enable jitting loops in nopython mode while
+leaving surrounding code in object mode. This allows functions
+to allocate NumPy arrays and use Python objects, while the
+tight loops in the function can still be compiled in nopython
+mode. Any arrays that the tight loop uses should be created
+before the loop is entered. Default value is True.</p>
+</dd>
+<dt>error_model: str</dt><dd><p>The error-model affects divide-by-zero behavior.
+Valid values are ‘python’ and ‘numpy’. The ‘python’ model
+raises exception.  The ‘numpy’ model sets the result to
+<em>+/-inf</em> or <em>nan</em>. Default value is ‘python’.</p>
+</dd>
+<dt>inline: str or callable</dt><dd><p>The inline option will determine whether a function is inlined
+at into its caller if called. String options are ‘never’
+(default) which will never inline, and ‘always’, which will
+always inline. If a callable is provided it will be called with
+the call expression node that is requesting inlining, the
+caller’s IR and callee’s IR as arguments, it is expected to
+return Truthy as to whether to inline.
+NOTE: This inlining is performed at the Numba IR level and is in
+no way related to LLVM inlining.</p>
+</dd>
+<dt>boundscheck: bool or None</dt><dd><p>Set to True to enable bounds checking for array indices. Out
+of bounds accesses will raise IndexError. The default is to
+not do bounds checking. If False, bounds checking is disabled,
+out of bounds accesses can produce garbage results or segfaults.
+However, enabling bounds checking will slow down typical
+functions, so it is recommended to only use this flag for
+debugging. You can also set the NUMBA_BOUNDSCHECK environment
+variable to 0 or 1 to globally override this flag. The default
+value is None, which under normal execution equates to False,
+but if debug is set to True then bounds checking will be
+enabled.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>A callable usable as a compiled function.  Actual compiling will be</em></p></li>
+<li><p><em>done lazily if no explicit signatures are passed.</em></p></li>
+</ul>
+</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>The function can be used in the following ways:</p>
+<ol class="arabic">
+<li><p>jit(signatures, target=’cpu’, <a href="#id5"><span class="problematic" id="id6">**</span></a>targetoptions) -&gt; jit(function)</p>
+<blockquote>
+<div><p>Equivalent to:</p>
+<blockquote>
+<div><p>d = dispatcher(function, targetoptions)
+for signature in signatures:</p>
+<blockquote>
+<div><p>d.compile(signature)</p>
+</div></blockquote>
+</div></blockquote>
+<p>Create a dispatcher object for a python function.  Then, compile
+the function with the given signature(s).</p>
+<p>Example:</p>
+<blockquote>
+<div><p>&#64;jit(“int32(int32, int32)”)
+def foo(x, y):</p>
+<blockquote>
+<div><p>return x + y</p>
+</div></blockquote>
+<p>&#64;jit([“int32(int32, int32)”, “float32(float32, float32)”])
+def bar(x, y):</p>
+<blockquote>
+<div><p>return x + y</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p>jit(function, target=’cpu’, <a href="#id7"><span class="problematic" id="id8">**</span></a>targetoptions) -&gt; dispatcher</p>
+<blockquote>
+<div><p>Create a dispatcher function object that specializes at call site.</p>
+<p>Examples:</p>
+<blockquote>
+<div><p>&#64;jit
+def foo(x, y):</p>
+<blockquote>
+<div><p>return x + y</p>
+</div></blockquote>
+<p>&#64;jit(target=’cpu’, nopython=True)
+def bar(x, y):</p>
+<blockquote>
+<div><p>return x + y</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ol>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="prob_rule.ProbRule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prob_rule.</span></span><span class="sig-name descname"><span class="pre">ProbRule</span></span><a class="headerlink" href="#prob_rule.ProbRule" title="Permalink to this definition">¶</a></dt>
+<dd><p>The abstract class for defining transition probabilities between two sites.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="prob_rule.ProbRule.__init__">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prob_rule.ProbRule.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="prob_rule.ProbRule.transition_prob">
+<span class="sig-name descname"><span class="pre">transition_prob</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prob_rule.ProbRule.transition_prob" title="Permalink to this definition">¶</a></dt>
+<dd><p>The abstract method for calculating the transition probability given two sites.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>site1</strong> – The first site.</p></li>
+<li><p><strong>site2</strong> – The second site.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The transition probability.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="prob_rule.ProbRule.hab_calculator">
+<span class="sig-name descname"><span class="pre">hab_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dipole2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">R</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prob_rule.ProbRule.hab_calculator" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="prob_rule.ProbRule.dip_dip_hab">
+<span class="sig-name descname"><span class="pre">dip_dip_hab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prob_rule.ProbRule.dip_dip_hab" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prob_rule.ProbRule._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#prob_rule.ProbRule._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<span class="target" id="module-site_factory"></span><section id="site-factory">
+<h2>Site Factory<a class="headerlink" href="#site-factory" title="Permalink to this headline">¶</a></h2>
+<p>The factory function for generating sites.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="site_factory.create">
+<span class="sig-prename descclassname"><span class="pre">site_factory.</span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site_type</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#site_factory.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an object of a site class based on its format, and pass in the initialization parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>site_type</strong> – The type of the site. Currently supported “atom”, “pointparticle”, and “molecule”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<span class="target" id="module-system_factory"></span><section id="system-factory">
+<h2>System factory<a class="headerlink" href="#system-factory" title="Permalink to this headline">¶</a></h2>
+<p>The class factory for the system class</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="system_factory.create">
+<span class="sig-prename descclassname"><span class="pre">system_factory.</span></span><span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#system_factory.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an object of a system class based on its format, and pass in the initialization parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>format</strong> – The name of the system’s format. Currently supported “crystal” and “dynamic”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<span class="target" id="module-system"></span><section id="system">
+<h2><cite>System</cite><a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h2>
+<p>This file defines the System class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="system.ABC">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">system.</span></span><span class="sig-name descname"><span class="pre">ABC</span></span><a class="headerlink" href="#system.ABC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper class that provides a standard way to create an ABC using
+inheritance.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="system.ABC._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#system.ABC._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="system.abstractmethod">
+<span class="sig-prename descclassname"><span class="pre">system.</span></span><span class="sig-name descname"><span class="pre">abstractmethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">funcobj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#system.abstractmethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>A decorator indicating abstract methods.</p>
+<p>Requires that the metaclass is ABCMeta or derived from it.  A
+class that has a metaclass derived from ABCMeta cannot be
+instantiated unless all of its abstract methods are overridden.
+The abstract methods can be called using any of the normal
+‘super’ call mechanisms.  abstractmethod() may be used to declare
+abstract methods for properties and descriptors.</p>
+<p>Usage:</p>
+<blockquote>
+<div><dl>
+<dt>class C(metaclass=ABCMeta):</dt><dd><p>&#64;abstractmethod
+def my_abstract_method(self, …):</p>
+<blockquote>
+<div><p>…</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="system.System">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">system.</span></span><span class="sig-name descname"><span class="pre">System</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">298</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#system.System" title="Permalink to this definition">¶</a></dt>
+<dd><p>The abstract system class for defining a system of particles.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="system.System.__init__">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">T</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">298</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#system.System.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract method for creating a system.</p>
+<p>This method should be overloaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dimen</strong> – the number of dimensions</p></li>
+<li><p><strong>rate</strong> – a ProbRule object</p></li>
+<li><p><strong>site_list</strong> – the list of sites</p></li>
+<li><p><strong>model</strong> – a Model object</p></li>
+<li><p><strong>T</strong> – the temperature</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="system.System.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#system.System.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the size of the system</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="system.System.get_excited_sites">
+<span class="sig-name descname"><span class="pre">get_excited_sites</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#system.System.get_excited_sites" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an excited site from the system.
+:return: returns the first excited site reached</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="system.System.transfer_charge">
+<span class="sig-name descname"><span class="pre">transfer_charge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site_old</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">site_new</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#system.System.transfer_charge" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="system.System.excite_site">
+<span class="sig-name descname"><span class="pre">excite_site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#system.System.excite_site" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="system.System.de_excite_site">
+<span class="sig-name descname"><span class="pre">de_excite_site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#system.System.de_excite_site" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="system.System.excite">
+<span class="sig-name descname"><span class="pre">excite</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#system.System.excite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Excites one randomly chosen site in the system</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="system.System.next_site">
+<span class="sig-name descname"><span class="pre">next_site</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curr_site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#system.System.next_site" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all possible hopping sites</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>curr_site</strong> – the current site</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="system.System.process_neighbors">
+<span class="sig-name descname"><span class="pre">process_neighbors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curr_site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#system.System.process_neighbors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the list of neighbors reachable from the given site.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>curr_site</strong> – The current site</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="system.System.return_neighbors">
+<span class="sig-name descname"><span class="pre">return_neighbors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#system.System.return_neighbors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="system.System.get_neighbors">
+<span class="sig-name descname"><span class="pre">get_neighbors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curr_site</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#system.System.get_neighbors" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="system.System.process_sites">
+<span class="sig-name descname"><span class="pre">process_sites</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#system.System.process_sites" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="system.System._abc_impl">
+<span class="sig-name descname"><span class="pre">_abc_impl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;_abc._abc_data</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#system.System._abc_impl" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">exciton diffusion</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Savannah Carnahan, Alfy Benny, Kipp Bradford, Xiaoqi Chen, Azmaine Iqtidar.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

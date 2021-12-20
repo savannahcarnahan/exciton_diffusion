@@ -29,10 +29,10 @@ Module Usage
    | The input file should consist of a first line of conditions, followed by a list of sites.
    | 
    | Conditions line should be of format:
-   | ``&ltsystemtype&gt &ltdimension&gt &ltratetype&gt &ltmodeltype&gt &ltstarttime&gt &ltendtime&gt``
+   | ``<systemtype> <dimension> <ratetype> <modeltype> <starttime> <endtime>``
    |
    | Sites are of format:
-   | ``&ltsitetype&gt &ltspecifications&gt coord1 coord2 coord3``
+   | ``<sitetype> <specifications> coord1 coord2 coord3``
 
 
 **Options**

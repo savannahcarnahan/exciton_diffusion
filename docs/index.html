@@ -126,6 +126,36 @@
 </dd></dl>
 
 </section>
+<span class="target" id="module-inputprocessor"></span><section id="input-processor">
+<h2>Input Processor<a class="headerlink" href="#input-processor" title="Permalink to this headline">¶</a></h2>
+<p>Parse an input file for a simulation configuration, which includes the types of system, model, etc., as well as a list of positions.</p>
+<p>TODO: An example of the input file format.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="inputprocessor.process_input">
+<span class="sig-prename descclassname"><span class="pre">inputprocessor.</span></span><span class="sig-name descname"><span class="pre">process_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#inputprocessor.process_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process a single input file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>in_file</strong> – the filename of the input file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="inputprocessor.is_float">
+<span class="sig-prename descclassname"><span class="pre">inputprocessor.</span></span><span class="sig-name descname"><span class="pre">is_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#inputprocessor.is_float" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a string contains a floating point number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>string</strong> – The given string.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if the string contains a floating point number</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 <span class="target" id="module-model_factory"></span><section id="model-factory">
 <h2>Model factory<a class="headerlink" href="#model-factory" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
@@ -224,6 +254,9 @@ Returns one site</p>
 <li><p><span class="math notranslate nohighlight">\(k_B\)</span> = 1.380e-23</p></li>
 <li><p><span class="math notranslate nohighlight">\(T\)</span> = 293</p></li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="arrhenius.Arrhenius.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#arrhenius.Arrhenius.__init__" title="Permalink to this definition">¶</a></dt>
@@ -278,6 +311,9 @@ Returns one site</p>
 <li><p><span class="math notranslate nohighlight">\(k_B\)</span> = 1.380e-23</p></li>
 <li><p><span class="math notranslate nohighlight">\(T\)</span> = 293</p></li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="marcus.Marcus.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#marcus.Marcus.__init__" title="Permalink to this definition">¶</a></dt>
@@ -329,6 +365,9 @@ Returns one site</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\overline{h}\)</span> = 1.0545e-34</p></li>
 </ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="fret.FRET.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fret.FRET.__init__" title="Permalink to this definition">¶</a></dt>
@@ -379,7 +418,10 @@ Returns one site</p>
 </section>
 <span class="target" id="module-molecule"></span><section id="molecule">
 <h2>Molecule<a class="headerlink" href="#molecule" title="Permalink to this headline">¶</a></h2>
-<p>The molecule class implements a site</p>
+<div class="line-block">
+<div class="line">The molecule class creates a site which can then be added to a site list</div>
+<div class="line">for simulation</div>
+</div>
 <dl class="py class">
 <dt class="sig sig-object py" id="molecule.Molecule">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">molecule.</span></span><span class="sig-name descname"><span class="pre">Molecule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">atom_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#molecule.Molecule" title="Permalink to this definition">¶</a></dt>
@@ -433,7 +475,10 @@ Returns one site</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="pointparticle.PointParticle">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pointparticle.</span></span><span class="sig-name descname"><span class="pre">PointParticle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Lambda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4.8e-20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reach</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pointparticle.PointParticle" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Point Partcicle class implements a particle representing an atom.</p>
+<dd><div class="line-block">
+<div class="line">The Point Partcicle class implements a particle representing a subset</div>
+<div class="line">of the features of an Atom object.</div>
+</div>
 <dl class="py method">
 <dt class="sig sig-object py" id="pointparticle.PointParticle.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">coord</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Lambda</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4.8e-20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reach</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pointparticle.PointParticle.__init__" title="Permalink to this definition">¶</a></dt>
@@ -576,7 +621,7 @@ def my_abstract_method(self, …):</p>
 
 </section>
 <span class="target" id="module-system_factory"></span><section id="system-factory">
-<h2>System factory<a class="headerlink" href="#system-factory" title="Permalink to this headline">¶</a></h2>
+<h2>System Factory<a class="headerlink" href="#system-factory" title="Permalink to this headline">¶</a></h2>
 <p>The class factory for the system class</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="system_factory.create">
@@ -591,7 +636,7 @@ def my_abstract_method(self, …):</p>
 
 </section>
 <span class="target" id="module-system"></span><section id="system">
-<h2><cite>System</cite><a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h2>
+<h2>System<a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h2>
 <p>This file defines the System class.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="system.ABC">
@@ -718,6 +763,21 @@ def my_abstract_method(self, …):</p>
 </dd></dl>
 
 </section>
+<span class="target" id="module-single"></span><section id="single-module">
+<h2>Single Module<a class="headerlink" href="#single-module" title="Permalink to this headline">¶</a></h2>
+<p>This propagates an exciton from start time to end time given a system</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="single.single">
+<span class="sig-prename descclassname"><span class="pre">single.</span></span><span class="sig-name descname"><span class="pre">single</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">system</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#single.single" title="Permalink to this definition">¶</a></dt>
+<dd><p>Diffuses an exciton in a system from start_time to end_time</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="single.__init__">
+<span class="sig-prename descclassname"><span class="pre">single.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#single.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</section>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
@@ -728,6 +788,7 @@ def my_abstract_method(self, …):</p>
 <li class="toctree-l1"><a class="reference internal" href="#indices-and-tables">Indices and tables</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#driver-module">Driver Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dynamic-system">Dynamic system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-processor">Input Processor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#model-factory">Model factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#model-class">Model class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#arrhenius-method">Arrhenius method</a></li>
@@ -738,8 +799,9 @@ def my_abstract_method(self, …):</p>
 <li class="toctree-l2"><a class="reference internal" href="#probability-rule-factory">Probability Rule factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#probability-rule">Probability Rule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#site-factory">Site Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#system-factory">System factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#system"><cite>System</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-factory">System Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system">System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#single-module">Single Module</a></li>
 </ul>
 </li>
 </ul>
@@ -772,6 +834,7 @@ def my_abstract_method(self, …):</p>
 <li class="toctree-l1"><a class="reference internal" href="#indices-and-tables">Indices and tables</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#driver-module">Driver Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dynamic-system">Dynamic system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-processor">Input Processor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#model-factory">Model factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#model-class">Model class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#arrhenius-method">Arrhenius method</a></li>
@@ -782,8 +845,9 @@ def my_abstract_method(self, …):</p>
 <li class="toctree-l2"><a class="reference internal" href="#probability-rule-factory">Probability Rule factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#probability-rule">Probability Rule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#site-factory">Site Factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#system-factory">System factory</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#system"><cite>System</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-factory">System Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system">System</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#single-module">Single Module</a></li>
 </ul>
 </li>
 </ul>

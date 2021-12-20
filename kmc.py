@@ -12,8 +12,8 @@ class KMC(model.Model):
     """
     The KMC class implements a model.
     """
-    def __init__(self):
-        self.generator = np.random.default_rng()
+    def __init__(self, seed=None):
+        self.generator = np.random.default_rng(seed)
         pass
 
     def time_dist(self, site1, site2, system):

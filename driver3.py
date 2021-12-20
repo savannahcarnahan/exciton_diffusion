@@ -1,7 +1,7 @@
 import sys
 import input.com_line as i
 import exc_diff.run as s
-import output.csv as c
+import output.mycsv as c
 
 
 system, start_time, end_time = i.command_line(sys.argv[1:])

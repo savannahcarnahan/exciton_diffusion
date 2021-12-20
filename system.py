@@ -75,7 +75,7 @@ class System(ABC):
         return self.exc_list
 
     def transfer_charge(self, site_old, site_new):
-        print("Exc_sites #: " + str(len(self.exc_list)))
+        # print("Exc_sites #: " + str(len(self.exc_list)))
 
         # print(site_old.get_position())
 

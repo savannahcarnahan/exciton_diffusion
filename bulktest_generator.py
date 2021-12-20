@@ -3,7 +3,7 @@
 # -------------------------------------------------------------------------------------
 import numpy as np
 
-RATES = ["arrhenius", "marcus"]
+RATES = ["arrhenius", "marcus","fret"]
 SYSTEMS = ["crystal"]
 MODELS = ["kmc"]
 # SITES = ["atom", "pointparticle"]

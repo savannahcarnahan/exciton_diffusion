@@ -13,6 +13,7 @@
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
    
@@ -33,7 +34,7 @@
             
   <section id="welcome-to-exciton-diffusion-s-documentation">
 <h1>Welcome to exciton diffusion’s documentation!<a class="headerlink" href="#welcome-to-exciton-diffusion-s-documentation" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="_images/Sample_Image1.png"><img alt="_images/Sample_Image1.png" src="_images/Sample_Image1.png" style="width: 600px;" /></a>
+<a class="reference internal image-reference" href="_images/Sample_Image1.png"><img alt="_images/Sample_Image1.png" src="_images/Sample_Image1.png" style="width: 700px;" /></a>
 <p><strong>Exciton Diffusion</strong> is a flexible open source Python tool for the simulation and examination of <a class="reference external" href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-973-organic-optoelectronics-spring-2003/lecture-notes/8.pdf">exciton diffusion</a> in a variety of materials. The tool support materials in the hopping regime and has the flexibility to extend to  more  complicated equations that describe the intermediate regime. The project includes simulations for point particles and can be expanded to include more physical systems, such as atoms in a crystal lattice. The project lives on GitHub at  <a class="reference external" href="https://github.com/savannahcarnahan/exciton_diffusion/">Exciton Diffusion</a> and offers a <em>simple</em> and
 <em>intuitive</em> API for usage and extension.</p>
 <section id="usage">
@@ -71,6 +72,28 @@ Conditions line should be of format:</p>
 <p><em>sitetype</em>:  <code class="docutils literal notranslate"><span class="pre">pointparticle</span></code>,  <code class="docutils literal notranslate"><span class="pre">molecule</span></code></p>
 </div></blockquote>
 <div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Welcome to exciton diffusion’s documentation!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#indices-and-tables">Indices and tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#driver-module">Driver Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-system">Dynamic system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-factory">Model factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-class">Model class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marcus-method">Marcus method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#molecule">Molecule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#point-particle">Point Particle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#probability-rule-factory">Probability Rule factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#probability-rule">Probability Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#site-factory">Site Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-factory">System factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system"><cite>System</cite></a></li>
+</ul>
+</li>
+</ul>
 </div>
 </section>
 </section>
@@ -326,9 +349,9 @@ def bar(x, y):</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">marcus.</span></span><span class="sig-name descname"><span class="pre">Marcus</span></span><a class="headerlink" href="#marcus.Marcus" title="Permalink to this definition">¶</a></dt>
 <dd><p>The Marcus class calculates the transition probability, implementing the ProbRule interface.</p>
 <p>Global constants for marcus rate equation
-- $hbar$ = 1.0545e-34
-- $kb$ = 1.380e-23
-- $T$ = 293</p>
+- <span class="math notranslate nohighlight">\(\overline{h}\)</span> = 1.0545e-34
+- <span class="math notranslate nohighlight">\(kb\)</span> = 1.380e-23
+- <span class="math notranslate nohighlight">\(T\)</span> = 293</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="marcus.Marcus.__init__">
 <span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#marcus.Marcus.__init__" title="Permalink to this definition">¶</a></dt>
@@ -857,6 +880,28 @@ def my_abstract_method(self, …):</p>
 
 
 <h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Welcome to exciton diffusion’s documentation!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#indices-and-tables">Indices and tables</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#driver-module">Driver Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-system">Dynamic system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-factory">Model factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-class">Model class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#marcus-method">Marcus method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#molecule">Molecule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#point-particle">Point Particle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#probability-rule-factory">Probability Rule factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#probability-rule">Probability Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#site-factory">Site Factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-factory">System factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system"><cite>System</cite></a></li>
+</ul>
+</li>
+</ul>
 
 <div class="relations">
 <h3>Related Topics</h3>

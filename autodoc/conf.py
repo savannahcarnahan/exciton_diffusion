@@ -109,7 +109,8 @@ html_static_path = ['.static']
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
-
+# Playing around with other sidebar setups
+# html_sidebars = { '**': ['localtoc.html', 'relations.html', 'searchbox.html'] }
 
 # -- Options for HTMLHelp output ---------------------------------------------
 

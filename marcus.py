@@ -1,8 +1,8 @@
 """
 Marcus method
 ================
-
-The marcus method for calculating the transition probability.
+| The Marcus method is a probability rule object for calculating the
+| translation probability between two sites in a system.
 """
 
 import prob_rule as p
@@ -12,13 +12,12 @@ from scipy import constants
 # import hab
 class Marcus(p.ProbRule):
     """
-    The Marcus class calculates the transition probability, implementing the `ProbRule` interface.
-    
-    Constants used in marcus rate equation:
-
+    | The Marcus class calculates the transition probability, implementing the `ProbRule` interface.
+    | Constants used in marcus rate equation:
     - :math:`\\overline{h}` = 1.0545e-34
     - :math:`k_B` = 1.380e-23
     - :math:`T` = 293
+    |
     """
     
     # Global constants for marcus rate equation
@@ -28,7 +27,10 @@ class Marcus(p.ProbRule):
     
     # creates the correct probability rule
     def __init__(self):
-        "Empty constructor."
+        """
+        | Empty constructor
+        |
+        """
         pass
     
     # def marcus_rate(self, Hab, Lambda):
@@ -37,16 +39,14 @@ class Marcus(p.ProbRule):
     # Need H_ab (between site a and b)
     def transition_prob(self, site1, site2, system):
         """
-        Calculate the transition probability between two sites using the marcus method.
-
-        The probability is calcualted using the equation :math:`k_{ab}=(2\\pi/\\overline{h})\\cdot \\left| H_{ab} \\right| ^2  \\cdot (\\sqrt{\\frac{1}{4\\pi k_B T \\lambda}} \\cdot e^{-\\lambda k_B T/4})`, 
-        where :math:`H_{ab}` is the coupling between the two sites.
-
+        | Calculate the transition probability between two sites using the marcus method.
+        | The probability is calcualted using the equation :math:`k_{ab}=(2\\pi/\\overline{h})\\cdot \\left| H_{ab} \\right| ^2  \\cdot (\\sqrt{\\frac{1}{4\\pi k_B T \\lambda}} \\cdot e^{-\\lambda k_B T/4})`, 
+        | where :math:`H_{ab}` is the coupling between the two sites.
         :param site1: The first site containing the dipole
         :param site2: The second site containing the dipole
         :param system: The system these particles are in
 
-        :return: :math:`k_{ab}`
+        :returns: :math:`k_{ab}`
         """
         pi = np.pi
         T = system.T

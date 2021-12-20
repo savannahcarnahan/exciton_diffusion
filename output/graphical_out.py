@@ -151,35 +151,6 @@ def plot_sites(site_list, exc_list = None, color = COLORS[0], alpha = 1):
 
     return True
 
-# Plot diffusion distance
-def plot_diff_dist(start_site, t_list, exc_list, alpha = 1):
-    if not (isinstance(exc_list, list)) or (exc_list is None):
-        raise ValueError("Site List must be a non-empty array")
-    
-    start_pos = start_site.get_position()
-
-    # Generate data of monotonously increasing distances
-    dmax_outer = -1
-    d_arr = []
-    t_arr = []
-    for i in range(1, len(exc_list)):
-        sites_nice = process_sites(exc_list[i])
-        dist = np.max(np.linalg.norm(sites_nice- start_pos))
-        # print(dist)
-        if dist > dmax_outer:
-            dmax_outer = dist
-            d_arr.append(dist)
-            t_arr.append(t_list[i])
-
-    plt.figure()
-    plt.plot(t_arr, d_arr)
-    plt.xlabel('t')
-    plt.ylabel('Diffusion distance')
-
-    plt.show()
-
-    return True
-
 
 # Excited Sites Animation
 # Params: 

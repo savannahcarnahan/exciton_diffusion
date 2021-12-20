@@ -10,6 +10,8 @@ import os
 import input.com_line as i
 import exc_diff.single as ex
 import output.graphical_out as graphical_out
+import output.csv as csv
+import output.graph as graph
 
 
 def main():
@@ -25,9 +27,16 @@ def main():
     save_dir = os.getcwd()
     saveparams = [save_dir, "anim_1"]
 
-    graphical_out.plot_diff_dist(system.site_list[0], t_list, exc_list)
+    # csv.write_csv(t_list, exc_list, name ="kipp_bug")
 
-    graphical_out.animate_3D(system.site_list, t_list, exc_list, interval = 500, padding = 0, save_params = saveparams) 
+    graph.graph(t_list, exc_list)
+
+    # graphical_out.plot_diff_dist(system.site_list[0], t_list, exc_list)
+
+    # graphical_out.animate_3D(system.site_list, t_list, exc_list, interval = 500, padding = 0, save_params = saveparams)
+
+
+
     # This one saves to current working directory
     # graphical_out.animate_3D(system.site_list, t_list, exc_list, interval = 100, save_params = None)
     # This one doesn't save, only plays

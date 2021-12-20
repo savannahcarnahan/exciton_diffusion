@@ -159,6 +159,38 @@
 </dd></dl>
 
 </section>
+<span class="target" id="module-com_line"></span><section id="com-line-module">
+<h2>Com_Line Module<a class="headerlink" href="#com-line-module" title="Permalink to this headline">¶</a></h2>
+<p>Takes a file from command line input</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="com_line.__init__">
+<span class="sig-prename descclassname"><span class="pre">com_line.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#com_line.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="com_line.command_line">
+<span class="sig-prename descclassname"><span class="pre">com_line.</span></span><span class="sig-name descname"><span class="pre">command_line</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#com_line.command_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interactive asks the user for an input file, calls the inputprocessor,
+and return the processed input</p>
+</dd></dl>
+
+</section>
+<span class="target" id="module-interactive"></span><section id="interactive-module">
+<h2>Interactive Module<a class="headerlink" href="#interactive-module" title="Permalink to this headline">¶</a></h2>
+<p>Takes a file from interactive input</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="interactive.__init__">
+<span class="sig-prename descclassname"><span class="pre">interactive.</span></span><span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#interactive.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="interactive.interactive">
+<span class="sig-prename descclassname"><span class="pre">interactive.</span></span><span class="sig-name descname"><span class="pre">interactive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#interactive.interactive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interactive asks the user for an input file, calls the inputprocessor,
+and return the processed input</p>
+</dd></dl>
+
+</section>
 <div class="line-block">
 <div class="line"><br /></div>
 <div class="line"><br /></div>
@@ -185,7 +217,8 @@
 </section>
 <span class="target" id="module-model"></span><section id="model-class">
 <h2>Model class<a class="headerlink" href="#model-class" title="Permalink to this headline">¶</a></h2>
-<p>Define the abstract model class</p>
+<p><a href="#id2"><span class="problematic" id="id3">|</span></a>Define the abstract model class
+|</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="model.ABC">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">model.</span></span><span class="sig-name descname"><span class="pre">ABC</span></span><a class="headerlink" href="#model.ABC" title="Permalink to this definition">¶</a></dt>
@@ -201,7 +234,8 @@ inheritance.</p>
 class that has a metaclass derived from ABCMeta cannot be
 instantiated unless all of its abstract methods are overridden.
 The abstract methods can be called using any of the normal
-‘super’ call mechanisms.</p>
+‘super’ call mechanisms.  abstractmethod() may be used to declare
+abstract methods for properties and descriptors.</p>
 <p>Usage:</p>
 <blockquote>
 <div><dl>
@@ -296,9 +330,9 @@ select site2, etc</p>
 <div class="line"><br /></div>
 </div>
 </section>
-<section id="probabilistic-rule-modules">
-<h1>Probabilistic Rule Modules<a class="headerlink" href="#probabilistic-rule-modules" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-prob_rule_factory"></span><section id="probability-rule-factory">
+<section id="module-prob_rule_factory">
+<span id="probabilistic-rule-modules"></span><h1>Probabilistic Rule Modules<a class="headerlink" href="#module-prob_rule_factory" title="Permalink to this headline">¶</a></h1>
+<section id="probability-rule-factory">
 <h2>Probability Rule factory<a class="headerlink" href="#probability-rule-factory" title="Permalink to this headline">¶</a></h2>
 <p>The class factory for the probability rule class</p>
 <dl class="py function">
@@ -330,7 +364,8 @@ inheritance.</p>
 class that has a metaclass derived from ABCMeta cannot be
 instantiated unless all of its abstract methods are overridden.
 The abstract methods can be called using any of the normal
-‘super’ call mechanisms.</p>
+‘super’ call mechanisms.  abstractmethod() may be used to declare
+abstract methods for properties and descriptors.</p>
 <p>Usage:</p>
 <blockquote>
 <div><dl>
@@ -657,7 +692,8 @@ inheritance.</p>
 class that has a metaclass derived from ABCMeta cannot be
 instantiated unless all of its abstract methods are overridden.
 The abstract methods can be called using any of the normal
-‘super’ call mechanisms.</p>
+‘super’ call mechanisms.  abstractmethod() may be used to declare
+abstract methods for properties and descriptors.</p>
 <p>Usage:</p>
 <blockquote>
 <div><dl>
@@ -1016,6 +1052,8 @@ def my_abstract_method(self, …):</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-inputprocessor">Input/Output Modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#input-processor">Input Processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#com-line-module">Com_Line Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interactive-module">Interactive Module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-model_factory">Model Modules</a><ul>
@@ -1024,7 +1062,7 @@ def my_abstract_method(self, …):</p>
 <li class="toctree-l2"><a class="reference internal" href="#kmc-model">KMC model</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#probabilistic-rule-modules">Probabilistic Rule Modules</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#module-prob_rule_factory">Probabilistic Rule Modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#probability-rule-factory">Probability Rule factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#probability-rule">Probability Rule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#arrhenius-method">Arrhenius method</a></li>
@@ -1082,6 +1120,8 @@ def my_abstract_method(self, …):</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-inputprocessor">Input/Output Modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#input-processor">Input Processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#com-line-module">Com_Line Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interactive-module">Interactive Module</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-model_factory">Model Modules</a><ul>
@@ -1090,7 +1130,7 @@ def my_abstract_method(self, …):</p>
 <li class="toctree-l2"><a class="reference internal" href="#kmc-model">KMC model</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#probabilistic-rule-modules">Probabilistic Rule Modules</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="#module-prob_rule_factory">Probabilistic Rule Modules</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#probability-rule-factory">Probability Rule factory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#probability-rule">Probability Rule</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#arrhenius-method">Arrhenius method</a></li>
@@ -1149,7 +1189,7 @@ def my_abstract_method(self, …):</p>
       &copy;2021, Savannah Carnahan, Alfy Benny, Kipp Bradford, Xiaoqi Chen, Azmaine Iqtidar.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

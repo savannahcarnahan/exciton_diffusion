@@ -1,5 +1,5 @@
 Welcome to exciton diffusion's documentation!
-=============================================
+================================================
 
 .. image:: ../docs/Sample_Image1.png
    :width: 700
@@ -48,33 +48,40 @@ Module Usage
    *start/endtime are in picoseconds*
 
    *sitetype*:  ``pointparticle``,  ``molecule``
+
 |
 |
 
 
 High-level Modules
-==================
+======================
 .. automodule:: driver
-   :members:
-
-.. automodule:: driver2
-   :members:
-
-.. automodule:: driver3
    :members:
 
 .. automodule:: single
    :members:
+
 |
 |
 
 Input/Output Modules
-====================
+========================
 .. automodule:: inputprocessor
+   :members:
+
+.. automodule:: com_line
+   :members:
+
+.. automodule:: interactive
+   :members:
+
+.. automodule:: xyz_inp
    :members:
 
 .. automodule:: graphical_out
    :members:
+
+
 |
 |
 
@@ -88,11 +95,12 @@ Model Modules
 
 .. automodule:: kmc
    :members:
+
 |
 |
 
 Probabilistic Rule Modules
-=========================
+==================================
 .. automodule:: prob_rule_factory
    :members:
 

@@ -1,7 +1,7 @@
 import unittest
 import pointparticle as pt
 import prob_rule_factory
-import prob_rule
+# import prob_rule
 import static
 import kmc
 
@@ -19,7 +19,7 @@ u = prob_rule_factory.create('uniform')
 syst = static.Static(k, model, [p1, p2], 3)
 
 class TestProbRules(unittest.TestCase):
-    # if the values are larger than this, system 
+    # if the values are larger than this, system
     # will not be in the hopping regime 
     # and the site model breaks down
     def test_fret_rate(self):
@@ -30,7 +30,7 @@ class TestProbRules(unittest.TestCase):
         syst.rate = m
         r = m.transition_prob(p1, p2, syst)
         assert check(r)
-    
+
     def test_arrhenius(self):
         syst.rate = a
         r = a.transition_prob(p1, p2, syst)

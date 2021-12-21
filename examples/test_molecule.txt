@@ -1,4 +1,4 @@
-crystal 3 uniform kmc 0 30
+crystal 3 uniform kmc 0 50
 
 molecule
 N 0 0 0

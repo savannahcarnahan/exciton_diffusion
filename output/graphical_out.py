@@ -37,7 +37,7 @@ COLORS =  ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b', '#e
 #
 def make_dir(path, name = None):
     """
-    Helper functoin to make a new directory
+    Helper function to make a new directory
     """
     # Ensure proper inputs
     if not (isinstance(path, str)) or not (isinstance(name, str)):
@@ -70,6 +70,9 @@ def make_dir(path, name = None):
 # Returns: A boolean of whether the file/directory exists
 # 
 def exists_dir(path, name = None):
+    """
+    Helper functoin to check if a directory exists
+    """
     # Ensure proper inputs
     if not (isinstance(path, str)):
         raise TypeError("Arguments must be string")
@@ -91,6 +94,9 @@ def exists_dir(path, name = None):
 # Returns: A boolean of whether the file/directory exists
 # 
 def process_sites(site_list):
+    """
+    Turns a list of sites into a nice numpy array for processing
+    """
     if not (isinstance(site_list, list)) or (site_list is None):
         raise ValueError("Site List must be a non-empty array")
 
@@ -110,6 +116,9 @@ def process_sites(site_list):
 # Returns: The index of site in site_list
 # 
 def find_site(site_list, site):
+    """
+    Finds the entry of a site in a list of sites
+    """
     if not (isinstance(site_list, (np.ndarray, np.generic))) or (site_list is None):
         raise ValueError("Site List must be a non-empty numpy array")    
 
@@ -133,6 +142,9 @@ def find_site(site_list, site):
 # Returns: True, for now
 # 
 def plot_sites(site_list, exc_list = None, color = COLORS[0], alpha = 1):
+    """
+    Plots all sites in a 3D image, with the excited sites marked
+    """
     if not (isinstance(site_list, list)) or (site_list is None):
         raise ValueError("Site List must be a non-empty array")
     
@@ -167,6 +179,9 @@ def plot_sites(site_list, exc_list = None, color = COLORS[0], alpha = 1):
 # Returns: True, for now
 # 
 def animate_3D(site_list, t_list, exc_list, save_params = None, site_rad = 100, interval = 100, padding = 1, show = True, repeat = True):
+    """
+    Creates an animation of the Exciton Simulation
+    """
     if not (isinstance(site_list, list)) or (site_list is None):
         raise ValueError("Site List must be a non-empty list")
     

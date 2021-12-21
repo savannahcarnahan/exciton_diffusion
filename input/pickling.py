@@ -5,8 +5,8 @@ Pickles input into a system object, start_time, and end_time
 
 """
 
-import sys
-import os
+# import sys
+# import os
 import pickle
 import input.inputprocessor as inputprocessor
 import system_factory

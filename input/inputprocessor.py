@@ -6,9 +6,9 @@ Parse an input file for a simulation configuration, which includes the types of 
 
 TODO: An example of the input file format.
 """
-import sys
-import string
-#import mysite as site
+# import sys
+# import string
+# import mysite as site
 import site_factory
 import ase
 import numpy as np

@@ -8,7 +8,7 @@ Marcus method
 
 import prob_rule as p
 import numpy as np
-from numba import jit
+# from numba import jit
 from scipy import constants
 # import hab
 class Marcus(p.ProbRule):
